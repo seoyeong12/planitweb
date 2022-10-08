@@ -112,6 +112,7 @@ venv.bak/
 
 #Pycharm
 .idea/
+migrations/
 
 # Spyder project settings
 .spyderproject
