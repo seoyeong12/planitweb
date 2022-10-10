@@ -39,7 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'team_project',
     'team_meetingnote',
-    'team_kanban'
+    'team_kanban',
+    'team_log',
 ]
 
 MIDDLEWARE = [
