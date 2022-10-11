@@ -18,5 +18,8 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('create_project/', include('team_project.urls')),
+    path('create_team/', include('team_project.urls')),#더 좋은 url 찾는 중
+    #미팅 노트
+    #칸반
+    #로그
 ]
