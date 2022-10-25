@@ -38,6 +38,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'team_project',
+    'team_meetingnote',
+    'team_kanban',
+    'team_log',
     'single',
     'user',
 ]
