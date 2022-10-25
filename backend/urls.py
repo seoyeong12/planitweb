@@ -25,8 +25,8 @@ urlpatterns = [
     path('kanban/', include('team_kanban.urls')),
     #로그
     path('log/', include('team_log.urls')),
-    #스케쥴
+    #스케쥴/달력
     path('single/', include('single.urls')),
-    #달력
-    path('calendar/', include('single.urls')),
+    #로그인/회원가입
+    path('sign/', include('user.urls')),
 ]
