@@ -41,6 +41,8 @@ INSTALLED_APPS = [
     'team_meetingnote',
     'team_kanban',
     'team_log',
+    'single',
+    'user',
 ]
 
 MIDDLEWARE = [
