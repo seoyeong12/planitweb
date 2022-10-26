@@ -5,6 +5,8 @@
     <title>team_project_index</title>
 </head>
 <body>
-
+{% for p in posts %}
+<h3><a href="{{ p.get_absolute_url }}">{{ p.title }}</a></h3>
+{% endfor %}
 </body>
 </html>
