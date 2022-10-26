@@ -11,7 +11,7 @@ class Log(models.Model):
 
     #나중에 views.py 로 옮기기
     def __str__(self):
-        if self.status == True:
+        if self.state == True:
             return f'[{self.id}] {self.title} [True]'
         else:
             return f'[{self.id}] {self.title} [False]'
