@@ -1,10 +1,12 @@
+<!DOCTYPE html>
+{% load static %}
 <html>
 <head>
 <!-- fullcalender -->
-<link href='fullcalendar/lib/main.css' rel='stylesheet' />
-<link href="./bootstrap.min.css" rel="stylesheet" type="text/css">
+<link href="{% static 'single/css/main.css' %}" rel='stylesheet' />
+<link href="{% static 'single/bootstrap/bootstrap.min.css' %}" rel="stylesheet" type="text/css">
 
-<script src='fullcalendar/lib/main.js'></script>
+<script src="{% static 'single/js/main.js' %}"></script>
 <script>
     var b=function(msg) {alert('message test ' + msg);};
     document.addEventListener('DOMContentLoaded', function() {
