@@ -18,7 +18,7 @@ def detail(request, pk):
 
     return render(
         request,
-        'team_project/detail.html',
+        'team_project/teamproject_intro.html',
         {
             'post': post,  # 가져온 레코드 리턴
         }
