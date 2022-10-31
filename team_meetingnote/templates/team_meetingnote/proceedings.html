@@ -1,19 +1,23 @@
 <!DOCTYPE html>
-<html>
-<bodystyle="text-align:left;">
+<html lang="kr">
+<head>
+    <meta charset="UTF-8">
+    <title>{{post.title}}</title>
+</head>
+<body style="text-align:left;">
 
 <h1>회의록
     <input type="button"value="편집"><br>
 </h1>
 <ol>
-    <li>날짜/ 회의제목/ 참여자</li>
-    <li>날짜/ 회의제목/ 참여자</li>
-    <li>날짜/ 회의제목/ 참여자</li>
+    {% for n in notes %}
+        <li>{{n.date_start}} / {{n.title}}</li>
+    {% endfor %}
 </ol>
 <span><a href="proceedings_detail.html" >글쓰기</a></span>
 <br><br>
 
 <input type="reset"value="취소">
 <button type="submit">저장</button>
-</bodystyle=>
+</body>
 </html>
