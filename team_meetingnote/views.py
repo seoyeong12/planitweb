@@ -21,7 +21,8 @@ def detail(request, pk):
 
     return render(
         request,
-        'team_meetingnote/proceedings_detail.html',
+        'team_meetingnote/index.html',
+        #'team_meetingnote/proceedings_detail.html',
         {
             'note':note,
         }
