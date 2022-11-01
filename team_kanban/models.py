@@ -4,10 +4,18 @@ from django.db import models
 import team_project.models
 
 class Kanban(models.Model):
+    TODO = 0
+    DOING = 1
+    DONE = 2
+    STATUS = (
+        (TODO, 'todo'),
+        (DOING, 'doing'),
+        (DONE, 'done')
+    )
+
     # 팀 프로젝트와 다대일 관계(하나의 팀은 여러 회의 노트를 가질 수 있다.)
-    team = models.ForeignKey(team_project.models.Project, on_delete=models.CASCADE, null=True)
-    # 상태 작성
-    # state = models.??
+    team = models.ForeignKey(team_project.models.Project, on_delete=models.CASCADE)
+    status = models.SmallIntegerField(default=0, choices=STATUS)
     title = models.CharField(max_length=30)
     date_end = models.DateField()
     introduce = models.TextField()
@@ -16,3 +24,6 @@ class Kanban(models.Model):
 
     def __str__(self):
         return f'[{self.pk}] {self.title}'
+
+    #def get_absolute_url(self):
+    #    return f'/create_team/{self.pk}/'

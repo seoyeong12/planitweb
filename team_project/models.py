@@ -10,7 +10,7 @@ class Team(models.Model):
 
 
 class Project(models.Model):
-    team = models.OneToOneField(Team, on_delete=models.CASCADE, null='개인') #팀 모델과 일대일 관계
+    team = models.OneToOneField(Team, on_delete=models.CASCADE) #팀 모델과 일대일 관계
     title = models.CharField(max_length=30)
     date_start = models.DateField()
     date_end = models.DateField()

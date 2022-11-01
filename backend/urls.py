@@ -20,7 +20,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('create_team/', include('team_project.urls')),#더 좋은 url 찾는 중
     #미팅 노트
-    path('meeting_note/', include('team_meetingnote.urls')),
+    #path('meeting_note/', include('team_meetingnote.urls')),
     #칸반
     #path('kanban/', include('team_kanban.urls')),
     #로그
