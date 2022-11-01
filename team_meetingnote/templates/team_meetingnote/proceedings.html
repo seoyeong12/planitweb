@@ -14,7 +14,7 @@
         <li>{{n.date_start}} / {{n.title}}</li>
     {% endfor %}
 </ol>
-<span><a href="proceedings_detail.html" >글쓰기</a></span>
+<span><a href="{{note_create.get_absolute_url}}" >글쓰기</a></span>
 <br><br>
 
 <input type="reset"value="취소">

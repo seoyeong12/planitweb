@@ -1,8 +1,15 @@
 from django.shortcuts import render
+from django.views.generic import CreateView
+
 from .models import Note
 from team_project.models import Project
 
 # Create your views here.
+
+class CreateNote(CreateView):
+    model = Note
+    fields = ['team', 'title', 'date_start', 'introduce']
+    template_name = 'team_meetingnote/proceedings_write.html'
 
 def index(request, pk):
     post = Project.objects.get(pk=pk)
