@@ -1,0 +1,46 @@
+{% block nav_area %}
+<nav class="navbar text-dark">
+        <div class="collapse navbar-collapse" id="navbarSupportedContent" style="display: unset !important;">
+            <ul class="nav mr-auto">
+                <li class="nav-item">
+                    <a class="navbar-brand" href="#">Logo</a>
+                </li>
+                <li class="nav-item ">
+                    <a class="nav-link text-dark" href="./days.html">Days</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-dark" href="./team">Projects</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link  text-dark" href="./calendar.html">Calendar</a>
+                </li>
+                <li class="nav-item ml-auto" >
+                    <a class="nav-link id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <img src="./2.jpg">
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li class="notification-box">
+                            <div class="row">
+                                <div class="col-lg-3 col-sm-3 col-3 text-center">
+                                    <img src="./2.jpg" class="w-200 rounded-circle">
+                                </div>
+                                <div class="col-lg-8 col-sm-8 col-8">
+                                    <strong class="text-info text-dark">계정 정보</strong>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="notification-box">
+                            <div class="row">
+                                <div class="col-lg-3 col-sm-3 col-3 text-center">
+                                </div>
+                                <div class="col-lg-8 col-sm-8 col-8">
+                                    <strong class="text-info text-dark">로그아웃</strong>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </nav>
+{% endblock %}

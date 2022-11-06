@@ -1,344 +1,87 @@
-<!DOCTYPE html>
-{% load static %}
-<html>
-<head>
-<!-- fullcalender -->
-<link href="{% static 'single/css/main.css' %}" rel='stylesheet' />
-<link href="{% static 'single/bootstrap/bootstrap.min.css' %}" rel="stylesheet" type="text/css">
-<style>
-
-    .dropdown-menu{
-        top: 60px;
-        right: 0px;
-        left: unset;
-        width: 100px;
-        padding-bottom: 0px;
-        padding: 0px;
-        margin-right: 25px;
-    }
-    .dropdown-menu:before{
-        content: "";
-        position: absolute;
-        top: -20px;
-        right: 12px;
-        border:10px solid #343A40;
-        border-color: transparent transparent #343A40 transparent;
-    }
-    .notification-box{
-        padding: 10px 0px;
-    }
-    @media (max-width: 300px) {
-    .dropdown-menu{
-        top: 50px;
-        left: -16px;
-        width: 100px;
-    }
-    .nav{
-        display: block;
-    }
-    .nav .nav-item,.nav .nav-item a{
-        padding-left: 0px;
-    }
-
-    }
-    .text-info{
-        padding-left: 7px;
-    }
-
-
-
-
-
-
-    nav.navbar-brand{
-        float:left;
-    }
-    nav.nav-item dropdown{
-        float:right;
-    }
-    #idd{
-        margin-right: 0dp;
-    }
-    /* .nav-item dropdown{
-        margin-left: 600px;
-        float:right;
-    } */
-    .fc-toolbar-chunk {
-        display: flex;
-        align-items: center;
-        }
-    body{
-        margin: 20px;
-    }
-
-    div.left {
-        width: 70%;
-        float: left;
-        box-sizing: border-box;
-        
-    }
-    div.right {
-        width: 30%;
-        float: right;
-        box-sizing: border-box;
-        
-    }
-    /*#calendar{
-        margin: 15px;
-        width:50%;
-    }
-    .fc-view-harness{
-        width: 50%;
-    } */
-
-    /* #calendar2{
-        float: right;
-        width: 45%;
-        margin: 15px;
-    } */
-    /* #fc-toolbar.fc-header-toolbar{
-        width:100%;
-    } */
-    .listview{
-        margin:30px;
-        margin-top: 70px;
-    }
-    th,tr,td{
-        padding: 5px;
-    }
-    
-    img{
-        border-radius: 1em;
-        width:30px;
-        height:30px;
-        margin-left: 15px;
-    }
-</style>
-<script src="{% static 'single/js/main.js' %}"></script>
-<script>
-    var b=function(msg) {alert('message test ' + msg);};
-    document.addEventListener('DOMContentLoaded', function() {
-        var calendarEl = document.getElementById('calendar');
-        var calendar = new FullCalendar.Calendar(calendarEl, {
-            headerToolbar: {         
-                left: 'prev,next today',          
-                center: 'title',          
-                right: 'timeGridWeek,listWeek'        
-            },
-        
-        initialView: 'timeGridWeek',
-        editable:true,
-        selectable:true,
-        contentWidth:300,
-        eventAdd:function(obj){
-            console.log(obj);
-            addlist(obj.title,obj.date);
-            alert(obj.start);
-            //이벤트 추가되면
-        },
-        eventChange:function(obj){
-            console.log(obj);
-            //이벤트 수정
-        },
-        eventRemove:function(obj){
-            console.log(obj);
-        },
-        select:function(arg){
-            //var title=prompt('Event Title');
-            
-            //calendar.unselect()
-
-        {% for s in schedules %}
-        openWin=window.open("{{s.get_absolute_url}}","editForm","width=500,height=500,resizable = no, scrollbars =no");
-        {% endfor %}
-            // window.addEventListener("message", receiveMessage, false);
-
-            // function receiveMessage(event){
-            // if(event.origin !== "http://example.org:8080")
-            //     return;
-            //     document.querySelector('iframe').contentWindow.postMessage('text', '*');
-            //     console.log(event.message); // {sign: '팝업 창에서 보낸 메시지'}
-            // }
-            if(title){
-                calendar.addEvent({
-                    title:title,
-                    start:arg.start,
-                    end:arg.end,
-                    allDay:arg.allDay
-                })
-                document.getElementById("titletext").textContent=title;
-
-            }
-            calendar.unselect();
-            // if(popup){
-            //     calendar.addEvent({
-            //         title:setTitle(),
-            //         start:arg.start,
-            //         end:arg.end,
-            //         allDay:arg.allDay
-            //     })
-            //     calendar.unselect()
-            // }
-            // window.onbeforeunload=function(){
-            //     //window.location.reload();
-            //     calendar.unselect()
-            // }
-            
-        },
-        eventClick: function(arg) {
-    	  // 있는 일정 클릭시,
-            console.log("#등록된 일정 클릭#");
-            console.log(arg.event);
-            
-            if (confirm('정말 삭제하시겠습니까?')) {
-            arg.event.remove()
-            }
-        }
-        
-        });
-        
-        calendar.render();
-        
-        // var calendarE2 = document.getElementById('calendar2');
-        // var view = $('#calendar').fullCalendar('listWeek');
-        // view.render();
-        // var calendar2 = new FullCalendar.Calendar(calendarE2, {
-        // initialView: 'listWeek',
-        // events: [
-        // {
-        // title: 'Meeting',
-        // start: '2022-09-28T14:30:00',
-        // views: {
-        // listDay: { buttonText: 'list day' },
-        // listWeek: { buttonText: 'list week' },
-        // listMonth: { buttonText: 'list month' }
-        // },
-
-        // header: {
-        // left: 'title',
-        // center: '',
-        // right: 'listDay,listWeek,listMonth'
-        // },
-        // events: 'https://fullcalendar.io/demo-events.json',
-        // extendedProps: {
-        //     status: 'done'
-        // }
-        // },
-        // {
-        // title: 'Birthday Party',
-        // start: '2022-09-29T07:00:00',
-        // backgroundColor: 'green',
-        // borderColor: 'green'
-        // }
-        // ],
-        // eventDidMount: function(info) {
-        // if (info.event.extendedProps.status === 'done') {
-
-        // // Change background color of row
-        // info.el.style.backgroundColor = 'red';
-
-        // // Change color of dot marker
-        // var dotEl = info.el.getElementsByClassName('fc-event-dot')[0];
-        // if (dotEl) {
-        //     dotEl.style.backgroundColor = 'white';
-        // }
-        // }
-        // },
-        // contentWidth:300
-        // });
-        // calendar2.render();
-    }); 
-    
-    function addlist(title,date){
-        // var yy=date.format("YYYY");
-        //     var mm=date.format("MM");
-        //     var dd=date.format("DD");
-        //     var ss=date.format("dd");
-            
-        document.getElementById("titletext").textContent=title;
-        document.getElementById("start").textContent=date;
-        
-
-    }
-    </script>
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
-</head>
-<body>
-    <nav class="navbar text-dark">
-        <div class="collapse navbar-collapse" id="navbarSupportedContent" style="display: unset !important;">
-            <ul class="nav mr-auto">
-                <li class="nav-item">
-                    <a class="navbar-brand" href="#">Logo</a>
-                </li>
-                <li class="nav-item ">
-                    <a class="nav-link text-dark" href="./days.html">Days</a>        
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-dark" href="./team">Projects</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link  text-dark" href="./calendar.html">Calendar</a>
-                </li>
-                <li class="nav-item ml-auto" >
-                    <a class="nav-link id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <img src="./2.jpg">
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li class="notification-box">
-                            <div class="row">
-                                <div class="col-lg-3 col-sm-3 col-3 text-center">
-                                    <img src="./2.jpg" class="w-200 rounded-circle">
-                                </div>
-                                <div class="col-lg-8 col-sm-8 col-8">
-                                    <strong class="text-info text-dark">계정 정보</strong>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="notification-box">
-                            <div class="row">
-                                <div class="col-lg-3 col-sm-3 col-3 text-center">                
-                                </div>
-                                <div class="col-lg-8 col-sm-8 col-8">
-                                    <strong class="text-info text-dark">로그아웃</strong>
-                                </div>
-                            </div>
-                        </li>
-                    </ul>
-                </li>
-            </ul>
-        </div>
-    </nav>
-
+{% extends 'single/base.html' %}
+{% block main_area %}
     <div class="div">
         <div class="left">
             <div id='calendar'></div>
         </div>
         <div class="right">
-            <!-- <div id='calendar2'></div> -->
-
-            <table class="listview">
-                <th colspan="2" id="weekday">10/2~10/8</th>
+            <div id="weekid">
+                <span>12/6 - 12/7</span>
                 {% for s in schedules %}
+                <div>
+                    <div class="weekdaybox">
+                        <span id="weekdayid">{{ s.date|date:"D" }}</span><br>
+                        <div id="colorid"></div>
+                            <span id="startid">{{ s.startTime }}</span><span> - </span><span id="endid">{{ s.dueTime }}</span>
+                            <span id="textid">{{ s.title }}</span>
+                        
+                    </div>
+                </div>
+                   {% endfor %}
+            </div>
+            <!-- <div id='calendar2'></div> -->
+            <!-- <table class="listview">
+                <th colspan="2" id="weekday">10/2~10/8</th>
+                <tr><td colspan="2"> </td></tr>
+                <tr class="trbox">
+                    <td colspan="2" id="allDay">Sunday\n</td>
+                    <td id="start"></td> - <td id="end"></td>
+                    <td id="titletext">약속</td>
+                </tr>
+                
                 <tr><td colspan="2"> </td></tr>
                 <tr >
-                    <td colspan="2" id="allDay">{{ s.date|date:"D" }}</td>
+                    <td colspan="2">Monday</td>
                 </tr>
                 <tr>
-                   <td>{{ s.startTime }} ~ {{ s.dueTime }}</td>
-                    <td>{{ s.title }}</td>
+                    <td>time</td>
+                    <td>title</td>
                 </tr>
-                {% endfor %}
-            </table> 
+                <tr><td colspan="2"> </td></tr>
+                
+                <tr >
+                    <td colspan="2">Tuesday</td>
+                </tr>
+                <tr>
+                    <td>time</td>
+                    <td>title</td>
+                </tr>
+                <tr><td colspan="2"> </td></tr>
+    
+                <tr >
+                    <td colspan="2">Wednesday</td>
+                </tr>
+                <tr>
+                    <td>time</td>
+                    <td>title</td>
+                </tr>
+                <tr><td colspan="2"> </td></tr>
+    
+                <tr >
+                    <td colspan="2">Thursday</Th></td>
+                </tr>
+                <tr>
+                    <td>time</td>
+                    <td>title</td>
+                </tr>
+                <tr><td colspan="2"> </td></tr>
+                <tr >
+                    <td colspan="2">Friday</td>
+                </tr>
+                <tr>
+                    <td>time</td>
+                    <td>title</td>
+                </tr>
+                <tr><td colspan="2"> </td></tr>
+                <tr >
+                    <td colspan="2">Saturday</td>
+                </tr>
+                <tr>
+                    <td>time</td>
+                    <td>title</td>
+                </tr>
+                <tr><td colspan="2"> </td></tr>
+            </table> -->
         </div>
     </div>
-    
-    
-        
-        
-    
-    
-
-</body>
-</html>
+{% endblock %}

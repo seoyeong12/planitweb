@@ -1,0 +1,85 @@
+.dropdown-menu{
+    top: 60px;
+    right: 0px;
+    left: unset;
+    width: 100px;
+    padding-bottom: 0px;
+    padding: 0px;
+    margin-right: 25px;
+}
+.dropdown-menu:before{
+    content: "";
+    position: absolute;
+    top: -20px;
+    right: 12px;
+    border:10px solid #343A40;
+    border-color: transparent transparent #343A40 transparent;
+}
+.notification-box{
+    padding: 10px 0px;
+}
+
+.text-info{
+    padding-left: 7px;
+}
+nav.navbar-brand{
+    float:left;
+}
+
+body{
+    margin: 20px;
+}
+
+div.left {
+    width: 80%;
+    float: left;
+    box-sizing: border-box;
+}
+div.right {
+    width: 20%;
+    float: right;
+    box-sizing: border-box;
+    margin-top: 70px;
+    padding-left: 30px;
+}
+.weekdaybox{
+    width: 341px;
+    height: 102px;
+    margin-top: 10px;
+    padding-top: 18px;
+    padding-left: 14px;
+    background-color: #F5F5F5;
+    border-radius: 5px;
+}
+#weekdayid{
+    margin-left: 42px;
+    margin-bottom:14px;
+}
+#colorid{
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background-color: #343A40;
+    margin-right: 11px;
+}
+
+#textid{
+    float: right;
+    margin-right: 37px;
+}
+/* 
+.listview{
+    margin:30px;
+    margin-top: 70px;
+}
+th,tr,td{
+    padding: 5px;
+} */
+
+img{
+    border-radius: 1em;
+    width:30px;
+    height:30px;
+    margin-left: 15px;
+}
