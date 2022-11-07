@@ -1,7 +1,12 @@
-var b=function(msg) {alert('message test ' + msg);};
+    var b=function(msg) {alert('message test ' + msg);};
+
     document.addEventListener('DOMContentLoaded', function() {
         var calendarEl = document.getElementById('calendar');
-        var calendar = new FullCalendar.Calendar(calendarEl, {        
+        var start;
+        var end;
+        var start_min;
+        var end_min;
+        var calendar = new FullCalendar.Calendar(calendarEl, {
         initialView: 'timeGridWeek',
         views: {
             month: {
@@ -16,8 +21,8 @@ var b=function(msg) {alert('message test ' + msg);};
         contentWidth:300,
         eventAdd:function(obj){
             console.log(obj);
-            addlist(obj.title,obj.date);
-            alert(obj.start);
+<!--            addlist(obj.title,obj.date);-->
+<!--            alert(obj.start);-->
             //이벤트 추가되면
         },
         eventChange:function(obj){
@@ -27,10 +32,30 @@ var b=function(msg) {alert('message test ' + msg);};
         eventRemove:function(obj){
             console.log(obj);
         },
-        select:function(arg){            
-        openWin=window.open("edit","editForm","width=500,height=500,resizable = no, scrollbars =no");
+        select:function(arg){
 
-            if(title){
+            function start(){
+                start = arg.start.getHours();
+                String(start);
+                return start;
+            }
+             function end(){
+                end = arg.end.getHours();
+                String(end);
+                return end;
+            }
+        start();
+        end();
+
+        document.getElementById("time1").innerHTML = start;
+        document.getElementById("time2").innerHTML = end;
+
+        //end();
+        //document.write(end);
+
+        window.open("/single/create_post","editForm","width=500,height=500,resizable = no, scrollbars =no");
+
+                if(title){
                 calendar.addEvent({
                     title:title,
                     start:arg.start,
@@ -40,32 +65,32 @@ var b=function(msg) {alert('message test ' + msg);};
                 document.getElementById("titletext").textContent=title;
 
             }
+
             calendar.unselect();
-            
+
         },
         eventClick: function(arg) {
     	  // 있는 일정 클릭시,
             console.log("#등록된 일정 클릭#");
             console.log(arg.event);
-            
-            if (confirm('정말 삭제하시겠습니까?')) {
+             if (confirm('정말 삭제하시겠습니까?')) {
             arg.event.remove()
             }
         }
-        
-        });
-        
-        calendar.render();
-    }); 
-    
-    function addlist(title,date){
-        // var yy=date.format("YYYY");
-        //     var mm=date.format("MM");
-        //     var dd=date.format("DD");
-        //     var ss=date.format("dd");
-            
-        document.getElementById("titletext").textContent=title;
-        document.getElementById("start").textContent=date;
-        
 
-    }
+        });
+
+        calendar.render();
+    });
+
+<!--    function addlist(title,date){-->
+<!--        // var yy=date.format("YYYY");-->
+<!--        //     var mm=date.format("MM");-->
+<!--        //     var dd=date.format("DD");-->
+<!--        //     var ss=date.format("dd");-->
+
+<!--        document.getElementById("titletext").textContent=title;-->
+<!--        document.getElementById("start").textContent=date;-->
+
+
+<!--    }-->

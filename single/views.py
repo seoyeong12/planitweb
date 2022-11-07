@@ -22,5 +22,9 @@ def single_cal(request):
 def single_edit(request):
     return render(
         request,
-        'single/edit.html',
+        'single/schedule_form.html',
     )
+
+class PostCreate(CreateView):
+    model = Schedule
+    fields = ['date', 'startTime', 'dueTime', 'title']

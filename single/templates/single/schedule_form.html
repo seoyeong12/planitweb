@@ -20,6 +20,7 @@
             }
         </style>
         <script>
+
             function edit(){
                 const target = document.getElementById('time1');
                 target.disabled = false;
@@ -39,11 +40,25 @@
                 // // document.getElementById("titletext").textContent=title;
                 // window.close();
             }
+        window.onload = function(){
+        var start = opener.document.getElementById("time1").innerHTML;
+        var end = opener.document.getElementById("time2").innerHTML;
+        if(Math.floor(start/10) == 0){
+            document.getElementById("time1").value = "0"+start+":00:00";
+        }else{
+            document.getElementById("time1").value = start+":00:00";
+        }
+        if(Math.floor(end/10) == 0){
+            document.getElementById("time2").value = "0"+end+":00:00";
+        }else{
+            document.getElementById("time2").value = end+":00:00";
+        }
+        }
         </script>
     </head>
-    <body>                    
+    <body>{% csrf_token %}
         <button onclick="edit()">편집</button>
-        <form name="editt" method="post">
+        <form name="editt" method="post">{% csrf_token %}
                 <div>
                     <div id="center">
                         <p id="date">2022.10.04</p>
