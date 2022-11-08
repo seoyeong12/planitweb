@@ -1,0 +1,69 @@
+/* .container {
+    width: 70%;
+    min-width: 50%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    } */
+
+    .kanban-board {
+        margin-top: 82px;
+        margin-right: 90.71px;
+        display: flex;
+    
+        /* flex-direction: row; */
+        /* justify-content: space-between; */
+    }
+
+    .kanban-block{
+        width: 314.29px;
+        margin: 26.71px;
+    }
+
+    #colorid{
+        display: inline-block;
+        width: 16px;
+        height: 16px;
+        border-radius: 50%;
+        background-color: #F8C4B4;
+    }
+
+    .task {
+    background-color: #FAFAFA;
+    width: 286.29px;
+    height: 142px;
+    border: 0.1rem solid #E8CBB9;
+    border-radius: mixed;
+    padding: 9px;
+    margin-top: 24px;
+    box-sizing: border-box;
+    }
+    .task:hover{
+        background-color: #FAF0E6;
+    }
+    #deletebtn,#pencilbtn{
+        float: right;
+        background-color: #FAFAFA;
+        margin-right: 10px;
+        border: 0ch;
+    }
+    #plus{
+        width: 286.29px;
+        height: 50px;
+        border-radius: 10px;
+        background-color: #FAF0E6;
+        border-color: #E8CBB9;
+        margin-top: 24px;
+        margin-left:28px ;
+    }
+    #membericon{
+        display: inline-block;
+        width: 42px;
+        height: 19px;
+        border-radius: 20px;
+        background-color: #F4E3D2;
+        font-size: 10px;
+        text-align: center;
+        margin-left: 13px;
+        margin-top: 10px;
+    }

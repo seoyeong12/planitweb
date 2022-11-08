@@ -1,31 +1,34 @@
 <!DOCTYPE html>
-<html>
+<html lang="kr">
+    <head>
+            <meta charset="UTF-8">
+            <title>note_rewrite</title>
+    </head>
     <body>
-    <form>
+        <form method="post" enctype="multipart/form-data" autocomplete="off">{% csrf_token %}
         <h4>
-            <input type="date" name="first_date"/>
-            <input type="button"value="편집"><br>
+            <input type="date" name="date_start" value="{{note.date_start}}"/>
         </h4>
-
         <h2>
-            <input type="text" placeholder="회의 제목"/>
+            {{note.team}}
+        </h2>
+        <h2>
+            <input type="text" name="title" value="{{note.title}}" placeholder="회의 제목"/>
             <hr>
         </h2>
-        
 
-    참여자 <input type="checkbox" name="person" value="1">김진선
-    <input type="checkbox" name="person" value="2">김서영
-    <input type="checkbox" name="person" value="3">김수연
-    <input type="checkbox" name="person" value="4">노윤하
-    <input type="checkbox" name="person" value="5">이우현
-    <br><br>
 
-    <textarea cols="30"rows="10"> </textarea>
-    <input type="reset"value="취소">
-    <button type="submit">전송</button>
+        참여자 <input type="checkbox" name="person" value="1">김진선
+        <input type="checkbox" name="person" value="2">김서영
+        <input type="checkbox" name="person" value="3">김수연
+        <input type="checkbox" name="person" value="4">노윤하
+        <input type="checkbox" name="person" value="5">이우현
+        <br><br>
 
-    </form> 
+        <textarea name="introduce" cols="30"rows="10">{{note.introduce}}</textarea>
+
+        <input type="reset"value="취소">
+            <button type="submit">전송</button>
+        </form>
     </body>
-
-    </bodystyle=>
 </html>

@@ -5,26 +5,24 @@
     <title>{{post.title}}</title>
 </head>
 <body>
-    
+    <!-- html 받으면 수정하기 -->
+
     <div class="inner">
         <div class="listBox">
                 <div class="addBox">
-                    <div class="addBox_inner">
-
+                    <div id="log" class="addBox_inner">
                         {% for l in log %}
-                            <input type="checkbox" class="addTxt" placeholder="새로 작성하기">
-                            <input type="text" class="addTxt" value="{{ l.title }}"><br>
+                            <input id="status" type="checkbox" class="addTxt" placeholder="새로 작성하기">
+                            <input id="text" type="text" class="addTxt" value="{{ l.title }}"><br>
                         {% endfor %}
-
-                    <input type="button" class="addBtn" value="+">
                     </div>
                 </div>
-    
-                <button type="submit">추가하기</button>
+                <input onclick="add()" type="button" class="addBtn" value="추가하기">
             </div>
         <div class="listBox_inner"></div>
     
     </div>
+
     
 </body>
 </html>

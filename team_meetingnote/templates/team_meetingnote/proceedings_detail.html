@@ -1,24 +1,19 @@
 <!DOCTYPE html>
-<html>
+<html lang="kr">
+    <head>
+        <meta charset="UTF-8">
+        <title>{{note.title}}</title>
+    </head>
     <body>
-    <form>
-        <h6>
-            9월 26일
-            <input type="button"value="편집"><br>
-        </h6>
-            
+    <h3>{{ note.title }}
+        <input type="button"value="편집">
+        <input type="button"value="삭제">
+        <br>
+    </h3>
 
-        <h2>
-            <input type="text" placeholder="회의 제목"/>
-            <hr>
-        </h2>
-        
+    <h3>{{ note.date_start }}</h3>
+    <br>
+    <h5>{{ note.introduce|linebreaksbr }}</h5>
 
-    참여자:   김진선 노윤하 이우현 <br><br>
-
-    <textarea cols="30"rows="10"> </textarea>
-    </form> 
     </body>
-
-    </bodystyle=>
 </html>

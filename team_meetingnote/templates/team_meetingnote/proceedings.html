@@ -7,14 +7,13 @@
 <body style="text-align:left;">
 
 <h1>회의록
-    <input type="button"value="편집"><br>
 </h1>
 <ol>
     {% for n in notes %}
-        <li>{{n.date_start}} / {{n.title}}</li>
+    <li>{{n.date_start}} / {{n.title}} / {{n.id}}</li>
     {% endfor %}
 </ol>
-<span><a href="{{note_create.get_absolute_url}}" >글쓰기</a></span>
+<span><a href="{% url 'create_note' post.id %}"><button>글쓰기 </button></a></span>
 <br><br>
 
 <input type="reset"value="취소">

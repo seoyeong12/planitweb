@@ -20,4 +20,4 @@ class Project(models.Model):
         return f'[{self.pk}] {self.title}'
 
     def get_absolute_url(self):
-        return f'/create_team/{self.pk}/'
+        return f'./{self.pk}/'

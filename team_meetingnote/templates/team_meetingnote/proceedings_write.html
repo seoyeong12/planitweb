@@ -5,19 +5,30 @@
             <title>note_write</title>
     </head>
     <body>
-        <form method="post" enctype="multipart/form-data" autocomplete="off">{% csrf_token %}
-            참여자
-            <input type="checkbox" name="person" value="1">김진선
-            <input type="checkbox" name="person" value="2">김서영
-            <input type="checkbox" name="person" value="3">김수연
-            <input type="checkbox" name="person" value="4">노윤하
-            <input type="checkbox" name="person" value="5">이우현
+    <form method="post" enctype="multipart/form-data" autocomplete="off">{% csrf_token %}
+        <h4>
+            <input type="date" name="date_start"/>
+        </h4>
+        <h2>
+            {{post.team}}
+        </h2>
+        <h2>
+            <input type="text" name="title" placeholder="회의 제목"/>
+            <hr>
+        </h2>
 
-            <table>
-                {{ form }}
-            </table>
-            <input type="reset"value="취소">
-            <button type="submit">전송</button> <!--전송버튼 누를 시 -> 회의록 목록 페이지로 이동, 새로고침 눌렀을 시 폼이 중복되어 올라가는 문제 해결하기-->
+
+        참여자 <input type="checkbox" name="person" value="1">김진선
+        <input type="checkbox" name="person" value="2">김서영
+        <input type="checkbox" name="person" value="3">김수연
+        <input type="checkbox" name="person" value="4">노윤하
+        <input type="checkbox" name="person" value="5">이우현
+        <br><br>
+
+        <textarea name="introduce" cols="30"rows="10"> </textarea>
+
+        <input type="reset"value="취소">
+        <button type="submit">전송</button>
         </form>
     </body>
 </html>

@@ -13,8 +13,4 @@ class Note(models.Model):
     #participants = models.BooleanField(default=True)
 
     def __str__(self):
-        return f'[{self.pk}] {self.title}'
-
-    # 수정하기
-    def get_absolute_url(self):
-        return f''
+        return f'[{self.team}] {self.title}'
