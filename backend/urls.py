@@ -30,5 +30,5 @@ urlpatterns = [
     #로그인/회원가입
     path('sign/', include('user.urls')),
     #edit
-    path('edit/', include('single.urls'))
+    path('edit/', include('single.urls')),
 ]

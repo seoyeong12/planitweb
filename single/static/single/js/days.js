@@ -4,8 +4,13 @@
         var calendarEl = document.getElementById('calendar');
         var start;
         var end;
-        var start_min;
-        var end_min;
+         var dayStart;
+        var dateStart1;
+        var dateStart2;
+        var yearStart;
+         var str;
+        var arr;
+
         var calendar = new FullCalendar.Calendar(calendarEl, {
         initialView: 'timeGridWeek',
         views: {
@@ -44,16 +49,20 @@
                 String(end);
                 return end;
             }
-        start();
-        end();
+            start();
+            end();
+            function Odate(){
+                str = arg.start;
+                arr = str.split(" ");
+                return arr;
+            }
+            var r = Odate();
 
-        document.getElementById("time1").innerHTML = start;
-        document.getElementById("time2").innerHTML = end;
+            document.write(r);
+            document.getElementById("time1").innerHTML = start;
+            document.getElementById("time2").innerHTML = end;
 
-        //end();
-        //document.write(end);
-
-        window.open("/single/create_post","editForm","width=500,height=500,resizable = no, scrollbars =no");
+              window.open("/single/create_post","editForm","width=500,height=500,resizable = no, scrollbars =no");
 
                 if(title){
                 calendar.addEvent({
@@ -69,6 +78,7 @@
             calendar.unselect();
 
         },
+
         eventClick: function(arg) {
     	  // 있는 일정 클릭시,
             console.log("#등록된 일정 클릭#");
@@ -83,14 +93,14 @@
         calendar.render();
     });
 
-<!--    function addlist(title,date){-->
-<!--        // var yy=date.format("YYYY");-->
-<!--        //     var mm=date.format("MM");-->
-<!--        //     var dd=date.format("DD");-->
-<!--        //     var ss=date.format("dd");-->
-
-<!--        document.getElementById("titletext").textContent=title;-->
-<!--        document.getElementById("start").textContent=date;-->
-
-
-<!--    }-->
+//<!--    function addlist(title,date){-->
+//<!--        // var yy=date.format("YYYY");-->
+//<!--        //     var mm=date.format("MM");-->
+//<!--        //     var dd=date.format("DD");-->
+//<!--        //     var ss=date.format("dd");-->
+//
+//<!--        document.getElementById("titletext").textContent=title;-->
+//<!--        document.getElementById("start").textContent=date;-->
+//
+//
+//<!--    }-->

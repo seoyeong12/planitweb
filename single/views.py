@@ -1,4 +1,5 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+
 from .models import Schedule
 from django.views.generic import CreateView
 # Create your views here.
@@ -25,6 +26,13 @@ def single_edit(request):
         'single/schedule_form.html',
     )
 
-class PostCreate(CreateView):
-    model = Schedule
-    fields = ['date', 'startTime', 'dueTime', 'title']
+# def post_create(request):
+#     if request.method == 'POST':
+#         form = PostCreateForm(request.POST)
+#         if form.is_valid():
+#             Schedule= form.save(commit=False)
+#             Schedule.title = request.user
+#             return redirect('days', id=Schedule.id)
+#     else:
+#         form = PostCreateForm()
+#     return render(request, 'single/post_create.html', {'form':form})
