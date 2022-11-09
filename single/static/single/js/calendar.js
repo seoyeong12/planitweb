@@ -1,30 +1,17 @@
-<!DOCTYPE html>
-{% load static %}
-<html>
-<head>
-<!-- fullcalender -->
-<link href="{% static 'single/css/main.css' %}" rel='stylesheet' />
-<link href="{% static 'single/bootstrap/bootstrap.min.css' %}" rel="stylesheet" type="text/css">
-
-<script src="{% static 'single/js/main.js' %}"></script>
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
-<script>
-    var b=function(msg) {alert('message test ' + msg);};
+var b=function(msg) {alert('message test ' + msg);};
     document.addEventListener('DOMContentLoaded', function() {
         var calendarEl = document.getElementById('calendar');
         var calendar = new FullCalendar.Calendar(calendarEl, {
-
-
-
+            
+        
+        
         editable:true,
         selectable:true,
         contentWidth:300,
         navLinks: true,
         eventAdd:function(obj){
             console.log(obj);
-
+            
             //이벤트 추가되면
         },
         eventChange:function(obj){
@@ -48,14 +35,14 @@
             //창 크기 지정
             var width = 500;
             var height = 500;
-
+            
             //pc화면기준 가운데 정렬
             var left = (window.screen.width / 2) - (width/2);
             var top = (window.screen.height / 4);
-
+            
                 //윈도우 속성 지정
             var windowStatus = 'width='+width+', height='+height+', left='+left+', top='+top+', scrollbars=yes, status=yes, resizable=yes, titlebar=yes';
-
+            
             //연결하고싶은url
             const url = "./edit.html";
 
@@ -74,31 +61,19 @@
             //     //window.location.reload();
             //     calendar.unselect()
             // }
-
+            
         },
         eventClick: function(arg) {
     	  // 있는 일정 클릭시,
             console.log("#등록된 일정 클릭#");
             console.log(arg.event);
-
+            
             if (confirm('Are you sure you want to delete this event?')) {
             arg.event.remove()
             }
         }
-
+        
         });
-
+        
         calendar.render();
-    });
-</script>
-</head>
-<body>
-{% include 'single/nav.html' %}
-{% block nav_area %}
-{% endblock %}
-
-            <div id='calendar'></div>
-
-
-</body>
-</html>
+    }); 
