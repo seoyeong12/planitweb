@@ -4,7 +4,7 @@ from django.views.generic import CreateView
 
 from . import models
 from .models import Note
-from team_project.models import Project
+from team_project .models import Project
 
 # Create your views here.
 
