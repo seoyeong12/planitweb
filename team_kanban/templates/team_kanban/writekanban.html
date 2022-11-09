@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+        <link href="./bootstrap.min.css" rel="stylesheet" type="text/css">
+        <script>
+            window.onload=function(){
+                var sub_btn = document.getElementById('sub_btn');
+                sub_btn.onclick=function(){
+                    document.myForm.target= opener.name; //호출하고자하는 부모창의 이름
+                    document.myForm.submit(); // 폼 전송
+                    self.close(); //창 닫기
+                }
+            };
+
+
+        </script>
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
+        <style>
+            table{
+                margin: 15px;
+                margin-top: 30px;
+            }
+            td{
+                padding: 10px;
+                font-weight: bold;
+            }
+            .input,input,button,select{
+                background-color: gainsboro;
+                border: 0ch;
+            }
+            button{
+                border-radius: 1em;
+                padding: 5px;
+                padding-left: 15px;
+                padding-right: 15px;
+                margin-right: 5px;
+            }
+            textarea {
+                width: 100%;
+                height: 6.25em;
+                border: none;
+                resize: none;
+            }
+            #status,#date{
+                width: 100%;
+                padding-left: 5px;
+            }
+        </style>
+    </head>
+    <body>
+        <form method="post" enctype="multipart/form-data" autocomplete="off" name="myForm">{% csrf_token %}
+        <div>
+            <table>
+                <tbody>
+                    <tr>
+                        <td>Status</td>
+                        <td>
+                            <h3>{{ kanban_status }}</h3>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Title</td>
+                        <td><input type="text" name="title" placeholder="회의 제목"/></td>
+                    </tr>
+                    <tr>
+                        <td>Participants</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                                <input type="checkbox" value="1" checked>노윤하
+                                <input type="checkbox" value="2">김서영
+                                <input type="checkbox" value="3">김진선
+                                <input type="checkbox" value="4">이우현
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Due Date</td>
+                        <td><input type="date" name="date_end"/></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">Detail</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2"><textarea name="introduce" cols="30"rows="10"> </textarea></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <center>
+                                <button id="sub_btn">완료</button>
+                                <button onclick="window.close();">취소</button>
+                            </center>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </form>
+    </body>
+</html>

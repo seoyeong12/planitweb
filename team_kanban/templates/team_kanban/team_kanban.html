@@ -26,21 +26,26 @@
                 </div>
                 {% endfor %}
             </div>
+                <button id="plus" onclick="{% url 'create_kanban' post.id 0 %}">+ 새 글 추가하기</button>
+<!--
             <button id="plus" onclick="createTask()">+ 새 글 추가하기</button>
+            -->
         </div>
         <div>
             <div class="kanban-block" id="doing" ondrop="drop(event)" ondragover="allowDrop(event)">
                 <div id="colorid"></div>
                 <strong>Doing</strong>
-                <div class="task" id="task1" draggable="true" ondragstart="drag(event)" onmouseover="taskover()" onmouseout="taskout()">
-                    <div><strong onclick="insidekanban()">첫번째 회의</strong>
+                {% for doing in doing %}
+                <div class="task" draggable="true" ondragstart="drag(event)" onmouseover="taskover()" onmouseout="taskout()">
+                    <div><strong onclick="insidekanban()">{{doing.title}}</strong>
                         <button id="deletebtn" onclick="deleteTask()" style="display: none;"><img src="./deletebutton.png"></button>
                         <button id="pencilbtn" onclick="editTask()"  style="display: none;"><img src="./pencilbutton.png"></button>
                     </div>
                     <p onclick="insidekanban()">
                         <div id="membericon">김진선</div>
-                    <br><a>Due Date:</a><a>2022.10.03</a></p>
+                    <br><a>Due Date:</a><a>{{doing.date_end}}</a></p>
                 </div>
+                {% endfor %}
             </div>
             <button id="plus" onclick="createTask()">+ 새 글 추가하기</button>
         </div>
@@ -48,16 +53,17 @@
             <div class="kanban-block" id="done" ondrop="drop(event)" ondragover="allowDrop(event)">
                 <div id="colorid"></div>
                 <strong>Done</strong>
+                {% for done in done %}
                 <div class="task" id="task1" draggable="true" ondragstart="drag(event)" onmouseover="taskover()" onmouseout="taskout()">
-                    <div><strong onclick="insidekanban()">첫번째 회의</strong>
+                    <div><strong onclick="insidekanban()">{{done.title}}</strong>
                         <button id="deletebtn" onclick="deleteTask()" style="display: none;"><img src="./deletebutton.png"></button>
                         <button id="pencilbtn" onclick="editTask()"  style="display: none;"><img src="./pencilbutton.png"></button>
                     </div>
                     <p onclick="insidekanban()">
                         <div id="membericon">김진선</div>
-                    <br><a>Due Date:</a><a>2022.10.03</a></p>
+                    <br><a>Due Date:</a><a>{{done.date_end}}</a></p>
                 </div>
-
+                {% endfor %}
             </div>
             <button id="plus" onclick="createTask()">+ 새 글 추가하기</button>
         </div>
