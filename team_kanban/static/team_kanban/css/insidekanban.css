@@ -1,0 +1,73 @@
+table{
+    width: 440px;
+    margin-left: 38px;
+    table-layout: fixed;
+}
+select{
+    width: 188px;
+    height: 39px;
+    margin-top: 28px;
+    margin-left: 38px;
+    margin-bottom:33px;
+    background-color: #FAF0E6;
+    border: 0px #E8CBB9;
+    border-radius: 20px;
+    padding-left: 43px;
+    padding-top: 7px;
+    padding-bottom: 7px;
+    padding-right: 24px;
+}
+.title{
+    width: 115px;
+    margin-left: 8px;
+    margin-top: 32px;
+    font-size: 20px;
+}
+#button{
+    width: 65px;
+    height: 28px;
+    border-radius: 20px;
+    background-color: #FAF0E6;
+    font-size: 10px;
+    text-align: center;
+    margin-left: 13px;
+    margin-top: 10px;
+    padding-top: 6px;
+    border: 0px;
+    color: black;
+    }
+.tf{
+    float: right;
+    width: 260px;
+}
+#text,#date{
+    width: 260px;
+    height: 29px;
+    background-color: #FAF0E6;
+    border: 0px;                                
+    margin-top: 14px;
+    margin-bottom: 14px;
+}
+#date{
+    padding: 9px;
+}
+textarea{
+    background-color: #FAF0E6;
+    border: 0px;
+    width: 440px;
+    height: 249px;
+    margin-top: 20px;
+    /*resize: none;*/
+}
+button{
+    border-radius: 1em;
+    border: 0px;
+    padding: 5px;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-right: 28px;
+    margin-top: 23px;
+}
+#cancelbtn{
+    background-color: #FF8787;
+}
