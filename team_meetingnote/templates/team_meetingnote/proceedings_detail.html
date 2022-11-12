@@ -6,8 +6,8 @@
     </head>
     <body>
     <h3>{{ note.title }}
-        <input type="button"value="편집">
-        <input type="button"value="삭제">
+        <button value="편집" onclick="location.href='{% url 'rewrite_note' post.id note.id %}'">편집</button>
+        <button value="삭제" onclick="location.href='{% url 'delete_note' post.id note.id %}'">삭제</button>
         <br>
     </h3>
 
@@ -15,5 +15,6 @@
     <br>
     <h5>{{ note.introduce|linebreaksbr }}</h5>
 
+    <button onclick="history.go(-1)">뒤로가기</button>
     </body>
 </html>

@@ -7,7 +7,7 @@
     <body>
         <form method="post" enctype="multipart/form-data" autocomplete="off">{% csrf_token %}
         <h4>
-            <input type="date" name="date_start" value="{{note.date_start}}"/>
+            <input type="date" name="date_start" value="{{ note.date_start | date:'Y-m-d'}}"/>
         </h4>
         <h2>
             {{note.team}}
@@ -27,7 +27,7 @@
 
         <textarea name="introduce" cols="30"rows="10">{{note.introduce}}</textarea>
 
-        <input type="reset"value="취소">
+            <button type="reset" onclick="history.go(-1)">취소</button>
             <button type="submit">전송</button>
         </form>
     </body>

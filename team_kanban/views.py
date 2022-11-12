@@ -9,13 +9,17 @@ from team_project.models import Project
 #http://127.0.0.1:8000/team/프로젝트pk값/kanban/프로젝트 상태 pk값/create_kanban
 def create_kanban(request, p_pk, s_pk):
     post = Project.objects.get(pk=p_pk)
-    kanban_status = s_pk
+    kanban_status = s_pk #기존 status
     kanban = models.Kanban()
-
 
     if request.method == 'POST':
         kanban.team = post
-        kanban.STATUS = kanban_status
+        if (request.POST['status'] == 'todo'):
+            kanban.status = 0
+        elif (request.POST['status'] == 'doing'):
+            kanban.status = 1
+        else:
+            kanban.status = 2
         kanban.title = request.POST['title']
         kanban.date_end = request.POST['date_end']
         kanban.introduce = request.POST['introduce']

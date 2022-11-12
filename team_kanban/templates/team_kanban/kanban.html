@@ -21,7 +21,7 @@
                         )">
                         <div><strong>{{todo.title}}</strong>
                             <button id="deletebtn" onclick="deleteTask()" style="display: none;"><img src="{% static 'team_kanban/img/deletebutton.png' %}"></button>
-                            <button id="pencilbtn" onclick="editTask()"  style="display: none;"><img src="{% static 'team_kanban/img/pencilbutton.png' %}"></button>
+                            <button id="pencilbtn" onclick="editTask('{% url 'rewrite_kanban' post.id  0 todo.id %}'"  style="display: none;"><img src="{% static 'team_kanban/img/pencilbutton.png' %}"></button>
                         </div>
                         <p>
                             <div id="membericon">김진선</div>

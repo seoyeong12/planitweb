@@ -79,7 +79,7 @@ function createTask(pk){
     window.open(url, "edit", windowStatus);
 }
 
-function editTask(){
+function editTask(pk){
     //창 크기 지정
     var width = 518;
     var height = 692;
@@ -92,7 +92,7 @@ function editTask(){
     var windowStatus = 'width='+width+', height='+height+', left='+left+', top='+top+', scrollbars=yes, status=yes, resizable=yes, titlebar=yes';
     
     //연결하고싶은url
-    const url = "./insidekanban.html";
+    const url = pk;
 
     //등록된 url 및 window 속성 기준으로 팝업창을 연다.
     window.open(url, "edit", windowStatus);
