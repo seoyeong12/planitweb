@@ -9,6 +9,7 @@ class User(models.Model) :
     password = models.CharField(max_length=50, default="", verbose_name="비밀번호")
     first_name = models.CharField(max_length=10, default="")
     last_name = models.CharField(max_length=10, default="")
+    image = models.ImageField(upload_to='profile', null=True)
 
     def __str__(self):
         return f'[{self.pk}] {self.user_name}'

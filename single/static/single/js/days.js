@@ -4,12 +4,6 @@
         var calendarEl = document.getElementById('calendar');
         var start;
         var end;
-         var dayStart;
-        var dateStart1;
-        var dateStart2;
-        var yearStart;
-         var str;
-        var arr;
 
         var calendar = new FullCalendar.Calendar(calendarEl, {
         initialView: 'timeGridWeek',
@@ -39,6 +33,8 @@
         },
         select:function(arg){
 
+
+
             function start(){
                 start = arg.start.getHours();
                 String(start);
@@ -51,14 +47,7 @@
             }
             start();
             end();
-            function Odate(){
-                str = arg.start;
-                arr = str.split(" ");
-                return arr;
-            }
-            var r = Odate();
 
-            document.write(r);
             document.getElementById("time1").innerHTML = start;
             document.getElementById("time2").innerHTML = end;
 
@@ -93,14 +82,14 @@
         calendar.render();
     });
 
-//<!--    function addlist(title,date){-->
-//<!--        // var yy=date.format("YYYY");-->
-//<!--        //     var mm=date.format("MM");-->
-//<!--        //     var dd=date.format("DD");-->
-//<!--        //     var ss=date.format("dd");-->
-//
-//<!--        document.getElementById("titletext").textContent=title;-->
-//<!--        document.getElementById("start").textContent=date;-->
-//
-//
-//<!--    }-->
+<!--    function addlist(title,date){-->
+<!--        // var yy=date.format("YYYY");-->
+<!--        //     var mm=date.format("MM");-->
+<!--        //     var dd=date.format("DD");-->
+<!--        //     var ss=date.format("dd");-->
+
+<!--        document.getElementById("titletext").textContent=title;-->
+<!--        document.getElementById("start").textContent=date;-->
+
+
+<!--    }-->
