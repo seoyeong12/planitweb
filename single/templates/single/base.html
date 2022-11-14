@@ -14,7 +14,11 @@
         var calendarEl = document.getElementById('calendar');
         var start;
         var end;
-
+        var month;
+        var year;
+        var date;
+        var result;
+        var dateS;
 
         var calendar = new FullCalendar.Calendar(calendarEl, {
         initialView: 'timeGridWeek',
@@ -63,6 +67,22 @@
             document.getElementById("time1").innerHTML = start;
             document.getElementById("time2").innerHTML = end;
 
+            function resDate(){
+                dateS = arg.start;
+                year = dateS.getFullYear();
+                String(year);
+                month = dateS.getMonth()+1;
+                String(month);
+                date = dateS.getDate();
+                String(date);
+                result = year+"-"+month+"-"+date;
+                String(result);
+                return result;
+            }
+            resDate();
+
+            document.getElementById("date").innerHTML = result;
+
             function openChild(){
                 window.name="parentForm";
                 window.open("/single/create_post","editForm","width=500,height=500,resizable = no, scrollbars =no");
@@ -72,6 +92,11 @@
 
             calendar.unselect();
         },
+
+            var eventData = {{schedule}};
+            if(eventData){
+                calendar.addEvent({{schedule}})
+            };
 
         });
 
@@ -102,9 +127,8 @@
 {% endblock %}
 {% block main_area %}
 {% endblock %}
-<p id="time1">start_time</p>
-<p id="time2">end_time</p>
-<input type="text" id="pInput">
-<button type="button" onclick="setTitle()">전달</button>
+<p id="time1" style="visibility: hidden;">start_time</p>
+<p id="time2" style="visibility: hidden;">end_time</p>
+<p id="date" style="visibility: hidden;">날짜 </p>
 </body>
 </html>

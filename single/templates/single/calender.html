@@ -24,7 +24,12 @@
             contentWidth:300,
             navLinks: true,
 
-           events: {{ appointment|safe }}
+           events: {{ appointment|safe }},
+           eventTimeFormat: { // like '14:30:00'
+					    hour: '2-digit',
+					    minute: '2-digit',
+					    hour12: false
+					  }
 
     });
 

@@ -24,9 +24,10 @@
             function goSubmit(){
                 document.editt.target = opener.window.name;
                 document.editt.submit();
+<!--                opener.location.reload();-->
                 self.close();
-                opener.parent.location.reload();
             }
+
             function checkActive(){
                 const target = document.getElementById('teamSelect');
                 target.disabled = false;
@@ -62,6 +63,8 @@
                 }else{
                     document.getElementById("time2").value = end+":00";
                 }
+                var day = opener.document.getElementById("date").innerHTML;
+                document.getElementById("date").value = day;
             }
         </script>
     </head>
@@ -70,7 +73,7 @@
             {% csrf_token %}
                 <div>
                     <div id="center">
-                        <p id="date">2022.10.04</p>
+                        <input type="date" name="date" id="date">
                            <div>
                             <p><input type="radio" name="team" id="single" value="개인" required>개인
                                 <input type="radio" name="team" id="team" value="팀" onclick="checkActive()" required>팀
