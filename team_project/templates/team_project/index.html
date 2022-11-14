@@ -8,5 +8,8 @@
 {% for p in posts %}
 <h3><a href="{{ p.get_absolute_url }}">{{ p.title }}</a></h3>
 {% endfor %}
+
+<button onclick="location.href='{% url 'create_project' %}'" value="글 작성">글 작성</button>
+
 </body>
 </html>

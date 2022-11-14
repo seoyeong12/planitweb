@@ -1,16 +1,67 @@
-from django.shortcuts import render
-from django.views.generic import CreateView
+from django.shortcuts import render, redirect, resolve_url, get_object_or_404
 
-from .models import Project #프로젝트 모델 import
+from . import models
+from .models import Project, Team  # 프로젝트 모델 import
 # Create your views here.
 
 
-class CreatePost(CreateView):
-    # 프로젝트 모델을 통해 프로젝트 생성한다.
-    model = Project
-    #팀원을 불러오기
-    #팀원 = team과 user의 조인 테이블에 해당
-    fields = ['title', 'date_start', 'date_end', 'introduce']
+def create_team(request):
+    team = models.Team()
+
+    if request.method == 'POST':
+        team.team_name = request.POST['team']
+        team.save()
+
+        return redirect(resolve_url('create_project'))
+
+    else:
+        return render(
+            request,
+            'team_project/userplus.html',
+            {
+                'team':team,
+            }
+        )
+ #delete 에서 프로젝트 없는 팀 삭제해야함
+def create_project(request):
+    team = Team.objects.latest('pk') #가장 최근 값
+    #prev_project = Project.objects.get(team=team.pk)#가장 최근 값에 해당하는 프로젝트
+    project = models.Project()
+
+    try:
+        prev_project = Project.objects.get(team=team) #최근 값에 해당하는 프로젝트가 없는 경우
+    except:
+        if request.method == 'POST':
+            project.team = Team.objects.latest('pk')
+            project.title = request.POST['title']
+            project.date_start = request.POST['date_start']
+            project.date_end = request.POST['date_end']
+            project.introduce = request.POST['introduce']
+
+            project.save()
+            return redirect(resolve_url('main'))
+        else:
+            return render(
+                request,
+                'team_project/teamproject_write.html',
+                {
+                    'team': team,
+                    'prev_project': 1,
+                    'project': project,
+
+                }
+            )
+    else: #최근 값에 해당하는 프로젝트가 있는 경우
+        return render(
+            request,
+            'team_project/teamproject_write.html',
+            {
+                'team': team,
+                'prev_project': 0,
+                'project': project,
+
+            }
+        )
 
 def index(request):
     posts = Project.objects.all().order_by('-pk')#프로젝트 모델의 레코드 최신순으로 정렬
@@ -23,8 +74,8 @@ def index(request):
         })
 
 
-def detail(request, pk):
-    post = Project.objects.get(pk=pk)#pk에 해당하는 모델의 레코드를 get
+def detail(request, p_pk):
+    post = Project.objects.get(pk=p_pk)#pk에 해당하는 모델의 레코드를 get
 
     return render(
         request,

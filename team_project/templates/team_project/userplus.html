@@ -1,13 +1,24 @@
 <!DOCTYPE html>
-<html>
+<html lang="kr">
+    <head>
+        <meta charset="UTF-8">
+        <title>note_write</title>
+    </head>
     <body>
-    <form>
-        <body style="text-align:center;">
-            계정: <input type="email" placeholder="id@host" class="size">
+    <form method="post" enctype="multipart/form-data" autocomplete="off">{% csrf_token %}
+<!--            계정: <input type="email" placeholder="id@host" class="size">
             <button type="location.href='userplus.html'">추가</button>
-            <hr>
+            <hr>-->
+
+            <table>
+                <tr>
+                    <td class="title">Team</td>
+                    <td class="tf"><input name="team" type="text" id="text" required></td>
+                </tr>
+            </table>
             <button type="submit">전송</button>
-        </body>
+
+
     </form>
     </body>
 </html>

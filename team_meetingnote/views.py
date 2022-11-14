@@ -1,6 +1,4 @@
 from django.shortcuts import render, redirect, resolve_url
-from django.urls import reverse
-from django.views.generic import CreateView
 
 from . import models
 from .models import Note
@@ -8,12 +6,6 @@ from team_project.models import Project
 
 # Create your views here.
 
-#class CreateNote(CreateView):
-#    model = Note
-#    fields = ['team', 'title', 'date_start', 'introduce']
-#    template_name = 'team_meetingnote/proceedings_write.html'
-
-#post 입력이 안되는 경우 -> 에러 메세지 출력하는 함수 필요하다.
 
 def create_note(request, p_pk):
     post = Project.objects.get(pk=p_pk)

@@ -1,21 +1,61 @@
 <!DOCTYPE html>
-<html>
+<html lang="kr">
+    <head>
+        <meta charset="UTF-8">
+        <title>note_write</title>
+    </head>
     <body>
-    <form>
-        <body style="text-align:left;">
-        <form method="get"action="form_app.js">
-         <input type="text" placeholder="프로젝트 이름 작성"/>
-         <input type="button"value="공유하기"><br>
-    <hr>
-    시작 날짜: <input type="date" name="first_date"/>    
-    마감 날짜: <input type="date" name="last_date"/><br>
-    팀원: <span><a href="userplus.html" >추가</a></span>
-    <input type="text"name="person"/><br>
-    내용 작성: <textarea cols="30"rows="10"> </textarea>
-    <input type="reset"value="취소">
-    <button type="submit">전송</button>
-    </form>
+        <form method="post" enctype="multipart/form-data" autocomplete="off">{% csrf_token %}
+            <div>
+                <table>
+                    <tbody>
+                    {%if prev_project == 0%}
+                    <tr>
+                        <td class="title">Title</td>
+                        <td class="tf"><input name="title" type="text" id="text" value="팀을 먼저 생성해주세요!" readonly></td>
+                        <input type="button"value="공유하기"><br>
+                    </tr>
+                    <tr>
+                        <td class="title">Team</td>
+                        <td class="tf"><h3></h3></td>
+                        <td class="tf"><button onclick="location.href='{% url 'create_team' %}'">팀 생성</button></td>
+                        {%else%}
+                        <tr>
+                        <td class="title">Title</td>
+                        <td class="tf"><input name="title" type="text" id="text" value="프로젝트 이름을 작성하세요!" required></td>
+                        <input type="button"value="공유하기"><br>
+                    </tr>
+                    <tr>
+                        <td class="title">Team</td>
+                        <td class="tf"><h3>{{team.team_name}}</h3></td>
+                        <td class="tf"><button onclick="location.href='{% url 'create_team' %}'">팀원 추가하기</button></td>
+                        {%endif%}
+                    </tr>
+                    <tr>
+                        <td class="title">Date</td>
+                        <td class="tf"><input name="date_start" type="date" id="start_date" required> - <input name="date_end" type="date" id="end_date" required></td>
+                    </tr>
+                    <tr>
+<!--                        <td class="title">팀원</td>-->
+<!--                        <td><span><a href="userplus.html" >추가</a></span><input type="text"name="person"/><br></td>-->
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="title">내용 작성</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2"><textarea cols="30"rows="10" name="introduce" required></textarea></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <center>
+                                <button type="submit">저장</button>
+                                <button onclick="history.go(-1)">취소</button>
+                            </center>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </form>
     </body>
-
-    </bodystyle=>
 </html>
