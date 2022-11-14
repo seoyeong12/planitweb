@@ -21,7 +21,7 @@ def create_team(request):
                 'team':team,
             }
         )
- #delete 에서 프로젝트 없는 팀 삭제해야함
+
 def create_project(request):
     team = Team.objects.latest('pk') #가장 최근 값
     #prev_project = Project.objects.get(team=team.pk)#가장 최근 값에 해당하는 프로젝트
@@ -83,6 +83,17 @@ def detail(request, p_pk):
             'post': post,  # 가져온 레코드 리턴
         }
     )
+
+
+def delete_team(request, p_pk):
+    post = Project.objects.get(pk=p_pk)
+    team = Team.objects.get(pk=post.team.pk)
+    # delete 에서 프로젝트 없는 팀 삭제해야함
+    team.delete()
+    return redirect(
+        resolve_url('main')
+    )
+
 
 def rewrite_project(request, p_pk):
    post = Project.objects.get(pk=p_pk)

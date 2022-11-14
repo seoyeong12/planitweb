@@ -10,6 +10,9 @@
     </h1>
     <p>{{post.date_start}}에 시작해서 {{post.date_end}}에 끝나는 프로젝트 입니다.</p>
     <p>{{post.introduce}}</p>
+    <div>
+    <button onclick="location.href='{% url 'delete_team' post.id %}'">삭제</button>
     <button onclick="history.go(-1)">뒤로가기</button>
+    </div>
 </body>
 </html>

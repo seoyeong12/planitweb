@@ -1,18 +1,13 @@
-/* .container {
-    width: 70%;
-    min-width: 50%;
-    margin: auto;
-    display: flex;
-    flex-direction: column;
-    } */
-
+    body{
+        margin-left: 500px;
+    }
+    #div1,#div2{
+        margin-right: 50px;
+    }
     .kanban-board {
         margin-top: 82px;
         margin-right: 90.71px;
         display: flex;
-    
-        /* flex-direction: row; */
-        /* justify-content: space-between; */
     }
 
     .kanban-block{
@@ -20,30 +15,36 @@
         margin: 26.71px;
     }
 
-    #colorid{
+    .colorid{
         display: inline-block;
         width: 16px;
         height: 16px;
         border-radius: 50%;
         background-color: #F8C4B4;
+        margin-right: 10px;
     }
-
+    #color2{
+        background-color: #FF8787;
+    }
+    #color3{
+        background-color: #BCE29E;
+    }
     .task {
-    background-color: #FAFAFA;
-    width: 286.29px;
-    height: 142px;
-    border: 0.1rem solid #E8CBB9;
-    border-radius: mixed;
-    padding: 9px;
-    margin-top: 24px;
-    box-sizing: border-box;
+        background-color: #FAFAFA;
+        width: 286.29px;
+        height: 142px;
+        border: 0.1rem solid #E8CBB9;
+        border-radius: 10px;
+        padding: 9px;
+        margin-top: 24px;
+        box-sizing: border-box;
     }
     .task:hover{
         background-color: #FAF0E6;
     }
     #deletebtn,#pencilbtn{
         float: right;
-        background-color: #FAFAFA;
+        background-color: #FAF0E6;
         margin-right: 10px;
         border: 0ch;
     }
@@ -65,5 +66,5 @@
         font-size: 10px;
         text-align: center;
         margin-left: 13px;
-        margin-top: 10px;
+        margin-bottom: 10px;
     }
