@@ -1,9 +1,8 @@
-from django.shortcuts import render, redirect, resolve_url, get_object_or_404
+from django.shortcuts import render, redirect, resolve_url
 
 from . import models
 from .models import Project, Team  # 프로젝트 모델 import
 # Create your views here.
-
 
 def create_team(request):
     team = models.Team()
@@ -84,4 +83,25 @@ def detail(request, p_pk):
             'post': post,  # 가져온 레코드 리턴
         }
     )
+
+def rewrite_project(request, p_pk):
+   post = Project.objects.get(pk=p_pk)
+
+   if request.method == 'POST':
+       post.title = request.POST['title']
+       post.date_start = request.POST['date_start']
+       post.date_end = request.POST['date_end']
+       post.introduce = request.POST['introduce']
+
+       post.save()
+       return redirect(resolve_url('project_detail', p_pk))
+
+   else:
+       return render(request,
+                     'team_project/teamproject_rewrite.html',
+                     {
+                         'post':post,
+                     })
+
+
 
