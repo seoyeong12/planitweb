@@ -7,13 +7,13 @@
     <body>
     <form method="post" enctype="multipart/form-data" autocomplete="off">{% csrf_token %}
         <h4>
-            <input type="date" name="date_start"/>
+            <input type="date" name="date_start" required/>
         </h4>
         <h2>
             {{post.team}}
         </h2>
         <h2>
-            <input type="text" name="title" placeholder="회의 제목"/>
+            <input type="text" name="title" placeholder="회의 제목" required/>
             <hr>
         </h2>
 
@@ -25,7 +25,7 @@
         <input type="checkbox" name="person" value="5">이우현
         <br><br>
 
-        <textarea name="introduce" cols="30"rows="10"> </textarea>
+        <textarea name="introduce" cols="30"rows="10" required> </textarea>
 
         <button type="reset" onclick="history.go(-1)">취소</button>
         <button type="submit">전송</button>
