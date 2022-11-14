@@ -4,6 +4,8 @@
         var calendarEl = document.getElementById('calendar');
         var start;
         var end;
+        var startT;
+        var endT;
 
         var calendar = new FullCalendar.Calendar(calendarEl, {
         initialView: 'timeGridWeek',
@@ -32,8 +34,7 @@
             console.log(obj);
         },
         select:function(arg){
-
-
+            console.log(arg);
 
             function start(){
                 start = arg.start.getHours();
@@ -51,22 +52,18 @@
             document.getElementById("time1").innerHTML = start;
             document.getElementById("time2").innerHTML = end;
 
-              window.open("/single/create_post","editForm","width=500,height=500,resizable = no, scrollbars =no");
-
-                if(title){
-                calendar.addEvent({
-                    title:title,
-                    start:arg.start,
-                    end:arg.end,
-                    allDay:arg.allDay
-                })
-                document.getElementById("titletext").textContent=title;
-
+            function openChild(){
+                window.name="parentForm";
+                window.open("/single/create_post","editForm","width=500,height=500,resizable = no, scrollbars =no");
             }
 
-            calendar.unselect();
+            openChild();
 
+
+
+            calendar.unselect();
         },
+
 
         eventClick: function(arg) {
     	  // 있는 일정 클릭시,
@@ -76,7 +73,6 @@
             arg.event.remove()
             }
         }
-
         });
 
         calendar.render();
@@ -93,3 +89,8 @@
 
 
 <!--    }-->
+
+
+
+
+
