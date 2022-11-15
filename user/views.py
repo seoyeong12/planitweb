@@ -7,14 +7,31 @@ from django.contrib.auth.models import User
 
 from .forms import SigninForm, SignupForm
 
+from django.contrib.auth import login, authenticate, logout
 # Create your views here.
 
 #로그인
 def signin(request):
-    return render(
-        request,
-        'user/signin.html'
-    )
+    if request.method == "GET":
+        return render(
+            request,'user/signin.html', {'f':SigninForm()}
+        )
+    elif request.method == "POST":
+        form = SigninForm(request.POST)
+        id = request.POST['username']
+        pw = request.POST['password']
+        u = authenticate(username=id, password=pw)
+
+        if u:  # u에 특정 값이 있다면
+            login(request, user=u)  # u 객체로 로그인
+            return HttpResponseRedirect(reverse('signin'))
+        else:
+            return render(request, 'user/signin.html', {'f': form, 'error': '아이디나 비밀번호가 일치하지 않습니다.'})
+
+#로그아웃
+def signout(request):
+    logout(request)
+    return HttpResponseRedirect(reverse('signout'))
 
 #회원가입
 def signup(request):
