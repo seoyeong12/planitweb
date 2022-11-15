@@ -7,3 +7,4 @@ urlpatterns= [
     #회원가입(sign/up)
     path('up', views.signup),
 ]
+
