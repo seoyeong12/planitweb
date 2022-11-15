@@ -1,6 +1,8 @@
 from django.db import models
 
 # Create your models here.
+from user.models import User
+
 
 class Team(models.Model):
     team_name = models.CharField(max_length=30)
@@ -21,3 +23,4 @@ class Project(models.Model):
 
     def get_absolute_url(self):
         return f'./{self.pk}/'
+
