@@ -1,19 +1,29 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="kr">
     <head>
         <meta charset="UTF-8">
         <title>note_write</title>
+        <script src="{% static 'team_project/js/userplus.js' %}"></script>
     </head>
     <body>
     <form method="post" enctype="multipart/form-data" autocomplete="off">{% csrf_token %}
-<!--            계정: <input type="email" placeholder="id@host" class="size">
-            <button type="location.href='userplus.html'">추가</button>
-            <hr>-->
 
             <table>
                 <tr>
                     <td class="title">Team</td>
                     <td class="tf"><input name="team" type="text" id="text" required></td>
+                </tr>
+
+                <tr>
+                    <td class="title">Participants</td>
+                    <td class="tf">
+                        <input name="user1" type="text" id="input">
+                        <input name="user2" type="text" id="input">
+                        <input name="user3" type="text" id="input">
+                        <input name="user4" type="text" id="input">
+                        <input name="user5" type="text" id="input">
+                    </td>
                 </tr>
             </table>
             <button type="submit">전송</button>

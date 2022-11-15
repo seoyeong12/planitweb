@@ -1,7 +1,8 @@
 from django.shortcuts import render, redirect, resolve_url
 
+from user.models import User
 from . import models
-from .models import Project, Team  # 프로젝트 모델 import
+from .models import Project, Team, Participant  # 프로젝트 모델 import
 # Create your views here.
 
 def create_team(request):
@@ -10,6 +11,67 @@ def create_team(request):
     if request.method == 'POST':
         team.team_name = request.POST['team']
         team.save()
+
+        try:
+            User.objects.get(email=request.POST['user1'])
+        except:
+            #user1의 아이디가 user에 없는 경우 or 입력을 안한 경우 -> 해당하는 participant는 삭제
+            #계정이 존재하지 않음 -> 회원가입 메세지 보내기
+            print("")
+        else:
+            participant = models.Participant()
+            participant.team = team
+            participant.user = User.objects.get(email=request.POST['user1'])
+            participant.save()
+
+
+        try:
+            User.objects.get(email=request.POST['user2'])
+        except:
+            # user1의 아이디가 user에 없는 경우 or 입력을 안한 경우 -> 해당하는 participant는 삭제
+            # 계정이 존재하지 않음 -> 회원가입 메세지 보내기
+            print("")
+        else:
+            participant = models.Participant()
+            participant.team = team
+            participant.user = User.objects.get(email=request.POST['user2'])
+            participant.save()
+
+        try:
+            User.objects.get(email=request.POST['user3'])
+        except:
+            # user1의 아이디가 user에 없는 경우 or 입력을 안한 경우 -> 해당하는 participant는 삭제
+            # 계정이 존재하지 않음 -> 회원가입 메세지 보내기
+            print("")
+        else:
+            participant = models.Participant()
+            participant.team = team
+            participant.user = User.objects.get(email=request.POST['user3'])
+            participant.save()
+
+        try:
+            User.objects.get(email=request.POST['user4'])
+        except:
+            # user1의 아이디가 user에 없는 경우 or 입력을 안한 경우 -> 해당하는 participant는 삭제
+            # 계정이 존재하지 않음 -> 회원가입 메세지 보내기
+            print("")
+        else:
+            participant = models.Participant()
+            participant.team = team
+            participant.user = User.objects.get(email=request.POST['user4'])
+            participant.save()
+
+        try:
+            User.objects.get(email=request.POST['user5'])
+        except:
+            # user1의 아이디가 user에 없는 경우 or 입력을 안한 경우 -> 해당하는 participant는 삭제
+            # 계정이 존재하지 않음 -> 회원가입 메세지 보내기
+            print("")
+        else:
+            participant = models.Participant()
+            participant.team = team
+            participant.user = User.objects.get(email=request.POST['user5'])
+            participant.save()
 
         return redirect(resolve_url('create_project'))
 
