@@ -5,7 +5,7 @@ from django.http.response import HttpResponseRedirect
 from django.urls import reverse
 from django.contrib.auth.models import User
 
-from .forms import SigninForm, SignupForm
+from .form import SigninForm, SignupForm
 
 from django.contrib.auth import login, authenticate, logout
 # Create your views here.
@@ -14,7 +14,7 @@ from django.contrib.auth import login, authenticate, logout
 def signin(request):
     if request.method == "GET":
         return render(
-            request,'user/signin.html', {'f':SigninForm()}
+            request, 'user/signin.html', {'f': SigninForm()}
         )
     elif request.method == "POST":
         form = SigninForm(request.POST)

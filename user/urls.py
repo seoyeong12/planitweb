@@ -7,7 +7,7 @@ urlpatterns= [
     #로그인(sign/in)
     path('signin/', views.signin, name='signin'),
 
-    #로그아웃(sign/in)
+    #로그아웃
     path('signout/', views.signout, name='signout'),
 
     #회원가입(sign/up)
