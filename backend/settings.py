@@ -42,7 +42,7 @@ INSTALLED_APPS = [
     'team_kanban',
     'team_log',
     'single',
-    'user',
+    # 'user',
     'bootstrap4',
 ]
 

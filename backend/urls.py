@@ -28,7 +28,7 @@ urlpatterns = [
     #스케쥴/달력
     path('single/', include('single.urls')),
     #로그인/회원가입
-    path('sign/', include('user.urls')),
+    # path('sign/', include('user.urls')),
     #edit
     path('edit/', include('single.urls')),
 ]
