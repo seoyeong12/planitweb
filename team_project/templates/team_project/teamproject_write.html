@@ -28,7 +28,11 @@
                     <tr>
                         <td class="title">Team</td>
                         <td class="tf"><h3>{{team.team_name}}</h3></td>
-                        <td class="tf"><button onclick="location.href='{% url 'create_team' %}'">팀원 추가하기</button></td>
+                        <td class="tf">
+                            {%for p in participants%}
+                                <span>{{p.user.user_name}}</span>
+                            {%endfor%}
+                        </td>
                         {%endif%}
                     </tr>
                     <tr>

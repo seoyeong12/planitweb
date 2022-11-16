@@ -16,7 +16,15 @@
                     <tr>
                         <td class="title">Team</td>
                         <td class="tf"><h3>{{post.team.team_name}}</h3></td>
-                        <td class="tf"><button onclick="location.href='{% url 'create_team' %}'">팀원 추가하기</button></td>
+                        <td class="tf">
+                            {%for p in participants%}
+                                <span>{{p.user.user_name}}</span>
+                            {%endfor%}
+                        </td>
+                        <td>
+                            <button onclick="location.href='{% url 'plus_user' post.id %}'">팀원 추가</button>
+
+                        </td>
                     </tr>
                     <tr>
                         <td class="title">Date</td>
