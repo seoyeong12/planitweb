@@ -42,13 +42,9 @@ INSTALLED_APPS = [
     'team_kanban',
     'team_log',
     'single',
-<<<<<<< HEAD
-    # 'user',
-=======
     'user',
-    'account',
->>>>>>> 448029229447f2b9c2e47e9be1e860272a7b4780
-    'bootstrap4',
+    # 'account',
+    'bootstrap4'
 ]
 
 MIDDLEWARE = [
