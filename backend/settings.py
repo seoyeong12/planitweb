@@ -43,7 +43,6 @@ INSTALLED_APPS = [
     'team_log',
     'single',
     'user',
-    'account',
     'bootstrap4',
 ]
 

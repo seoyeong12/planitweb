@@ -177,88 +177,11 @@ def rewrite_project(request, p_pk):
                          'post':post,
                          'participants': participants,
                      })
-
+"""
 def plus_user(request, p_pk):
     post = Project.objects.get(pk=p_pk)
-    participants = Participant.objects.filter(team=post.team)#팀원 출력
-
-
-    if request.method == 'POST':
-        try:
-            user = User.objects.get(email=request.POST['user1'])#입력한 이메일의 유저가 있으면
-        except:
-            # user1의 아이디가 user에 없는 경우 or 입력을 안한 경우 -> 해당하는 participant는 삭제
-            # 계정이 존재하지 않음 -> 회원가입 메세지 보내기
-            print("")
-        else:
-            if Participant.objects.get(team=post.team, user=user) is False:
-                participant = models.Participant()
-                participant.team = post.team
-                participant.user = User.objects.get(email=request.POST['user1'])
-                participant.save()
-
-        try:
-            user = User.objects.get(email=request.POST['user2'])#입력한 이메일의 유저가 있으면
-        except:
-            # user1의 아이디가 user에 없는 경우 or 입력을 안한 경우 -> 해당하는 participant는 삭제
-            # 계정이 존재하지 않음 -> 회원가입 메세지 보내기
-            print("")
-        else:
-            if Participant.objects.get(team=post.team, user=user) is False:
-                participant = models.Participant()
-                participant.team = post.team
-                participant.user = User.objects.get(email=request.POST['user2'])
-                participant.save()
-
-        try:
-            user = User.objects.get(email=request.POST['user3'])#입력한 이메일의 유저가 있으면
-        except:
-            # user1의 아이디가 user에 없는 경우 or 입력을 안한 경우 -> 해당하는 participant는 삭제
-            # 계정이 존재하지 않음 -> 회원가입 메세지 보내기
-            print("")
-        else:
-            if Participant.objects.get(team=post.team, user=user) is False:
-                participant = models.Participant()
-                participant.team = post.team
-                participant.user = User.objects.get(email=request.POST['user3'])
-                participant.save()
-
-        try:
-            user = User.objects.get(email=request.POST['user4'])#입력한 이메일의 유저가 있으면
-        except:
-            # user1의 아이디가 user에 없는 경우 or 입력을 안한 경우 -> 해당하는 participant는 삭제
-            # 계정이 존재하지 않음 -> 회원가입 메세지 보내기
-            print("")
-        else:
-            if Participant.objects.get(team=post.team, user=user) is False:
-                participant = models.Participant()
-                participant.team = post.team
-                participant.user = User.objects.get(email=request.POST['user4'])
-                participant.save()
-
-        try:
-            user = User.objects.get(email=request.POST['user5'])#입력한 이메일의 유저가 있으면
-        except:
-            # user1의 아이디가 user에 없는 경우 or 입력을 안한 경우 -> 해당하는 participant는 삭제
-            # 계정이 존재하지 않음 -> 회원가입 메세지 보내기
-            print("")
-        else:
-            if Participant.objects.get(team=post.team, user=user) is False:
-                participant = models.Participant()
-                participant.team = post.team
-                participant.user = User.objects.get(email=request.POST['user5'])
-                participant.save()
-        return redirect(resolve_url('rewrite_project', p_pk))
-
-    return render(
-        request,
-        'team_project/add_user.html',
-        {
-            'post': post,
-            'participants': participants,
-
-        }
-    )
+    user = Participant.objects.filter(team=post.team)
+"""
 
 
 
