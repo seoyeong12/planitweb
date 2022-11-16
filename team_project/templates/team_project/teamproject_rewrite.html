@@ -1,21 +1,56 @@
 <!DOCTYPE html>
-<html>
+<html lang="kr">
+    <head>
+        <meta charset="UTF-8">
+        <title>note_write</title>
+    </head>
     <body>
-    <form>
-        <body style="text-align:left;">
-        <form method="get"action="form_app.js">
-         <input type="text" placeholder="프로젝트 이름 수정"/>
-    <hr>
-    시작 날짜: <input type="date" name="first_date"/>    
-    마감 날짜: <input type="date" name="last_date"/><br>
-    팀원:<button type="submit">추가</button>
-    <button type="submit">삭제</button>
-    <input type="text"name="person"/><br>
-    내용 작성: <textarea cols="30"rows="10"> </textarea>
-    <input type="reset"value="취소">
-    <button type="submit">전송</button>
-</form> 
-    </body>
+        <form method="post" enctype="multipart/form-data" autocomplete="off">{% csrf_token %}
+            <div>
+                <table>
+                    <tbody>
+                    <tr>
+                        <td class="title">Title</td>
+                        <td class="tf"><input name="title" type="text" id="text" value="{{post.title}}" required></td>
+                    </tr>
+                    <tr>
+                        <td class="title">Team</td>
+                        <td class="tf"><h3>{{post.team.team_name}}</h3></td>
+                        <td class="tf">
+                            {%for p in participants%}
+                                <span>{{p.user.user_name}}</span>
+                            {%endfor%}
+                        </td>
+                        <td>
+                            <button onclick="location.href='{% url 'plus_user' post.id %}'">팀원 추가</button>
 
-    </bodystyle=>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="title">Date</td>
+                        <td class="tf"><input name="date_start" type="date" id="start_date" value="{{ post.date_start | date:'Y-m-d'}}" required> - <input name="date_end" type="date" id="end_date" value="{{ post.date_start | date:'Y-m-d'}}" required></td>
+                    </tr>
+                    <tr>
+<!--                        <td class="title">팀원</td>-->
+<!--                        <td><span><a href="userplus.html" >추가</a></span><input type="text"name="person"/><br></td>-->
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="title">내용 작성</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2"><textarea cols="30"rows="10" name="introduce" required>{{post.introduce}}</textarea></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <center>
+                                <button type="submit">저장</button>
+                                <button onclick="history.go(-1)">취소</button>
+                            </center>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </form>
+    </body>
 </html>

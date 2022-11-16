@@ -7,13 +7,14 @@
 <body style="text-align:left;">
 
 <h1>회의록
+    <button id='편집' type='button' value='편집'>편집</button>
 </h1>
 <ol>
     {% for n in notes %}
-    <li>{{n.date_start}} / {{n.title}} / {{n.id}}</li>
+    <li onclick="location.href = '{% url 'detail' post.id n.id %}'">{{n.date_start}} / {{n.title}} / {{n.id}}</li>
     {% endfor %}
 </ol>
-<span><a href="{% url 'create_note' post.id %}"><button>글쓰기 </button></a></span>
+<span><a onclick="location.href = '{% url 'create_note' post.id %}'"><button>글쓰기 </button></a></span>
 <br><br>
 
 <input type="reset"value="취소">

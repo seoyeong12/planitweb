@@ -14,51 +14,44 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
 
     <body>
+        <form method="post" enctype="multipart/form-data" autocomplete="off" name="myForm">{% csrf_token %}
         <div>
             <table>
                 <tbody>
                     <tr>
-                        <td><select name="status" disabled="true">
-                            <!-- form요소의id -->
+                        <td><select name="status">
+                            <!-- form요소의id-->
                             {%if kanban.status == 0%}
-                            <option name="todo" value="todo" selected="selected">To Do</option>
-                            <option name="doing" value="doing">Doing</option>
-                            <option name="done" value="done">Done</option>
+                            <option name="status" value="todo" selected="selected">To Do</option>
+                            <option name="status" value="doing">Doing</option>
+                            <option name="status" value="done">Done</option>
                             {%elif kanban.status == 1%}
-                            <option name="todo" value="todo">To Do</option>
-                            <option name="doing" value="doing" selected="selected">Doing</option>
-                            <option name="done" value="done">Done</option>
+                            <option name="status" value="todo">To Do</option>
+                            <option name="status" value="doing" selected="selected">Doing</option>
+                            <option name="status" value="done">Done</option>
                             {%else%}
-                            <option name="todo" value="todo">To Do</option>
-                            <option name="doing" value="doing">Doing</option>
-                            <option name="done" value="done" selected="selected">Done</option>
+                            <option name="status" value="todo">To Do</option>
+                            <option name="status" value="doing">Doing</option>
+                            <option name="status" value="done" selected="selected">Done</option>
                             </select>
                             {%endif%}
                         </td>
-                        </td>
-
                     </tr>
+
                     <tr>
                         <td class="title">Title</td>
-                        <td class="tf">
-                            {%if kanban.status == 0%}
-                                <p>{{todo.title}}</p>
-                            {%elif kanban.status == 1%}
-                                <p>{{doing.title}}</p>
-                            {%else%}
-                                <p>{{done.title}}</p>
-                            {%endif%}
-                        </td>
+                        <td class="tf"><input name="title" type="text" id="text" value="{{kanban.title}}" required></td>
                     </tr>
 
                     <tr>
                         <td class="title">Participants</td>
-                        <td class="tf"><input type="text" id="text"></td>
+                            <td class="tf"><input type="text" id="text"></td>
 <!--                    참여자 생성하면 required
                         <td class="tf"><input type="text" id="text" required></td>-->
                     </tr>
                     <tr>
                         <td colspan="2">
+
                                 <input type="radio" class="btn-check" id="option1" autocomplete="off" >
                                 <label class="btn btn-secondary" onclick="check(this)" id="button" for="option1">노윤하</label>
 
@@ -75,49 +68,28 @@
 
                     <tr>
                         <td class="title">Date</td>
-                        <td class="tf">
-                            {%if kanban.status == 0%}
-                                <p>{{todo.date_end |date:'Y-m-n'}}</p>
-                            {%elif kanban.status == 1%}
-                                <p>{{doing.date_end |date:'Y-m-n'}}</p>
-                            {%else%}
-                                <p>{{done.date_end |date:'Y-m-n'}}</p>
-                            {%endif%}
-                        </td>
+                        <td class="tf"><input name="date_end" type="date" id="date" value="{{kanban.date_end |date:'Y-m-d'}}" required></td>
                     </tr>
 
                     <tr>
                         <td colspan="2" class="title">Content</td>
                     </tr>
                     <tr>
-                        <td colspan="2">
-                            {%if kanban.status == 0%}
-                                <textarea readonly>{{todo.introduce}}</textarea>
-                            {%elif kanban.status == 1%}
-                                <textarea readonly>{{doing.introduce}}</textarea>
-                            {%else%}
-                                <textarea readonly>{{done.introduce}}</textarea>
-                            {%endif%}
-                        </td>
+                        <td colspan="2"><textarea name="introduce" required>{{kanban.introduce}}</textarea></td>
                     </tr>
 
                     <tr>
                         <td colspan="2">
                             <center>
-                                <button onclick="location.href='{% url 'rewrite_kanban' post.id  kanban.status kanban.id %}'">편집</button>
-<!--                                <button onclick="location.href='{% url 'delete_kanban' post.id kanban.status kanban.id %}';
-                                window.opener.location.reload();
-                                window.close();
-                                ">삭제</button>-->
-                                <button onclick="location.href='{% url 'delete_kanban' post.id kanban.status kanban.id %}';
-
-                                ">삭제</button>
+                                <button type="submit" id="sub_btn">저장</button>
                                 <button onclick="window.close();" id="cancelbtn">취소</button>
                             </center>
                         </td>
                     </tr>
                 </tbody>
             </table>
+
         </div>
+        </form>
     </body>
 </html>

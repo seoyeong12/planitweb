@@ -1,7 +1,9 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="kr">
 <head>
     <meta charset="UTF-8">
+    <script src="{% static 'team_log/js/backlog.js' %}"></script>
     <title>{{post.title}}</title>
 </head>
 <body>
@@ -9,20 +11,26 @@
 
     <div class="inner">
         <div class="listBox">
-                <div class="addBox">
+            <div class="addBox">
                     <div id="log" class="addBox_inner">
+                        <input id="todo">
+                        <button id="add-button">+</button>
+                        <div id="todo-list">
                         {% for l in log %}
-                            <input id="status" type="checkbox" class="addTxt" placeholder="새로 작성하기">
-                            <input id="text" type="text" class="addTxt" value="{{ l.title }}"><br>
+                        <div id="backlogdiv">
+                            <input id="status" type="checkbox">
+                            <span>
+                                {{ l.title }}
+                            </span>
+                            <button style="visibility: hidden;">삭제</button>
+                        </div>
                         {% endfor %}
+                        </div>
                     </div>
-                </div>
-                <input onclick="add()" type="button" class="addBtn" value="추가하기">
             </div>
+        </div>
         <div class="listBox_inner"></div>
-    
-    </div>
 
-    
+    </div>
 </body>
 </html>

@@ -42,7 +42,12 @@ INSTALLED_APPS = [
     'team_kanban',
     'team_log',
     'single',
+<<<<<<< HEAD
     # 'user',
+=======
+    'user',
+    'account',
+>>>>>>> 448029229447f2b9c2e47e9be1e860272a7b4780
     'bootstrap4',
 ]
 
@@ -110,7 +115,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/4.1/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'ko-kr'
 
 TIME_ZONE = 'Asia/Seoul'
 
