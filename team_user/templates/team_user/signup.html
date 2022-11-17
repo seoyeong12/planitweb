@@ -1,0 +1,50 @@
+<body>
+    <div id="con">
+    <div id="login">
+    <div id="login_form"><!--로그인 폼-->
+    <form method="post" enctype="multipart/form-data" autocomplete="off">{% csrf_token %}
+        <h1 align="center">LOGO에 오신 것을 환영합니다!</h1>
+        <h2 align ="center">Welcome to LOGO!</h2>
+
+        <hr>
+
+        <!-- <span>ID</span> -->
+        <p style="text-align: left; font-size:12px; color:#666">ID</p>
+        <input type="text" placeholder="아이디" class="size" name="userId">
+        <p></p>
+        </label><!--아이디-->
+
+        <label>
+        <!-- <span>PW</span> -->
+        <p style="text-align: left; font-size:12px; color:#666">Password</p>
+        <input type="password" placeholder="비밀번호" class="size" name="userPsw">
+        </label><!--비밀번호-->
+
+        <label>
+            <!-- <span>FirstName</span> -->
+            <p style="text-align: left; font-size:12px; color:#666">Name</p>
+        <input type="text" placeholder="이름" class="size" name="userName">
+        </label><!--이름-->
+
+         <label>
+                <!-- <span>Email</span> -->
+            <p style="text-align: left; font-size:12px; color:#666">E-mail</p>
+                <input type="email" placeholder="id@host" class="size" name="userEmail">
+        </label> <!--이메일-->
+
+        <button type="submit">확인</button>
+<br>
+<br>
+<input type="checkbox" name="Agree" value="check"/>개인정보 보호정책에 따라 내 개인 정보를 수집 및 사용에 동의합니다.
+    <br>
+
+    </form>
+
+    <hr>
+    <p class="find">
+        <span><a href="signin.html" >로그인 페이지로 이동</a></span>
+    </p>
+    </div>
+    <div>
+    </div><!--con-->
+</body>

@@ -43,12 +43,8 @@ INSTALLED_APPS = [
     'team_log',
     'single',
     'user',
-<<<<<<< HEAD
-    # 'account',
-    'bootstrap4'
-=======
+    'team_user',
     'bootstrap4',
->>>>>>> 09f30c178b2d093676d69e7878c305993fd5518c
 ]
 
 MIDDLEWARE = [

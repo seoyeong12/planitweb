@@ -17,7 +17,8 @@ from django.contrib import admin
 from django.urls import path, include
 
 urlpatterns = [
-    # path('admin/', admin.site.urls),
+    path('admin/', admin.site.urls),
+    path('signin/', include('team_user.urls')),
     path('team/', include('team_project.urls')),#더 좋은 url 찾는 중
     #미팅 노트
     #path('meeting_note/', include('team_meetingnote.urls')),
