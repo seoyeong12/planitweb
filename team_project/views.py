@@ -177,11 +177,7 @@ def rewrite_project(request, p_pk):
                          'post':post,
                          'participants': participants,
                      })
-"""
-def plus_user(request, p_pk):
-    post = Project.objects.get(pk=p_pk)
-    user = Participant.objects.filter(team=post.team)
-"""
+
 
 
 

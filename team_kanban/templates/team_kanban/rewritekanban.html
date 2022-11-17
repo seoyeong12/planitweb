@@ -44,25 +44,13 @@
                     </tr>
 
                     <tr>
-                        <td class="title">Participants</td>
-                            <td class="tf"><input type="text" id="text"></td>
-<!--                    참여자 생성하면 required
-                        <td class="tf"><input type="text" id="text" required></td>-->
+                        <td class="title" >Participants</td>
                     </tr>
                     <tr>
                         <td colspan="2">
-
-                                <input type="radio" class="btn-check" id="option1" autocomplete="off" >
-                                <label class="btn btn-secondary" onclick="check(this)" id="button" for="option1">노윤하</label>
-
-                                <input type="radio" class="btn-check" id="option2" autocomplete="off">
-                                <label class="btn btn-secondary" id="button" for="option2">김서영</label>
-
-                                <input type="radio" class="btn-check" id="option3" autocomplete="off">
-                                <label class="btn btn-secondary"id="button"  for="option3">김진선</label>
-
-                                <input type="radio" class="btn-check" id="option4" autocomplete="off">
-                                <label class="btn btn-secondary" id="button" for="option4">이우현</label>
+                            {%for p in participants%}
+                            <span class="btn btn-secondary" id="button">{{p.user.user_name}}</span>
+                            {%endfor%}
                         </td>
                     </tr>
 

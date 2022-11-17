@@ -21,18 +21,10 @@
                                 <span>{{p.user.user_name}}</span>
                             {%endfor%}
                         </td>
-                        <td>
-                            <button onclick="location.href='{% url 'plus_user' post.id %}'">팀원 추가</button>
-
-                        </td>
                     </tr>
                     <tr>
                         <td class="title">Date</td>
                         <td class="tf"><input name="date_start" type="date" id="start_date" value="{{ post.date_start | date:'Y-m-d'}}" required> - <input name="date_end" type="date" id="end_date" value="{{ post.date_start | date:'Y-m-d'}}" required></td>
-                    </tr>
-                    <tr>
-<!--                        <td class="title">팀원</td>-->
-<!--                        <td><span><a href="userplus.html" >추가</a></span><input type="text"name="person"/><br></td>-->
                     </tr>
                     <tr>
                         <td colspan="2" class="title">내용 작성</td>

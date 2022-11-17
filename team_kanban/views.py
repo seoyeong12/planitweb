@@ -3,7 +3,8 @@ from django.shortcuts import render, redirect, resolve_url
 # Create your views here.
 from team_kanban import models
 from team_kanban.models import Kanban
-from team_project.models import Project
+from team_project.models import Project, Participant
+
 
 #칸반 생성
 #http://127.0.0.1:8000/team/프로젝트pk값/kanban/프로젝트 상태 pk값/create_kanban
@@ -12,8 +13,10 @@ def create_kanban(request, p_pk, s_pk):
     kanban_status = s_pk #기존 status
     kanban = models.Kanban()
 
+    participants = Participant.objects.filter(team=post.team)
+
     if request.method == 'POST':
-        kanban.team = post
+        kanban.team = post.team
         if (request.POST['status'] == 'todo'):
             kanban.status = 0
         elif (request.POST['status'] == 'doing'):
@@ -33,6 +36,7 @@ def create_kanban(request, p_pk, s_pk):
         'team_kanban/writekanban.html',
         {
             'status':kanban_status,
+            'participants': participants,
         }
     )
 
@@ -40,13 +44,11 @@ def create_kanban(request, p_pk, s_pk):
 #http://127.0.0.1:8000/team/프로젝트pk/kanban/
 def index(request, p_pk):
     project = Project.objects.get(pk=p_pk)#프로젝트의 pk값
-    todo = Kanban.objects.filter(team=project, status=0)
-    doing = Kanban.objects.filter(team=project, status=1)
-    done = Kanban.objects.filter(team=project, status=2)
+    todo = Kanban.objects.filter(team=project.team, status=0)
+    doing = Kanban.objects.filter(team=project.team, status=1)
+    done = Kanban.objects.filter(team=project.team, status=2)
 
-
-#    if request.method == 'POST':
-
+    participants = Participant.objects.filter(team=project.team)
 
     return render(
         request,
@@ -55,7 +57,9 @@ def index(request, p_pk):
             'post':project,
             'todo':todo,
             'doing':doing,
-            'done':done
+            'done':done,
+            'participants':participants,
+
         }
     )
 
@@ -63,11 +67,12 @@ def index(request, p_pk):
 #http://127.0.0.1:8000/team/프로젝트 pk값/kanban/프로젝트의 상태 pk값/데이터베이스pk값/
 def detail(request, p_pk, s_pk, i_pk):
     project = Project.objects.get(pk=p_pk)  # 프로젝트의 pk값
-    kanban = Kanban.objects.get(team=project, pk=i_pk)
-    todo = Kanban.objects.filter(team=project, status=s_pk).get(pk=i_pk)
-    doing = Kanban.objects.filter(team=project, status=s_pk).get(pk=i_pk)
-    done = Kanban.objects.filter(team=project, status=s_pk).get(pk=i_pk)
+    kanban = Kanban.objects.get(team=project.team, pk=i_pk)
+    todo = Kanban.objects.filter(team=project.team, status=s_pk).get(pk=i_pk)
+    doing = Kanban.objects.filter(team=project.team, status=s_pk).get(pk=i_pk)
+    done = Kanban.objects.filter(team=project.team, status=s_pk).get(pk=i_pk)
 
+    participants = Participant.objects.filter(team=project.team)
 
     return render(
         request,
@@ -77,17 +82,20 @@ def detail(request, p_pk, s_pk, i_pk):
             'kanban':kanban,
             'todo': todo,
             'doing': doing,
-            'done': done
+            'done': done,
+            'participants': participants,
         }
         )
 
 def rewrite_kanban(request, p_pk, s_pk, i_pk):
     project = Project.objects.get(pk=p_pk)  # 프로젝트의 pk값
-    kanban = Kanban.objects.get(team=project, pk=i_pk)
+    kanban = Kanban.objects.get(team=project.team, pk=i_pk)
+
+    participants = Participant.objects.filter(team=project.team)
 
     #변경된 경우
     if request.method == 'POST':
-        kanban.team = project  #고정
+        kanban.team = project.team  #고정
         kanban.title = request.POST['title']
         if(request.POST['status'] == 'todo'):
             kanban.status = 0
@@ -111,12 +119,13 @@ def rewrite_kanban(request, p_pk, s_pk, i_pk):
         {
             'post':project,
             'kanban':kanban,
+            'participants': participants,
         }
     )
 
 def delete_kanban(request, p_pk, s_pk, i_pk):
     project = Project.objects.get(pk=p_pk)  # 프로젝트의 pk값
-    kanban = Kanban.objects.get(team=project, pk=i_pk)
+    kanban = Kanban.objects.get(team=project.team, pk=i_pk)
 
     kanban.delete()
 
