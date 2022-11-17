@@ -5,30 +5,43 @@
             <title>note_write</title>
     </head>
     <body>
-    <form method="post" enctype="multipart/form-data" autocomplete="off">{% csrf_token %}
-        <h4>
-            <input type="date" name="date_start" required/>
-        </h4>
-        <h2>
-            {{post.team}}
-        </h2>
-        <h2>
-            <input type="text" name="title" placeholder="회의 제목" required/>
-            <hr>
-        </h2>
+        <form method="post" enctype="multipart/form-data" autocomplete="off">{% csrf_token %}
+            <table>
+                <tbody>
+                <tr>
+                    <td><input type="date" name="date_start" required/></td>
+                </tr>
+                <tr>
+                   <td><h2>{{post.title}}</h2></td>
+                </tr>
+                <tr>
+                    <td><input type="text" name="title" placeholder="회의 제목" required/></td>
+                </tr>
+                <tr>
+                    <td>
+                      <h3>참여자
+                    {%for p in participants%}
+                    <span>{{p.user.user_name}}</span>
+                    {%endfor%}
+                      </h3>
+                        <hr>
+                    </td>
+                </tr>
 
+                <tr>
+                    <td>
+                        <textarea name="introduce" cols="30"rows="10" required> </textarea>
+                    </td>
+                </tr>
 
-        참여자 <input type="checkbox" name="person" value="1">김진선
-        <input type="checkbox" name="person" value="2">김서영
-        <input type="checkbox" name="person" value="3">김수연
-        <input type="checkbox" name="person" value="4">노윤하
-        <input type="checkbox" name="person" value="5">이우현
-        <br><br>
-
-        <textarea name="introduce" cols="30"rows="10" required> </textarea>
-
-        <button type="reset" onclick="history.go(-1)">취소</button>
-        <button type="submit">전송</button>
+                <tr>
+                    <td colspan="2">
+                        <button type="reset" onclick="history.go(-1)">취소</button>
+                        <button type="submit">전송</button>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
         </form>
     </body>
 </html>
