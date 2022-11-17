@@ -15,5 +15,5 @@ urlpatterns = [
 
     path('<int:p_pk>/meeting_note/', include('team_meetingnote.urls'), name='meetingnote'),#회의록
     path('<int:p_pk>/kanban/', include('team_kanban.urls'), name='kanban'),#칸반
-    path('<int:pk>/log/', include('team_log.urls'), name='log'),#백로그
+    path('<int:p_pk>/log/', include('team_log.urls'), name='log'),#백로그
 ]

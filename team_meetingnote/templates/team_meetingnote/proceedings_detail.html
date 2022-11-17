@@ -13,7 +13,9 @@
 
     <h3>{{ note.date_start }}</h3>
     <h3>Participants
-
+        {%for p in participants%}
+        <span>{{p.user.user_name}}</span>
+        {%endfor%}
     </h3>
     <br>
     <h5>{{ note.introduce|linebreaksbr }}</h5>
