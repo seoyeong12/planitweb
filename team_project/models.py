@@ -1,7 +1,8 @@
+from django.contrib.auth.models import User
 from django.db import models
 
 # Create your models here.
-from user.models import User
+#from user.models import User
 
 
 class Team(models.Model):
@@ -29,4 +30,4 @@ class Participant(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
 
     def __str__(self):
-        return f'[{self.pk}] [{self.team.team_name}] {self.user.user_name}'
+        return f'[{self.pk}] [{self.team.team_name}] {self.user.last_name}{self.user.first_name}'

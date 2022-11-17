@@ -57,7 +57,7 @@
                     <tr>
                         <td colspan="2">
                             {%for p in participants%}
-                            <span class="btn btn-secondary" id="button">{{p.user.user_name}}</span>
+                            <span class="btn btn-secondary" id="button">{{p.user.last_name}}{{p.user.first_name}}</span>
                             {%endfor%}
                         </td>
                     </tr>

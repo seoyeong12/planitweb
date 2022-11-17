@@ -9,8 +9,8 @@ from django.urls import reverse
 def signup(request):
     if request.method == "POST":
         user_name = request.POST['userName']
-        first_name = user_name[0]
-        last_name = user_name[1:]
+        first_name = user_name[1:]
+        last_name = user_name[0]
         new_user = User.objects.create_user(username = request.POST['userId'],
                                             password = request.POST['userPsw'],
                                             email = request.POST['userEmail'],

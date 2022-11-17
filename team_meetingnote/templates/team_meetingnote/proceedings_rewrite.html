@@ -27,7 +27,7 @@
                     <td>
                         <h3>참여자
                     {%for p in participants%}
-                    <span>{{p.user.user_name}}</span>
+                    <span>{{p.user.last_name}}{{p.user.first_name}}</span>
                     {%endfor%}
                         </h3>
                         <hr>

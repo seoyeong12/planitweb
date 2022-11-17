@@ -1,6 +1,7 @@
+from django.contrib.auth.models import User
 from django.shortcuts import render, redirect, resolve_url
 
-from user.models import User
+
 from . import models
 from .models import Project, Team, Participant  # 프로젝트 모델 import
 # Create your views here.

@@ -18,7 +18,7 @@
                         <td class="tf"><h3>{{post.team.team_name}}</h3></td>
                         <td class="tf">
                             {%for p in participants%}
-                                <span>{{p.user.user_name}}</span>
+                                <span>{{p.user.last_name}}{{p.user.first_name}}</span>
                             {%endfor%}
                         </td>
                     </tr>
