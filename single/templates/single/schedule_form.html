@@ -24,8 +24,9 @@
             function goSubmit(){
                 document.editt.target = opener.window.name;
                 document.editt.submit();
-<!--                opener.location.reload();-->
+                opener.document.location.reload();
                 self.close();
+
             }
 
             function checkActive(){
@@ -65,6 +66,16 @@
                 }
                 var day = opener.document.getElementById("date").innerHTML;
                 document.getElementById("date").value = day;
+
+                var sub_btn = document.getElementById('sub_btn');
+                sub_btn.onclick=function(){
+                    document.editt.target= opener.name; //호출하고자하는 부모창의 이름
+                    document.editt.submit(); // 폼 전송
+                    self.close();
+                    //창 닫기
+                }
+
+
             }
         </script>
     </head>
@@ -89,7 +100,7 @@
                 </div>
 
         </form>
-            <button type="submit" onclick="goSubmit()">완료</button>
+            <button type="submit" id="sub_btn" onclick="goSubmit()">저장</button>
             <button id="cancel" onclick="window.close()">닫기</button>
     </body>
 </html>

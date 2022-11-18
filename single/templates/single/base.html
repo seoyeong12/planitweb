@@ -8,7 +8,7 @@
 <link rel="stylesheet" type="text/css" href = "{% static 'single/css/days.css' %}">
 <script src="{% static 'single/js/main.js' %}"></script>
 <script>
-        var b=function(msg) {alert('message test ' + msg);};
+    var b=function(msg) {alert('message test ' + msg);};
 
     document.addEventListener('DOMContentLoaded', function() {
         var calendarEl = document.getElementById('calendar');
@@ -33,19 +33,11 @@
         editable:true,
         selectable:true,
         contentWidth:300,
-        eventAdd:function(obj){
-            console.log(obj);
-<!--            addlist(obj.title,obj.date);-->
-<!--            alert(obj.start);-->
-            //이벤트 추가되면
-        },
-        eventChange:function(obj){
-            console.log(obj);
-            //이벤트 수정
-        },
-        eventRemove:function(obj){
-            console.log(obj);
-        },
+
+
+        events: {{ appointment|safe }},
+
+
         select:function(arg){
             console.log(arg);
 
@@ -88,17 +80,13 @@
                 window.open("/single/create_post","editForm","width=500,height=500,resizable = no, scrollbars =no");
             }
 
-            openChild();
+           openChild();
 
-            calendar.unselect();
-        },
+           calendar.unselect();
+        }
+    });
 
-            var eventData = {{schedule}};
-            if(eventData){
-                calendar.addEvent({{schedule}})
-            };
 
-        });
 
         calendar.render();
     });
@@ -128,7 +116,7 @@
 {% block main_area %}
 {% endblock %}
 <p id="time1" style="visibility: hidden;">start_time</p>
-<p id="time2" style="visibility: hidden;">end_time</p>
+<p id="time2"style="visibility: hidden;" >end_time</p>
 <p id="date" style="visibility: hidden;">날짜 </p>
 </body>
 </html>
