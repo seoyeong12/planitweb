@@ -20,13 +20,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     #path('signup/', include('team_user.urls')),
     path('signin/', include('team_user.urls')),
-    path('team/', include('team_project.urls')),#더 좋은 url 찾는 중
-    #미팅 노트
-    #path('meeting_note/', include('team_meetingnote.urls')),
-    #칸반
-    #path('kanban/', include('team_kanban.urls')),
-    #로그
-    #path('log/', include('team_log.urls')),
+    path('team/', include('team_project.urls')),
     #스케쥴/달력
     path('single/', include('single.urls')),
     #로그인/회원가입

@@ -8,6 +8,7 @@ from django.urls import reverse
 
 
 # Create your views here.
+#회원가입
 def signup(request):
     if request.method == "POST":
         user_name = request.POST['userName']
@@ -19,14 +20,14 @@ def signup(request):
                                             first_name = first_name,
                                             last_name = last_name)
         new_user.save()
-        return HttpResponseRedirect(resolve_url('signup'))
+        return HttpResponseRedirect(resolve_url('signin'))
     else:
         return render(request,
                       'team_user/signup.html',
                       )
 
 
-
+#로그인
 def signin(request):
     if request.COOKIES.get('username') is not None:
         username = request.COOKIES.get('username')
