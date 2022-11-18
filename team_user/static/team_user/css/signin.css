@@ -1,0 +1,52 @@
+body{
+    background-image:url(../img/loginout.png);
+    background-repeat:no-repeat;
+    background-size:cover;
+}
+input{
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+}
+.input{
+    width: 875px;
+    height: 75px;
+    border: 1px solid #DB8F00;
+    font-size: 24px;
+    padding-left: 15px;
+    padding-top: 23px;
+    padding-bottom: 23px;
+    box-sizing: border-box;
+    margin-left: 500px;
+    color:#9F8473;
+}
+.input::placeholder{
+    color:#9F8473;
+}
+#id{
+    background-color: #BCE29E;
+    margin-top: 417px;
+    margin-bottom: 28px;
+}
+#pw{
+    background-color: #E5EBB2;
+}
+#loginbtn{
+    width: 172px;
+    height: 75px;
+    background-color: #E5EBB2;
+    border-radius: 50px;
+    border: 1px solid #DB8F00;
+    font-size: 24px;
+    text-align: center;
+    color: #7B6659;
+    margin-top: 28px;
+    margin-left: 1200px;
+}
+div{
+    margin-top: 51px;
+    margin-left: 1100px;
+}
+a{
+    color: #9F8473;
+    font-size: 24px;
+    font-weight: bold;
+}

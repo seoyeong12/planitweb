@@ -10,6 +10,8 @@ from team_project.models import Project, Participant
 
 def create_note(request, p_pk):
     post = Project.objects.get(pk=p_pk)
+    participants = Participant.objects.filter(team=post.team)
+
     note = models.Note()
 
     if request.method == 'POST':
@@ -24,11 +26,15 @@ def create_note(request, p_pk):
     return render(
         request,
         'team_meetingnote/proceedings_write.html',
+        {
+            'participants':participants,
+        }
     )
 
 def rewrite_note(request,p_pk, i_pk):
     post = Project.objects.get(pk=p_pk)
     note = Note.objects.filter(team=post.team).get(pk=i_pk)
+    participants = Participant.objects.filter(team=post.team)
 
 #변경된 경우
     if request.method == 'POST':
@@ -45,6 +51,7 @@ def rewrite_note(request,p_pk, i_pk):
         request,
         'team_meetingnote/proceedings_rewrite.html',{
                 'note':note,
+                'participants': participants,
             }
         )
 

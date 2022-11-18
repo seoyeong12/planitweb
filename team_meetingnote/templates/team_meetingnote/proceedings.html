@@ -1,10 +1,33 @@
 <!DOCTYPE html>
+{%load static%}
 <html lang="kr">
 <head>
     <meta charset="UTF-8">
     <title>{{post.title}}</title>
+    <link rel="stylesheet" type="text/css" href = "{% static 'team_meetingnote/css/teamproject_intro.css' %}">
 </head>
 <body style="text-align:left;">
+<!--
+<div class='outer-div'>
+            <div class='inner-div'>
+            </div>
+            <div class="divbox" onclick="location.href='../'">
+                <button class="cbtn" id="b1"></button><div class="tbtn" id="tbtn1"><span>{{post.title}}</span></div>
+            </div>
+            <div class="divbox" onclick="location.href='./'">
+                <button class="cbtn" id="b2"></button><div class="tbtn" id="tbtn2"><span>Meeting Notes</span></div>
+            </div>
+            <div class="divbox" onclick="location.href='../kanban'">
+                <button class="cbtn" id="b3"></button><div class="tbtn" id="tbtn3"><span>Kanban</span></div>
+            </div>
+            <div class="divbox"  onclick="location.href='../log'">
+                <button class="cbtn" id="b4"></button><div class="tbtn" id="tbtn4"><span>Log</span></div>
+            </div>
+            <div class="divbox"  onclick="location.href='../../'">
+                <button class="cbtn" id="b5"></button><div class="tbtn"><span>다른 Project 보기</span></div>
+            </div>
+    </div>
+-->
 
 <h1>회의록
     <button id='편집' type='button' value='편집'>편집</button>
@@ -15,9 +38,6 @@
     {% endfor %}
 </ol>
 <span><a onclick="location.href = '{% url 'create_note' post.id %}'"><button>글쓰기 </button></a></span>
-<br><br>
-
-<input type="reset"value="취소">
-<button type="submit">저장</button>
+<input class="button" type="reset" onclick="history.go(-1)" value="뒤로가기" id="cancelbtn">
 </body>
 </html>

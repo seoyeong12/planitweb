@@ -1,10 +1,22 @@
 <!DOCTYPE html>
+{%load static%}
 <html lang="kr">
     <head>
         <meta charset="UTF-8">
         <title>note_write</title>
+        <link rel="stylesheet" type="text/css" href = "{% static 'team_project/css/teamproject_intro.css' %}">
     </head>
     <body>
+    <!--
+        <div class='outer-div'>
+                    <div class='inner-div'>
+                    </div>
+                    <div class="divbox" onclick="location.href='{% url 'create_project' %}'">
+                        <button class="cbtn" id="b1" onclick="btnclick()"></button><div class="tbtn" id="tbtn1" value="글 작성"><span>프로젝트 작성</span></div>
+                    </div>
+        </div>
+        -->
+    <!--이부분 오른쪽으로-->
         <form method="post" enctype="multipart/form-data" autocomplete="off">{% csrf_token %}
             <div>
                 <table>
@@ -30,7 +42,7 @@
                         <td class="tf"><h3>{{team.team_name}}</h3></td>
                         <td class="tf">
                             {%for p in participants%}
-                                <span>{{p.user.user_name}}</span>
+                                <span>{{p.user.last_name}}{{p.user.first_name}}</span>
                             {%endfor%}
                         </td>
                         {%endif%}
@@ -38,10 +50,6 @@
                     <tr>
                         <td class="title">Date</td>
                         <td class="tf"><input name="date_start" type="date" id="start_date" required> - <input name="date_end" type="date" id="end_date" required></td>
-                    </tr>
-                    <tr>
-<!--                        <td class="title">팀원</td>-->
-<!--                        <td><span><a href="userplus.html" >추가</a></span><input type="text"name="person"/><br></td>-->
                     </tr>
                     <tr>
                         <td colspan="2" class="title">내용 작성</td>

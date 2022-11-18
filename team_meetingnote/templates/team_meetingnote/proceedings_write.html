@@ -1,34 +1,55 @@
 <!DOCTYPE html>
+{%load static%}
 <html lang="kr">
     <head>
             <meta charset="UTF-8">
             <title>note_write</title>
+        <link rel="stylesheet" type="text/css" href = "{% static 'team_meetingnote/css/proceedings_write.css' %}">
+        <link rel="stylesheet" type="text/css" href = "{% static 'team_meetingnote/css/teamproject_intro.css' %}">
     </head>
     <body>
-    <form method="post" enctype="multipart/form-data" autocomplete="off">{% csrf_token %}
-        <h4>
-            <input type="date" name="date_start" required/>
-        </h4>
-        <h2>
-            {{post.team}}
-        </h2>
-        <h2>
-            <input type="text" name="title" placeholder="회의 제목" required/>
+<!--
+<div class='outer-div'>
+            <div class='inner-div'>
+            </div>
+            <div class="divbox" onclick="location.href='../../'">
+                <button class="cbtn" id="b1"></button><div class="tbtn" id="tbtn1"><span>{{post.title}}</span></div>
+            </div>
+            <div class="divbox" onclick="location.href='../'">
+                <button class="cbtn" id="b2"></button><div class="tbtn" id="tbtn2"><span>Meeting Notes</span></div>
+            </div>
+            <div class="divbox" onclick="location.href='../../kanban'">
+                <button class="cbtn" id="b3"></button><div class="tbtn" id="tbtn3"><span>Kanban</span></div>
+            </div>
+            <div class="divbox"  onclick="location.href='../../log'">
+                <button class="cbtn" id="b4"></button><div class="tbtn" id="tbtn4"><span>Log</span></div>
+            </div>
+            <div class="divbox"  onclick="location.href='../../../'">
+                <button class="cbtn" id="b5"></button><div class="tbtn"><span>다른 Project 보기</span></div>
+            </div>
+    </div>
+-->
+        <form method="post" enctype="multipart/form-data" autocomplete="off">{% csrf_token %}
+            <div id="buttondiv">
+                <input type="date" name="date_start" required/></div>
+
+            <input class="button" type="reset" onclick="history.go(-1)" value="취소" id="cancelbtn">
+            <input class="button" type="submit" value="저장" id="savebtn">
+
+            <h2>
+            <input type="text" class="text" name="title" placeholder="제목을 입력하세요" required/>
+            </h2>
+
+            <h3>참여자
+                {%for p in participants%}
+                <span id="membericon">{{p.user.last_name}}{{p.user.first_name}}</span>
+                {%endfor%}
+            </h3>
+
             <hr>
-        </h2>
 
+            <textarea name="introduce" cols="110"rows="20" required> </textarea>
 
-        참여자 <input type="checkbox" name="person" value="1">김진선
-        <input type="checkbox" name="person" value="2">김서영
-        <input type="checkbox" name="person" value="3">김수연
-        <input type="checkbox" name="person" value="4">노윤하
-        <input type="checkbox" name="person" value="5">이우현
-        <br><br>
-
-        <textarea name="introduce" cols="30"rows="10" required> </textarea>
-
-        <button type="reset" onclick="history.go(-1)">취소</button>
-        <button type="submit">전송</button>
         </form>
     </body>
 </html>

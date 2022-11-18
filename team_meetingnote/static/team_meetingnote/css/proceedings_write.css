@@ -1,0 +1,107 @@
+body{
+    width: 70%;
+    height: 90%;
+    margin-left: 400px;
+    padding-top: 50px;
+    color: #6B5D54;
+}
+form{
+    width: 70%;
+    height: 90%;
+}
+#buttondiv{
+    display: inline-block;
+    width: 188px;
+    height: 39px;
+    border-radius: 20px;
+    background-color: #FAF0E6;
+    font-size: 18px;
+    color:#6B5D54;
+    text-align: center;
+    margin-left: 13px;
+    margin-bottom: 10px;
+    padding-left: 10px;
+    padding-top: 9px;
+    box-sizing: border-box;
+    filter: drop-shadow(1px 1px 5px #9F8473);
+
+}
+input[type='date']{
+    width: 70%;
+    background-color: #FAF0E6;
+    border: 0px;
+}
+input[type='date']:focus{
+    border:1px solid #6B5D54;
+}
+.button{
+
+    width: 63px;
+    height: 28px;
+    background-color: #FAF0E6;
+    /* margin-right: 80px; */
+    border-radius: 20px;
+    border: 1px solid #E8CBB9;
+    font-size: 13px;
+    color:#6B5D54;
+    filter: drop-shadow(1px 1px 5px #9F8473);
+    margin-right: 25px;
+}
+
+h2{
+    font-size: 20px;
+    font-weight:500;
+}
+input.text{
+    margin-right: 150px;
+    border: none;
+    width: 300px;
+    margin-left: 10px;
+    font-size: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-weight:bold;
+}
+input.text:focus{
+    outline: none;
+}
+h3{
+    font-size: 30px;
+    font-weight:500;
+}
+
+#membericon{
+    display: inline-block;
+    width: 66px;
+    height: 30px;
+    border-radius: 20px;
+    background-color: #FAF0E6;
+    font-size: 15px;
+    color:#6B5D54;
+    text-align: center;
+    margin-left: 13px;
+    margin-bottom: 10px;
+    padding-top: 4px;
+    box-sizing: border-box;
+}
+
+#date{
+    color:#6B5D54;
+}
+hr{
+    background: #E8CBB9;
+    width: 1360px;
+    margin-right: 100px;
+    height:1px;
+    border:0px;
+    margin-top: 20px;
+}
+textarea{
+    border: 1px solid #E8CBB9;
+    margin-top: 10px;
+    font-size: 10;
+}
+textarea:focus{
+    outline: 1px solid #FF8787;
+}
+
