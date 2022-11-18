@@ -1,0 +1,61 @@
+html{
+    font-family: "Roboto", "Noto Sans KR", sans-serif;
+}
+.outer-div {
+    width : 20%;
+    height: 960px;
+    background-color :white;
+    position: absolute;
+    float: left;
+}
+.inner-div {
+    width : 30px;
+    height:100%;
+    background-color: #F4E3CC;
+    position: absolute;
+    margin-left: 90px;
+}
+.cbtn{
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    border: 8px solid #F4E3CC;
+    background-color: #F9EEE4;
+    position: relative;
+    z-index: 1;
+}
+span{
+    color:#FF8787;
+    size: 20px;
+}
+p{
+    position: relative;
+}
+.divbox{
+    margin-top: 120px;
+    margin-left: 80px;
+}
+.tbtn{
+    float:right;
+    margin-right: 100px;
+    margin-top: 10px;
+    border:0px;
+    border-radius: 20px;
+    background-color: #FFFFFF;
+    font-size: large;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    filter: drop-shadow(1px 1px 3px rgba(0, 0, 0, 0.2));
+}
+
+#tbtn1{
+    background-color: #FFDFD6;
+}
+#tbtn3{
+    margin-right: 160px;
+}
+#tbtn4{
+    margin-right: 190px;
+}
