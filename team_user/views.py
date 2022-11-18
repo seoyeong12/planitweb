@@ -1,4 +1,6 @@
 from django.contrib.auth.models import User
+#from django.contrib import auth
+
 from django.http import HttpResponseRedirect
 from django.shortcuts import render, redirect, resolve_url
 from django.contrib.auth import authenticate, login
@@ -32,7 +34,7 @@ def signin(request):
         user = authenticate(request, username=username, password=password)
         if user is not None:
             login(request, user)
-            #return redirect("") #이동 페이지
+            return redirect('single') #이동 페이지
         else:
             return render(request, "team_user/signin.html")
 
@@ -43,17 +45,20 @@ def signin(request):
         if user is not None: #해당되는 유저가 있다면
             login(request, user)
             if request.POST.get("keep_login") == "True":
-                response = redirect('signin')
+                response = render(request, 'single/schedule_form.html')
+                #response = redirect('signin')
                 response.set_cookie('username', username)
                 response.set_cookie('password', password)
                 return response
                 #return HttpResponseRedirect(resolve_url('signin'))
-                # return redirect('userPage')
+                #return redirect('userPage')
+            return redirect('single')
             # return HttpResponseRedirect(resolve_url('kanban')) #로그인 후 페이지
-            else:
-                return render(request,'team_user/signin.html', {'error':'username or password is incorrect'})
-        else: #해당되는 유저가 없다면
-            return render(request, 'team_user/signin.html')
+        #     else:
+        #         return render(request,'team_user/signin.html')
+            #         else: #해당되는 유저가 없다면
+        else:
+            return render(request, 'team_user/signin.html', {'error': 'username or password is incorrect'})
     return render(request, 'team_user/signin.html')
 
 
