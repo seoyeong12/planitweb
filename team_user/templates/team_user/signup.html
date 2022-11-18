@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+{%load static%}
+<html lang="kr">
+<head>
+    <meta charset="UTF-8">
+    <title>sign up</title>
+    <link rel="stylesheet" type="text/css" href = "{%static 'team_user/css/signup.css'%}">
+
+</head>
+
+<body>
+<form method="post" enctype="multipart/form-data" autocomplete="off">{% csrf_token %}
+    <p class="inputp">
+        <span id="id">아이디</span>
+        <span>비밀번호</span>
+    </p>
+
+    <p class="inputp">
+        <input type="text" placeholder="아이디" class="text" name="userId" required autocomplete="off">
+        <input type="password" placeholder="비밀번호" class="text" name="userPsw" autocomplete="off" required>
+    </p>
+
+    <p class="inputp">
+        <span id="name">이름</span>
+    </p>
+
+    <p class="inputp">
+        <input type="text" placeholder="이름" class="text" name="userName" autocomplete="off" required>
+    </p>
+
+    <p class="inputp">
+        <span>이메일</span>
+    </p>
+
+
+    <p class="inputp">
+        <input type="email" placeholder="id@host" class="text" name="userEmail" autocomplete="off" required>
+    </p>
+
+    <button type="submit" class="btn">완료</button>
+</form>
+</body>

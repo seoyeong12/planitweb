@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+{%load static%}
+<html lang="kr">
+<head>
+    <meta charset="UTF-8">
+    <title>login</title>
+    <link rel="stylesheet" type="text/css" href = "{%static 'team_user/css/signin.css'%}">
+
+</head>
+
+    <body>
+        <form method="post" enctype="multipart/form-data" autocomplete="off">{% csrf_token %}
+
+            <input type="text" placeholder="ID" class="input" id="id" name="userId" required>
+            <br>
+            <input type="password" placeholder="Password" class="input" id="pw" name="userPsw" required>
+            <input type="submit" value="Sign in" id="loginbtn" class="btn">
+
+            <div>
+                <a onclick="location.href='{%url 'signup' %}'"> 계정이 아직 없으신가요?</a>
+            </div>
+        </form>
+    </body>
+

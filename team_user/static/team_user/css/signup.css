@@ -1,0 +1,54 @@
+body{
+    background-image:url(../img/signinout.png);
+    background-repeat:no-repeat;
+    background-size:cover;
+}
+form{
+    margin-left: 230px;
+    margin-top: 400px;
+}
+p.inputp{
+    margin-bottom: 40px;
+}
+span{
+    font-size: 24px;
+    text-align: left;
+}
+#id{
+    margin-right: 390px;
+}
+#name{
+    margin-right: 415px;
+}
+input.text{
+    margin-right: 150px;
+    border: none;
+    border-bottom: 1px solid black;
+    width: 300px;
+    background-color: #E5EBB2;
+    margin-left: 20px;
+    font-size: 24px;
+}
+input.text:focus{
+    outline: none;
+}
+.btn{
+    width: 206px;
+    height: 60px;
+    background-color: #FF8787;
+    border-radius: 60px;
+    color: white;
+    font-size: 36px;
+    border: 1px solid #DB8F00;
+    font-weight: bolder;
+    margin-left: 1125px;
+}
+span{
+    font-size: 24px;
+    margin-left: 16px;
+}
+#cb{
+    width: 20px;
+    height: 20px;
+    border: 1px solid black;
+}
