@@ -1,4 +1,6 @@
 from django.contrib.auth.models import User
+#from django.contrib import auth
+
 from django.http import HttpResponseRedirect
 from django.shortcuts import render, redirect, resolve_url
 from django.contrib.auth import authenticate, login
@@ -24,24 +26,44 @@ def signup(request):
                       )
 
 
-"""
+
 def signin(request):
-    if request.method =="POST":
-        username = request.POST["userId"]
-        password = request.POST["userPsw"]
+    if request.COOKIES.get('username') is not None:
+        username = request.COOKIES.get('username')
+        password = request.COOKIES.get('password')
         user = authenticate(request, username=username, password=password)
         if user is not None:
             login(request, user)
-            if request.POST.get("keep_login") =="True":
-                response = redirect('userPage')
+            return redirect('single') #이동 페이지
+        else:
+            return render(request, "team_user/signin.html")
+
+    elif request.method == "POST":
+        username = request.POST["userId"]
+        password = request.POST["userPsw"]
+        user = authenticate(request, username=username, password=password)
+        if user is not None: #해당되는 유저가 있다면
+            login(request, user)
+            if request.POST.get("keep_login") == "True":
+                response = render(request, 'single/schedule_form.html')
+                #response = redirect('signin')
                 response.set_cookie('username', username)
                 response.set_cookie('password', password)
                 return response
+                #return HttpResponseRedirect(resolve_url('signin'))
                 #return redirect('userPage')
+            return redirect('single')
+            # return HttpResponseRedirect(resolve_url('kanban')) #로그인 후 페이지
+        #     else:
+        #         return render(request,'team_user/signin.html')
+            #         else: #해당되는 유저가 없다면
         else:
-            return redirect('index')
+            return render(request, 'team_user/signin.html', {'error': 'username or password is incorrect'})
+    return render(request, 'team_user/signin.html')
+
+
 """
-"""
+참고용
 def userPage(request):
     user = User.objects.get(username=request.COOKIES.get('username'))
     pageContext = {'user':user}
@@ -49,13 +71,14 @@ def userPage(request):
 """
 """
 def signout(request):
-    response = redirect('index')
+    response = render(request, 'signin/user.html')
     response.delete_cookie('username')
     response.delete_cookie('password')
-    logout(request)
+    auth.logout(request)
     return response
 """
 """
+#참고
 def index(request):
     if request.COOKIES.get('username') is not None:
         response = render(request, 'signinApp/index.html')

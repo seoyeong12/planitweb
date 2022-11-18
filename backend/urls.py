@@ -18,6 +18,7 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    #path('signup/', include('team_user.urls')),
     path('signin/', include('team_user.urls')),
     path('team/', include('team_project.urls')),#더 좋은 url 찾는 중
     #미팅 노트
