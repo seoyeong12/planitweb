@@ -4,5 +4,6 @@ from team_user import views
 
 urlpatterns=[
     path('', views.signin, name='signup'),
+    path('', views.signout, name='signup'),
     path('signup/', views.signup, name='view.signup'),
 ]

@@ -1,13 +1,12 @@
 from django.contrib.auth.models import User
-#from django.contrib import auth
-
 from django.http import HttpResponseRedirect
 from django.shortcuts import render, redirect, resolve_url
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 from django.urls import reverse
 
 
 # Create your views here.
+# 회원가입
 def signup(request):
     if request.method == "POST":
         user_name = request.POST['userName']
@@ -26,7 +25,7 @@ def signup(request):
                       )
 
 
-
+#로그인
 def signin(request):
     if request.COOKIES.get('username') is not None:
         username = request.COOKIES.get('username')
@@ -62,6 +61,15 @@ def signin(request):
     return render(request, 'team_user/signin.html')
 
 
+#로그아웃
+def signout(request):
+    #return redirect('single')
+    response = render(request, 'team_user/signin.html')
+    response.delete_cookie('username')
+    response.delete_cookie('password')
+    logout(request)
+    return response
+
 """
 참고용
 def userPage(request):
@@ -69,19 +77,13 @@ def userPage(request):
     pageContext = {'user':user}
     return render(request, 'signup/team_user.html', pageContext)
 """
-"""
-def signout(request):
-    response = render(request, 'signin/user.html')
-    response.delete_cookie('username')
-    response.delete_cookie('password')
-    auth.logout(request)
-    return response
-"""
+
+
 """
 #참고
-def index(request):
+def single(request):
     if request.COOKIES.get('username') is not None:
-        response = render(request, 'signinApp/index.html')
+        response = render(request, 'signin.html')
         response.delete_cookie('username')
         response.delete_cookie('password')
         logout(request)
