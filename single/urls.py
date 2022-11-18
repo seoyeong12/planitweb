@@ -7,5 +7,5 @@ urlpatterns=[
     #캘린더(sigle/calender)
     path('calender/', views.single_cal, name='single'),
     #edit창
-    path('create_post/', views.single_edit),
+    path('create_post/', views.single_edit, name='post'),
 ]

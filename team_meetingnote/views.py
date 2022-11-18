@@ -3,8 +3,6 @@ from django.shortcuts import render, redirect, resolve_url
 from . import models
 from .models import Note
 from team_project.models import Project, Participant
-
-
 # Create your views here.
 
 

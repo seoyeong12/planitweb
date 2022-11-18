@@ -1,21 +1,25 @@
+from datetime import datetime
+
 from django.db import models
+import json
+from django.http import JsonResponse
+from django.shortcuts import get_object_or_404, render
+from django.views import View
+from django import forms
+
+
 # Create your models here.
 class Schedule(models.Model) :
-    SINGLE = 0
-    TEAM = 1
     STATUS = (
-        (SINGLE, 'single'),
-        (TEAM, 'team')
+        ('개인', 'single'),
+        ('팀', 'team')
     )
-    how = models.SmallIntegerField(default=0, choices=STATUS)
-    date = models.DateField()
-    startTime = models.TimeField()
-    dueTime = models.TimeField()
+    how = models.CharField(max_length=10, choices=STATUS, null=True)
+    team = models.ForeignKey('team_project.Team', on_delete=models.SET_NULL, null=True, blank=True, default=None)
+    date = models.DateField(null=True)
+    startTime = models.TimeField(null=True)
+    dueTime = models.TimeField(null=True)
     title = models.CharField(max_length=50, default="")
-    image = models.ImageField(upload_to='profile', null=True)
 
     def __str__(self):
         return f'[{self.pk}] {self.title}'
-
-    def get_absolute_url(self):
-        return f'/single/create_post'

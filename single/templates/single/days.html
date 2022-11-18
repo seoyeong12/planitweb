@@ -7,17 +7,16 @@
         <div class="right">
             <div id="weekid">
                 <span>12/6 - 12/7</span>
-                {% for s in schedules %}
+                {% for s in schedule %}
                 <div>
                     <div class="weekdaybox">
-                        <span id="weekdayid">{{ s.date|date:"D" }}</span><br>
+                        <span id="weekdayid">{{ s.date|date:"m/d  D" }}</span><br>
                         <div id="colorid"></div>
                             <span id="startid">{{ s.startTime }}</span><span> - </span><span id="endid">{{ s.dueTime }}</span>
                             <span id="textid">{{ s.title }}</span>
-                        
                     </div>
                 </div>
-                   {% endfor %}
+                {% endfor %}
             </div>
             <!-- <div id='calendar2'></div> -->
             <!-- <table class="listview">

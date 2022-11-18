@@ -4,12 +4,11 @@
         var calendarEl = document.getElementById('calendar');
         var start;
         var end;
-         var dayStart;
-        var dateStart1;
-        var dateStart2;
-        var yearStart;
-         var str;
-        var arr;
+        var month;
+        var year;
+        var date;
+        var result;
+        var dateS;
 
         var calendar = new FullCalendar.Calendar(calendarEl, {
         initialView: 'timeGridWeek',
@@ -24,83 +23,82 @@
         editable:true,
         selectable:true,
         contentWidth:300,
-        eventAdd:function(obj){
-            console.log(obj);
-<!--            addlist(obj.title,obj.date);-->
-<!--            alert(obj.start);-->
-            //이벤트 추가되면
-        },
-        eventChange:function(obj){
-            console.log(obj);
-            //이벤트 수정
-        },
-        eventRemove:function(obj){
-            console.log(obj);
-        },
+
+
+        events : [
+            {
+                title:"All day",
+                start : "2022-11-15T09:00:00",
+                end: "2022-11-15T10:00:00",
+            }
+        ],
+
+
         select:function(arg){
+            console.log(arg);
 
             function start(){
                 start = arg.start.getHours();
                 String(start);
                 return start;
             }
+
              function end(){
                 end = arg.end.getHours();
                 String(end);
                 return end;
             }
+
             start();
             end();
-            function Odate(){
-                str = arg.start;
-                arr = str.split(" ");
-                return arr;
-            }
-            var r = Odate();
 
-            document.write(r);
             document.getElementById("time1").innerHTML = start;
             document.getElementById("time2").innerHTML = end;
 
-              window.open("/single/create_post","editForm","width=500,height=500,resizable = no, scrollbars =no");
+            function resDate(){
+                dateS = arg.start;
+                year = dateS.getFullYear();
+                String(year);
+                month = dateS.getMonth()+1;
+                String(month);
+                date = dateS.getDate();
+                String(date);
+                result = year+"-"+month+"-"+date;
+                String(result);
+                return result;
+            }
+            resDate();
 
-                if(title){
-                calendar.addEvent({
-                    title:title,
-                    start:arg.start,
-                    end:arg.end,
-                    allDay:arg.allDay
-                })
-                document.getElementById("titletext").textContent=title;
+            document.getElementById("date").innerHTML = result;
 
+            function openChild(){
+                window.name="parentForm";
+                window.open("/single/create_post","editForm","width=500,height=500,resizable = no, scrollbars =no");
             }
 
-            calendar.unselect();
+           openChild();
 
-        },
-
-        eventClick: function(arg) {
-    	  // 있는 일정 클릭시,
-            console.log("#등록된 일정 클릭#");
-            console.log(arg.event);
-             if (confirm('정말 삭제하시겠습니까?')) {
-            arg.event.remove()
-            }
+           calendar.unselect();
         }
-
-        });
-
+    });
         calendar.render();
     });
 
-//<!--    function addlist(title,date){-->
-//<!--        // var yy=date.format("YYYY");-->
-//<!--        //     var mm=date.format("MM");-->
-//<!--        //     var dd=date.format("DD");-->
-//<!--        //     var ss=date.format("dd");-->
-//
-//<!--        document.getElementById("titletext").textContent=title;-->
-//<!--        document.getElementById("start").textContent=date;-->
-//
-//
-//<!--    }-->
+<!--    function addlist(title,date){-->
+<!--        // var yy=date.format("YYYY");-->
+<!--        //     var mm=date.format("MM");-->
+<!--        //     var dd=date.format("DD");-->
+<!--        //     var ss=date.format("dd");-->
+
+<!--        document.getElementById("titletext").textContent=title;-->
+<!--        document.getElementById("start").textContent=date;-->
+
+
+<!--    }-->
+
+</script>
+
+
+
+
+
