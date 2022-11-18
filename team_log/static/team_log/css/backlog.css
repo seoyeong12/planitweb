@@ -1,0 +1,26 @@
+    button[id="check_true"]{
+            display: inline-block;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background-color: #FF8787;
+            margin-right: 10px;
+            outline: 0;
+            border: 0;
+        }
+
+   button[id="check_false"]{
+            display: inline-block;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background-color: #BCE29E;
+            margin-right: 10px;
+            outline: 0;
+            border: 0;
+       }
+
+   span[id="status"]{
+        color: #6B5D54;
+        font-weight: bold;
+   }

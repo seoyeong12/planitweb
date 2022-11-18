@@ -3,27 +3,34 @@
 <html lang="kr">
 <head>
     <meta charset="UTF-8">
-    <script src="{% static 'team_log/js/backlog.js' %}"></script>
     <title>{{post.title}}</title>
+    <link rel="stylesheet" type="text/css" href = "{% static 'team_log/css/backlog.css' %}">
 </head>
 <body>
-    <!-- html 받으면 수정하기 -->
-
     <div class="inner">
         <div class="listBox">
             <div class="addBox">
                     <div id="log" class="addBox_inner">
-                        <input id="todo">
-                        <button id="add-button">+</button>
+                        <form action="{%url 'log' post.id%}" method="post" enctype="multipart/form-data" autocomplete="off" name="input_form">{% csrf_token %}
+                        <input name="input" id="todo">
+                        <button type="submit" name="sub_btn">+</button>
+                        </form>
+
                         <div id="todo-list">
-                        {% for l in log %}
-                        <div id="backlogdiv">
-                            <input id="status" type="checkbox">
-                            <span>
-                                {{ l.title }}
-                            </span>
-                            <button style="visibility: hidden;">삭제</button>
-                        </div>
+                        {% for l in logs %}
+                            <form action="{%url 'update_log' post.id l.pk %}" method="post" enctype="multipart/form-data" autocomplete="off" name="status_form">{% csrf_token %}
+                            <div id="backlogdiv">
+                                    {%if l.status %}
+                                    <button id="check_true" type="submit" name="check_btn" value="True"></button>
+                                    <span id="status">완료</span>
+                                    {%else%}
+                                    <button id="check_false" type="submit" name="check_btn" value="False"></button>
+                                    <span id="status">진행 중</span>
+                                    {%endif%}
+                                    <span>{{ l.title }}</span>
+                                    <button type="submit" name="delete">삭제</button>
+                            </div>
+                            </form>
                         {% endfor %}
                         </div>
                     </div>

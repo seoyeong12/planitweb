@@ -2,7 +2,8 @@ from django.shortcuts import render, redirect, resolve_url
 
 from . import models
 from .models import Note
-from team_project.models import Project
+from team_project.models import Project, Participant
+
 
 # Create your views here.
 
@@ -69,6 +70,7 @@ def index(request, p_pk):
 def detail(request, p_pk, i_pk):
     post = Project.objects.get(pk=p_pk)
     note = Note.objects.filter(team=post.team).get(pk=i_pk)
+    participants = Participant.objects.filter(team=post.team)
 
     return render(
         request,
@@ -76,5 +78,6 @@ def detail(request, p_pk, i_pk):
         {
             'post':post,
             'note':note,
+            'participants':participants,
         }
     )

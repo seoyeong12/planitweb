@@ -12,5 +12,6 @@ class Note(models.Model):
     #user와 team 테이블 생성시 작성
     #participants = models.BooleanField(default=True)
 
+
     def __str__(self):
         return f'[{self.team}] {self.title}'
