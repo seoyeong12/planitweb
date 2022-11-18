@@ -99,7 +99,7 @@
                                 window.close();
                                 ">삭제</button>-->
                                 <button onclick="location.href='{% url 'delete_kanban' post.id kanban.status kanban.id %}';
-
+                                self.close();
                                 ">삭제</button>
                                 <button onclick="window.close();" id="cancelbtn">취소</button>
                             </center>

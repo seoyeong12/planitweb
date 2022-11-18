@@ -1,6 +1,6 @@
+from django.contrib.auth import authenticate, login
 from django.contrib.auth.models import User
 from django.shortcuts import render, redirect, resolve_url
-
 
 from . import models
 from .models import Project, Team, Participant  # 프로젝트 모델 import
@@ -8,6 +8,7 @@ from .models import Project, Team, Participant  # 프로젝트 모델 import
 
 def create_team(request):
     team = models.Team()
+    user = User.objects.get(email=request.user.email)
 
     if request.method == 'POST':
         team.team_name = request.POST['team']
@@ -21,7 +22,7 @@ def create_team(request):
         else:
             participant = models.Participant()
             participant.team = team
-            participant.user = User.objects.get(email=request.POST['user1'])
+            participant.user = user
             participant.save()
 
         try:
@@ -72,7 +73,7 @@ def create_team(request):
             participant.user = User.objects.get(email=request.POST['user5'])
             participant.save()
 
-        return redirect(resolve_url('main'))
+        return redirect(resolve_url('create_project'))
 
     else:
         return render(
@@ -80,14 +81,16 @@ def create_team(request):
             'team_project/userplus.html',
             {
                 'team':team,
+                'author':user,
             }
         )
 
 def create_project(request):
+    user = User.objects.get(username=request.user.username)
     team = Team.objects.latest('pk') #가장 최근 값
-    #prev_project = Project.objects.get(team=team.pk)#가장 최근 값에 해당하는 프로젝트
     project = models.Project()
     participants = Participant.objects.filter(team=team)
+    t_participants = Participant.objects.filter(project=None)
 
     try:
         prev_project = Project.objects.get(team=team) #최근 값에 해당하는 프로젝트가 없는 경우
@@ -98,8 +101,13 @@ def create_project(request):
             project.date_start = request.POST['date_start']
             project.date_end = request.POST['date_end']
             project.introduce = request.POST['introduce']
+            project.author = user
 
             project.save()
+
+            for p in t_participants:
+                p.project = project
+                p.save()
             return redirect(resolve_url('main'))
         else:
             return render(
@@ -126,7 +134,8 @@ def create_project(request):
         )
 
 def index(request):
-    posts = Project.objects.all().order_by('-pk')#프로젝트 모델의 레코드 최신순으로 정렬
+    user = User.objects.get(username=request.user.username)
+    posts = Participant.objects.filter(user=user).order_by('-pk') #프로젝트 모델의 레코드 최신순으로 정렬
 
     return render(
         request,
@@ -144,7 +153,7 @@ def detail(request, p_pk):
         'team_project/teamproject_intro.html',
         {
             'post': post,  # 가져온 레코드 리턴
-            'participants' : participants,
+            'participants': participants,
         }
     )
 
@@ -178,8 +187,4 @@ def rewrite_project(request, p_pk):
                          'post':post,
                          'participants': participants,
                      })
-
-
-
-
 
