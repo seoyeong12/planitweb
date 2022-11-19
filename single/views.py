@@ -1,7 +1,7 @@
 from datetime import datetime
 
 from django.http import JsonResponse, HttpResponse
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from .models import Schedule
 import json
 from team_project.models import Team
@@ -10,6 +10,7 @@ from team_project.models import Team
 
 def single_day(request):
     schedule = Schedule.objects.all()
+    teams = Team.objects.all()
     event_arr = []
     for i in schedule:
         event_sub_arr = {}
@@ -28,10 +29,10 @@ def single_day(request):
     print(data, type(data))
     print(datatest, type(datatest))
     # return HttpResponse(json.dumps(event_arr))
-
     context = {
         "schedule": schedule,
-        "appointment": datatest
+        "appointment": datatest,
+        "teams": teams,
     }
 
     return render(request, "single/days.html", context)
@@ -54,9 +55,10 @@ def single_cal(request):
     print(data, type(data))
     print(datatest, type(datatest))
     # return HttpResponse(json.dumps(event_arr))
+
+
     context = {
         "appointment": datatest
-
     }
 
     return render(request, "single/calender.html", context)
@@ -77,7 +79,7 @@ def single_edit(request):
             if request.POST['teamSelect']:
                 post.team = Team(request.POST['teamSelect'])
         post.save()
-        return redirect('post')
+        return redirect('single')
     else:
         return render(
             request,
@@ -87,4 +89,36 @@ def single_edit(request):
                 'teams': teams
             }
         )
+def single_modify(request, pk):
+    posts = Schedule.objects.get(pk=pk)
+    allteam = Team.objects.all()
 
+    if request.method == 'POST':
+        posts.title = request.POST['title']
+        posts.startTime = datetime.strptime(request.POST['time1'], '%H:%M').time()
+        posts.dueTime = datetime.strptime(request.POST['time2'], '%H:%M').time()
+        posts.date = datetime.strptime(request.POST['date'], '%Y-%m-%d')
+        if request.POST['team'] == '개인':
+            posts.team = None
+            posts.how = '개인'
+        else:
+            posts.how = '팀'
+            if request.POST['teamSelect']:
+                posts.team = Team(request.POST.get('teamSelect'))
+        posts.save()
+        return redirect('single')
+    else:
+        return render(
+            request,
+            'single/modify_post.html',
+            {
+                'posts_modi': posts,
+                'allteam': allteam,
+            }
+        )
+
+
+def single_delete(request, pk):
+    posts = Schedule.objects.get(pk=pk)
+    posts.delete()
+    return redirect('single')

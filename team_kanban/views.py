@@ -107,7 +107,6 @@ def rewrite_kanban(request, p_pk, s_pk, i_pk):
         kanban.introduce = request.POST['introduce']
 
         kanban.save()
-
         return redirect(
             resolve_url('kanban', p_pk)
         )

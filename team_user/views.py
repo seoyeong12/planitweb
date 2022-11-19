@@ -51,7 +51,7 @@ def signin(request):
                 return response
                 #return HttpResponseRedirect(resolve_url('signin'))
                 #return redirect('userPage')
-            return redirect('../team')
+            return redirect('single/days.html')
             # return HttpResponseRedirect(resolve_url('kanban')) #로그인 후 페이지
         #     else:
         #         return render(request,'team_user/signin.html')
