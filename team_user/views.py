@@ -33,7 +33,7 @@ def signin(request):
         user = authenticate(request, username=username, password=password)
         if user is not None:
             login(request, user)
-            return redirect('single') #이동 페이지
+            return redirect('../team') #이동 페이지
         else:
             return render(request, "team_user/signin.html")
 

@@ -18,8 +18,8 @@
                 <button class="cbtn" id="b1" onclick="btnclick()"></button><div class="tbtn" id="tbtn1" value="프로젝트 생성"><span>프로젝트 생성</span></div>
             </div>
             {% for p in posts %}
-            <div class="divbox" onclick="location.href='{% url 'project_detail' p.id %}'">
-                <button class="cbtn" id="b1" onclick="btnclick()"></button><div class="tbtn"><span>{{ p.title }}</span></div>
+            <div class="divbox" onclick="location.href='{% url 'project_detail' p.project.pk %}'">
+                <button class="cbtn" id="b1" onclick="btnclick()"></button><div class="tbtn"><span>{{ p.project.title }}</span></div>
             </div>
             {% endfor %}
 </div>

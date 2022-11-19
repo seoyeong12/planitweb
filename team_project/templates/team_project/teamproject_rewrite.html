@@ -4,13 +4,14 @@
     <head>
         <meta charset="UTF-8">
         <title>note_write</title>
-        <link rel="stylesheet" type="text/css" href = "{% static 'team_project/css/teamproject_intro.css' %}">
+            <link rel="stylesheet" type="text/css" href = "{% static 'team_project/css/teamproject_intro.css' %}">
+
     </head>
     <body>
-    <!--<div class='outer-div'>
+    <div class='outer-div'>
             <div class='inner-div'>
             </div>
-            <div class="divbox">
+            <div class="divbox" onclick="location.href='../'">
                 <button class="cbtn" id="b1"></button><div class="tbtn" id="tbtn1"><span>{{post.title}}</span></div>
             </div>
             <div class="divbox" onclick="location.href='./meeting_note'">
@@ -22,10 +23,10 @@
             <div class="divbox"  onclick="location.href='./log'">
                 <button class="cbtn" id="b4"></button><div class="tbtn" id="tbtn4"><span>Log</span></div>
             </div>
-            <div class="divbox"  onclick="ChangeFrame('./meeting.html')">
-                <button class="cbtn" id="b5"></button><div class="tbtn"><span>Meeting Times</span></div>
+            <div class="divbox"  onclick="location.href='../../'">
+                <button class="cbtn" id="b5"></button><div class="tbtn"><span>다른 Project 보기</span></div>
             </div>
-    </div>-->
+    </div>
 
         <!--이부분 오른쪽으로-->
         <form method="post" enctype="multipart/form-data" autocomplete="off">{% csrf_token %}

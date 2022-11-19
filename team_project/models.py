@@ -18,6 +18,7 @@ class Project(models.Model):
     date_start = models.DateField()
     date_end = models.DateField()
     introduce = models.TextField()
+    author = models.ForeignKey(User, on_delete=models.CASCADE)
 
     def __str__(self):
         return f'[{self.pk}] {self.title}'
@@ -28,6 +29,7 @@ class Project(models.Model):
 class Participant(models.Model):
     team = models.ForeignKey(Team, on_delete=models.CASCADE)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
+    project = models.ForeignKey(Project, on_delete=models.CASCADE, null=True)
 
     def __str__(self):
-        return f'[{self.pk}] [{self.team.team_name}] {self.user.last_name}{self.user.first_name}'
+        return f'[{self.pk}] [{self.team.team_name}] {self.user.username}'

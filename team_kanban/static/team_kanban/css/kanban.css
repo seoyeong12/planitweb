@@ -1,12 +1,10 @@
-    body{
-        margin-left: 500px;
-    }
     #div1,#div2{
         margin-right: 50px;
     }
     .kanban-board {
         margin-top: 82px;
         margin-right: 90.71px;
+        margin-left: 600px;
         display: flex;
     }
 
