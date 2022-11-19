@@ -8,8 +8,6 @@ urlpatterns=[
     path('calender/', views.single_cal, name='calendar'),
     #edit창
     path('create_post/', views.single_edit, name='post'),
-    #상세 페이지
-    path('detail_post/<int:pk>/', views.single_detail, name='detail'),
     #수정페이지
     path('modify_post/<int:pk>/',views.single_modify, name='modify'),
     #삭제페이지

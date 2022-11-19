@@ -89,16 +89,6 @@ def single_edit(request):
                 'teams': teams
             }
         )
-def single_detail(request, pk):
-    posts = Schedule.objects.get(pk=pk)
-    allteam = Team.objects.all()
-
-    return render(request, 'single/detail_post.html',
-                  {
-                      'posts': posts,
-                      'allteam': allteam
-                  })
-
 def single_modify(request, pk):
     posts = Schedule.objects.get(pk=pk)
     allteam = Team.objects.all()
