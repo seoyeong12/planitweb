@@ -2,7 +2,9 @@ from django.contrib.auth.models import User
 from django.http import HttpResponseRedirect
 from django.shortcuts import render, redirect, resolve_url
 from django.contrib.auth import authenticate, login, logout
+
 from django.urls import reverse
+from django.views.generic import RedirectView
 
 
 # Create your views here.
@@ -59,10 +61,6 @@ def signin(request):
                 #return HttpResponseRedirect(resolve_url('signin'))
                 #return redirect('userPage')
             return redirect('../../single')
-            # return HttpResponseRedirect(resolve_url('kanban')) #로그인 후 페이지
-        #     else:
-        #         return render(request,'team_user/signin.html')
-            #         else: #해당되는 유저가 없다면
         else:
             return render(request, 'team_user/signin.html', {'error': 'username or password is incorrect'})
     return render(request, 'team_user/signin.html')

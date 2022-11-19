@@ -9,8 +9,8 @@
 </head>
 
     <body>
-        <form method="post" enctype="multipart/form-data" autocomplete="off">{% csrf_token %}
-
+        <form method="post" enctype="multipart/form-data" autocomplete="off">
+            {% csrf_token %}
             <input type="text" placeholder="ID" class="input" id="id" name="userId" required>
             <br>
             <input type="password" placeholder="Password" class="input" id="pw" name="userPsw" required>
