@@ -5,9 +5,10 @@
     <meta charset="UTF-8">
     <title>{{post.title}}</title>
     <link rel="stylesheet" type="text/css" href = "{% static 'team_meetingnote/css/teamproject_intro.css' %}">
+    <link rel="stylesheet" type="text/css" href = "{% static 'team_meetingnote/css/test.css' %}">
 </head>
 <body style="text-align:left;">
-<!--
+
 <div class='outer-div'>
             <div class='inner-div'>
             </div>
@@ -24,20 +25,20 @@
                 <button class="cbtn" id="b4"></button><div class="tbtn" id="tbtn4"><span>Log</span></div>
             </div>
             <div class="divbox"  onclick="location.href='../../'">
-                <button class="cbtn" id="b5"></button><div class="tbtn"><span>다른 Project 보기</span></div>
+                <button class="cbtn" id="b5"></button><div class="tbtn" id="tbtn5"><span>다른 Project 보기</span></div>
             </div>
     </div>
--->
 
-<h1>회의록
-    <button id='편집' type='button' value='편집'>편집</button>
-</h1>
-<ol>
-    {% for n in notes %}
-    <li onclick="location.href = '{% url 'detail' post.id n.id %}'">{{n.date_start}} / {{n.title}} / {{n.id}}</li>
-    {% endfor %}
-</ol>
-<span><a onclick="location.href = '{% url 'create_note' post.id %}'"><button>글쓰기 </button></a></span>
-<input class="button" type="reset" onclick="history.go(-1)" value="뒤로가기" id="cancelbtn">
+    <div class="mn">
+        <h1>회의록
+        </h1>
+        <ol>
+            {% for n in notes %}
+            <li onclick="location.href = '{% url 'detail' post.id n.id %}'">{{n.date_start}} / {{n.title}} / {{n.id}}</li>
+            {% endfor %}
+        </ol>
+        <span><a onclick="location.href = '{% url 'create_note' post.id %}'"><button>글쓰기 </button></a></span>
+        <input class="button" type="reset" onclick="history.go(-1)" value="뒤로가기" id="cancelbtn">
+    </div>
 </body>
 </html>

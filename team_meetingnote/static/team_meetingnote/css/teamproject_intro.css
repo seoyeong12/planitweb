@@ -2,11 +2,10 @@ html{
     font-family: "Roboto", "Noto Sans KR", sans-serif;
 }
 .outer-div {
-    width : 20%;
-    height: 960px;
+    width : 380px;
+    height: 2000px;
     background-color :white;
     position: absolute;
-    float: left;
 }
 .inner-div {
     width : 30px;
@@ -34,6 +33,7 @@ p{
 .divbox{
     margin-top: 120px;
     margin-left: 80px;
+    position:static;
 }
 .tbtn{
     float:right;
@@ -59,3 +59,7 @@ p{
 #tbtn4{
     margin-right: 190px;
 }
+#tbtn5{
+    margin-right: 80px;
+}
+

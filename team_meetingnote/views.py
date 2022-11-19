@@ -25,6 +25,7 @@ def create_note(request, p_pk):
         request,
         'team_meetingnote/proceedings_write.html',
         {
+            'post':post,
             'participants':participants,
         }
     )
@@ -50,6 +51,7 @@ def rewrite_note(request,p_pk, i_pk):
         'team_meetingnote/proceedings_rewrite.html',{
                 'note':note,
                 'participants': participants,
+                'post':post
             }
         )
 
