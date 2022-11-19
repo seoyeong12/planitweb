@@ -1,5 +1,6 @@
 from datetime import datetime
 
+from django.contrib.auth.models import User
 from django.http import JsonResponse, HttpResponse
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import Schedule
@@ -9,7 +10,8 @@ from team_project.models import Team
 # Create your views here.
 
 def single_day(request):
-    schedule = Schedule.objects.all()
+    user = User.objects.get(username=request.user.username)
+    schedule = Schedule.objects.filter(user=user)
     teams = Team.objects.all()
     event_arr = []
     for i in schedule:
@@ -33,13 +35,15 @@ def single_day(request):
         "schedule": schedule,
         "appointment": datatest,
         "teams": teams,
+        "user": user,
     }
 
     return render(request, "single/days.html", context)
 
 
 def single_cal(request):
-    all_events = Schedule.objects.all()
+    user = User.objects.get(username=request.user.username)
+    all_events = Schedule.objects.filter(user=user)
     event_arr = []
     for i in all_events:
         event_sub_arr = {}
@@ -66,8 +70,11 @@ def single_cal(request):
 def single_edit(request):
     posts = Schedule.objects.all()
     teams = Team.objects.all()
+
     if request.method == 'POST':
         post = Schedule()
+        user = User.objects.get(username=request.user.username)
+        post.user = user
         post.title = request.POST.get('title')
         post.startTime = datetime.strptime(request.POST['time1'], '%H:%M').time()
         post.dueTime = datetime.strptime(request.POST.get('time2'), '%H:%M').time()

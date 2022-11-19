@@ -1,6 +1,9 @@
+
 {% extends 'single/base.html' %}
 {% load static %}
 {% block main_area %}
+{% if user.is_authenticated %}
+{% if user.user == schedules.user %}
     <div class="div">
         <div class="left">
             <div id='calendar'></div>
@@ -24,4 +27,8 @@
             </div>
         </div>
     </div>
+{% endif %}
+{% else %}
+<p>로그인 후 접속해 주세요</p>
+{% endif %}
 {% endblock %}

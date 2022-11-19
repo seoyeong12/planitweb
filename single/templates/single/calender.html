@@ -40,9 +40,14 @@
 {% include 'single/nav.html' %}
 {% block nav_area %}
 {% endblock %}
+{% if user.is_authenticated %}
+{% if user.user == schedules.user %}
 
                 <div id='calendar'></div>
 
-
+{% endif %}
+{% else %}
+<p>로그인 후 접속해 주세요</p>
+{% endif %}
 </body>
 </html>

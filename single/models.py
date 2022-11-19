@@ -1,11 +1,8 @@
 from datetime import datetime
 
 from django.db import models
-import json
-from django.http import JsonResponse
-from django.shortcuts import get_object_or_404, render
-from django.views import View
-from django import forms
+from django.contrib.auth.models import User
+
 
 
 # Create your models here.
@@ -14,6 +11,7 @@ class Schedule(models.Model) :
         ('개인', 'single'),
         ('팀', 'team')
     )
+    user = models.ForeignKey(User, default=0, on_delete=models.CASCADE)
     how = models.CharField(max_length=10, choices=STATUS, null=True)
     team = models.ForeignKey('team_project.Team', on_delete=models.SET_NULL, null=True, blank=True, default=None)
     date = models.DateField(null=True)
