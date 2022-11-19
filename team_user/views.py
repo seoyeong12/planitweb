@@ -33,7 +33,7 @@ def signin(request):
         user = authenticate(request, username=username, password=password)
         if user is not None:
             login(request, user)
-            return redirect('../team') #이동 페이지
+            return redirect('../single') #이동 페이지
         else:
             return render(request, "team_user/signin.html")
 
@@ -51,7 +51,7 @@ def signin(request):
                 return response
                 #return HttpResponseRedirect(resolve_url('signin'))
                 #return redirect('userPage')
-            return redirect('../team')
+            return redirect('../single')
             # return HttpResponseRedirect(resolve_url('kanban')) #로그인 후 페이지
         #     else:
         #         return render(request,'team_user/signin.html')
