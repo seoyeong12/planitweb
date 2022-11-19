@@ -5,6 +5,7 @@
         <meta charset="UTF-8">
         <title>note_write</title>
             <link rel="stylesheet" type="text/css" href = "{% static 'team_project/css/teamproject_intro.css' %}">
+            <link rel="stylesheet" type="text/css" href = "{% static 'team_project/css/teamproject_rewrite.css' %}">
 
     </head>
     <body>
@@ -28,45 +29,27 @@
             </div>
     </div>
 
-        <!--이부분 오른쪽으로-->
-        <form method="post" enctype="multipart/form-data" autocomplete="off">{% csrf_token %}
-            <div>
-                <table>
-                    <tbody>
-                    <tr>
-                        <td class="title">Title</td>
-                        <td class="tf"><input name="title" type="text" id="text" value="{{post.title}}" required></td>
-                    </tr>
-                    <tr>
-                        <td class="title">Team</td>
-                        <td class="tf"><h3>{{post.team.team_name}}</h3></td>
-                        <td class="tf">
-                            {%for p in participants%}
-                                <span>{{p.user.last_name}}{{p.user.first_name}}</span>
-                            {%endfor%}
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="title">Date</td>
-                        <td class="tf"><input name="date_start" type="date" id="start_date" value="{{ post.date_start | date:'Y-m-d'}}" required> - <input name="date_end" type="date" id="end_date" value="{{ post.date_start | date:'Y-m-d'}}" required></td>
-                    </tr>
-                    <tr>
-                        <td colspan="2" class="title">내용 작성</td>
-                    </tr>
-                    <tr>
-                        <td colspan="2"><textarea cols="30"rows="10" name="introduce" required>{{post.introduce}}</textarea></td>
-                    </tr>
-                    <tr>
-                        <td colspan="2">
-                            <center>
-                                <button type="submit">저장</button>
-                                <button onclick="history.go(-1)">취소</button>
-                            </center>
-                        </td>
-                    </tr>
-                    </tbody>
-                </table>
-            </div>
-        </form>
+    <form method="post" enctype="multipart/form-data" autocomplete="off">{% csrf_token %}
+    <h1><input name="title" id="pjnwrite" type="text" id="text" value="{{post.title}}" required></h1>
+
+        <text id="st">시작</text>
+        <input name="date_start" type="date" id="fdate" value="{{ post.date_start | date:'Y-m-d'}}" required>
+        <text id="la">마감</text>
+        <input name="date_end" type="date" id="ldate" value="{{ post.date_start | date:'Y-m-d'}}" required><br>
+
+        <text id="to">팀원</text>
+        <text id="tpeople">{%for p in participants%}
+                                <span>{{p.user.last_name}}{{p.user.first_name}} </span>
+                            {%endfor%}</text>
+        <text id="repeo">팀원을 수정하세요.</text>
+
+        <div class="tabox">
+            <textarea id="ta" cols="30"rows="10" name="introduce" required>{{post.introduce}}</textarea>
+        </div>
+
+        <button id="chiso" onclick="history.go(-1)">취소</button>
+        <button id='jeojang' type="submit">저장</button>
+
+    </form>
     </body>
 </html>

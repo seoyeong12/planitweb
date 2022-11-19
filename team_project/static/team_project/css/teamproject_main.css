@@ -1,0 +1,149 @@
+#main{
+    position: absolute;
+    width: 1024px;
+    height: 750px;
+    left: 346px;
+    top: 120px;
+    margin-left: 300px;
+    border-radius: 30px;
+    background: #E5EBB2;
+}
+
+#pjname{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 800;
+    font-size: 42px;
+    line-height: 51px;
+    color: #DB8F00;
+
+    position: absolute;
+    width: 360px;
+    height: 44px;
+    left: 33px;
+    top: 27px;
+    text-align: left;
+}
+
+#img1{
+    position:absolute;
+    width: 35px;
+    height: 35px;
+    left: -14px;
+    top: 85px;
+
+    background-color: #E5EBB2;
+}
+
+#date{
+    position: absolute;
+    height: 32px;
+    left: 90px;
+    top: 100px;
+    
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 27px;
+    line-height: 33px;
+    
+    color: #000000;
+}
+
+#img2{
+    position:absolute;
+    width: 35px;
+    height: 35px;
+    left: -14px;
+    top: 135px;
+}
+
+#teamone{
+    position: absolute;
+    width: 444px;
+    height: 33px;
+    left: 86px;
+    top: 150px;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 27px;
+    line-height: 33px;
+    
+    color: #000000;
+}
+
+div.tbox{
+    border-radius: 30px;
+    position: absolute;
+        width: 950px;
+        height: 485px;
+        left: 35px;
+        top: 200px;
+        
+        background: #FFFFFF;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+#pjmemo{
+    position: absolute;
+width: 848px;
+height: 389px;
+left: 34px;
+top: 30px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 600;
+font-size: 25px;
+line-height: 30px;
+
+color: #000000;
+
+}
+
+#again{
+    position: absolute;
+    width: 59.8px;
+    height: 41px;
+    left: 860px;
+    top: 700px;
+
+    background: #FF8787;
+    border-radius: 20px;
+    border:0;
+    outline: none;
+
+    text-align:center;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 24px;
+
+    color: #000000;
+
+}
+#delete{
+    position: absolute;
+    width: 59.8px;
+    height: 41px;
+    left: 940px;
+    top: 700px;
+
+    background: #BCE29E;
+    border-radius: 20px;
+    border:0;
+    outline: none;
+
+    text-align:center;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 24px;
+
+    color: #000000;
+
+}

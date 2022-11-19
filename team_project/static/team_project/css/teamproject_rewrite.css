@@ -1,0 +1,231 @@
+form{
+    position: absolute;
+    width: 1024px;
+    height: 750px;
+    left: 346px;
+    top: 120px;
+    margin-left: 300px;
+    background: #E5EBB2;
+    border-radius: 30px;
+}
+
+#pjnwrite{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 800;
+    font-size: 34px;
+    line-height: 50px;
+    color: #DB8F00;
+
+    position: absolute;
+    width: 360px;
+    height: 44px;
+    left: 33px;
+    top: 27px;
+    text-align: center;
+
+    border-radius: 30px;
+    border:0;
+}
+
+#chiso{
+    position: absolute;
+    width: 59.8px;
+    height: 41px;
+    left: 940px;
+    top: 700px;
+    
+    background: #BCE29E;
+    border-radius: 20px;
+    border:0;
+    outline: none;
+    
+    text-align:center;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 24px;
+    
+    color: #000000;
+
+}
+
+#jeojang{
+    position: absolute;
+    width: 59.8px;
+    height: 41px;
+    left: 860px;
+    top: 700px;
+    
+    background: #FF8787;
+    border-radius: 20px;
+    border:0;
+    outline: none;
+    
+    text-align:center;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 24px;
+    
+    color: #000000;
+
+}
+
+#st{
+    position:absolute;
+    width: 60px;
+    height: 35px;
+    left: 35px;
+    top: 85px;
+    
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 27px;
+    line-height: 33px;
+    
+    color: #000000;
+}
+
+#fdate{
+    position:absolute;
+    width: 120px;
+    height: 32px;
+    left: 120px;
+    top: 88px;
+
+    font-size: 15px;
+    padding-right: 5px;
+
+    text-align: center;
+    border:0;
+    border-radius: 15px;
+    background-color:#BCE29E;
+}
+
+#la{
+    position:absolute;
+    width: 60px;
+    height: 35px;
+    left: 300px;
+    top: 85px;
+    
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 27px;
+    line-height: 33px;
+    
+    color: #000000;
+}
+
+#ldate{
+    position: absolute;
+    width: 120px;
+    height: 32px;
+    left: 385px;
+    top: 88px;
+
+    font-size: 15px;
+    padding-right: 5px;
+    text-align: center;
+
+    border:0;
+    border-radius: 15px;
+    background-color:#BCE29E;
+}
+
+#to{
+    position:absolute;
+    width: 60px;
+    height: 35px;
+    left: 35px;
+    top: 130px;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 27px;
+    line-height: 33px;
+    
+    color: #000000;
+}
+
+#tperson{
+    position:absolute;
+    width: 120px;
+    height: 32px;
+    left: 120px;
+    top: 130px;
+
+    color:#DB8F00;
+
+    font-size: large;
+    font-weight: bold;
+    border-radius: 50px;
+    border: 1px solid #DB8F00;
+}
+
+#tpeople{
+    position:absolute;
+    width: 830px;
+    height: 32px;
+    left: 120px;
+    top: 130px;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 25px;
+    line-height: 33px;
+    
+    color: #000000;
+}
+
+#repeo{
+position:absolute;
+    width: 830px;
+    height: 32px;
+    left: 38px;
+    top: 170px;
+
+    font-family: 'Inter';
+    font-style:thin;
+    font-weight: 600;
+    font-size: 12px;
+    
+    color:darkgray;
+}
+
+div.tabox{
+    border-radius: 30px;
+    position: absolute;
+        width: 950px;
+        height: 485px;
+        left: 35px;
+        top: 200px;
+
+        background: #FFFFFF;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+#ta{
+    position: absolute;
+width: 830px;
+height: 435px;
+left: 32px;
+top: 25px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 600;
+font-size: 25px;
+line-height: 30px;
+
+border:0;
+color: #000000;
+
+}

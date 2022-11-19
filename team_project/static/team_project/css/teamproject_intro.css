@@ -22,7 +22,6 @@ html{
     background-color: #F9EEE4;
     position: relative;
     z-index: 1;
-    box-shadow: inset 1px 2px 1px 2px rgba(179, 132, 103, 0.22);
 }
 span{
     color:#FF8787;
@@ -63,3 +62,4 @@ p{
 #tbtn5{
     margin-right: 80px;
 }
+

@@ -5,6 +5,7 @@
         <meta charset="UTF-8">
         <title>note_write</title>
             <link rel="stylesheet" type="text/css" href = "{% static 'team_project/css/teamproject_intro.css' %}">
+            <link rel="stylesheet" type="text/css" href = "{% static 'team_project/css/teamproject_write.css' %}">
 
     </head>
     <body>
@@ -16,59 +17,32 @@
                         <button class="cbtn" id="b1" onclick="btnclick()"></button><div class="tbtn" id="tbtn1" value="글 작성"><span>프로젝트 작성</span></div>
                     </div>
         </div>
-
-    <!--이부분 오른쪽으로-->
         <form method="post" enctype="multipart/form-data" autocomplete="off">{% csrf_token %}
-            <div>
-                <table>
-                    <tbody>
-                    {%if prev_project == 0%}
-                    <tr>
-                        <td class="title">Title</td>
-                        <td class="tf"><input name="title" type="text" id="text" value="팀을 먼저 생성해주세요!" readonly></td>
-                        <input type="button"value="공유하기"><br>
-                    </tr>
-                    <tr>
-                        <td class="title">Team</td>
-                        <td class="tf"><h3></h3></td>
-                        <td class="tf"><button onclick="location.href='{% url 'create_team' %}'">팀 생성</button></td>
-                        {%else%}
-                        <tr>
-                        <td class="title">Title</td>
-                        <td class="tf"><input name="title" type="text" id="text" value="프로젝트 이름을 작성하세요!" required></td>
-                        <input type="button"value="공유하기"><br>
-                    </tr>
-                    <tr>
-                        <td class="title">Team</td>
-                        <td class="tf"><h3>{{team.team_name}}</h3></td>
-                        <td class="tf">
-                            {%for p in participants%}
-                                <span>{{p.user.last_name}}{{p.user.first_name}}</span>
-                            {%endfor%}
-                        </td>
-                        {%endif%}
-                    </tr>
-                    <tr>
-                        <td class="title">Date</td>
-                        <td class="tf"><input name="date_start" type="date" id="start_date" required> - <input name="date_end" type="date" id="end_date" required></td>
-                    </tr>
-                    <tr>
-                        <td colspan="2" class="title">내용 작성</td>
-                    </tr>
-                    <tr>
-                        <td colspan="2"><textarea cols="30"rows="10" name="introduce" required></textarea></td>
-                    </tr>
-                    <tr>
-                        <td colspan="2">
-                            <center>
-                                <button type="submit">저장</button>
-                                <button onclick="history.go(-1)">취소</button>
-                            </center>
-                        </td>
-                    </tr>
-                    </tbody>
-                </table>
-            </div>
+        {%if prev_project == 0%}
+        <input id="pjnwrite" name="title" type="text" id="text" value="팀을 먼저 생성해주세요!" readonly/>
+
+        <text id="st">시작</text><input name="date_start" type="date" id="fdate" readonly>
+        <text id="la">마감</text><input name="date_end" type="date" id="ldate" readonly><br>
+
+        <text id="to">팀원</text><input id="tperson" value="+" type="button" onclick="location.href='{% url 'create_team' %}'">
+        <text id="plus">팀원을 추가하세요.</text>
+        {%else%}
+        <input id="pjnwrite" name="title" type="text" id="text" value="팀을 먼저 생성해주세요!" required/>
+
+        <text id="st">시작</text><input name="date_start" type="date" id="fdate" required>
+        <text id="la">마감</text><input name="date_end" type="date" id="ldate" required><br>
+
+        <text id="to">팀원</text>
+        <text id="tpeople">{%for p in participants%}
+                                <span>{{p.user.last_name}}{{p.user.first_name}} </span>
+                            {%endfor%}</text>
+        {%endif%}
+
+        <div class="tabox">
+            <textarea placeholder="내용을 입력하세요." id="ta" cols="30"rows="10" name="introduce" required></textarea>
+        </div>
+        <button id="chiso" onclick="history.go(-1)">취소</button>
+        <button id='jeojang' type="submit">저장</button>
         </form>
     </body>
 </html>

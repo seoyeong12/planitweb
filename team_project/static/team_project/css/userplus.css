@@ -1,0 +1,248 @@
+html{
+	background-color:#E5EBB2;
+}
+
+#teamname{
+	position:absolute;
+	width: 533px;
+	height: 60px;
+	left: 474px;
+	top: 150px;
+	margin-left: 200px;
+	font-family: 'Inter';
+	font-style: normal;
+	font-weight: 500;
+	font-size: 30px;
+	line-height: 36px;
+
+	text-align:center;
+	background: #FFFFFF;
+	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+	border-radius: 20px;
+	border:0;
+}
+
+#input-button{
+	position:absolute;
+	width: 124px;
+	height: 60px;
+	left: 1031px;
+	top: 153px;
+	margin-left: 200px;
+	text-align: center;
+	font-family: 'Inter';
+	font-style: normal;
+	font-weight: 700;
+	font-size: 30px;
+	line-height: 36px;
+	color: #000000;
+
+	border:0;
+	background: #BCE29E;
+	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+	border-radius: 20px;
+}
+
+#uplus{
+	position:absolute;
+	width: 533px;
+	height: 60px;
+	left: 474px;
+	top: 198px;
+	margin-left: 200px;
+	font-family: 'Inter';
+	font-style: normal;
+	font-weight: 500;
+	font-size: 30px;
+	line-height: 36px;
+
+	text-align:center;
+	background: #FFFFFF;
+	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+	border-radius: 20px;
+	border:0;
+}
+
+#plus-button{
+	position:absolute;
+	width: 124px;
+	height: 60px;
+	left: 1031px;
+	top: 198px;
+	margin-left: 200px;
+	text-align: center;
+	font-family: 'Inter';
+	font-style: normal;
+	font-weight: 700;
+	font-size: 30px;
+	line-height: 36px;
+	color: #000000;
+
+	border:0;
+	background: #BCE29E;
+	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+	border-radius: 20px;
+}
+
+div.list{
+	position:absolute;
+	width: 943px;
+	height: 530px;
+	left: 345px;
+	top: 312px;
+margin-left: 200px;
+	background: #F8C4B4;
+	border-radius: 20px;
+}
+
+#userplus-list
+{
+	position: absolute;
+	width: 300px;
+	height: 36px;
+	left: 60px;
+	top: 36px;
+margin-left: 290px;
+	font-family: 'Inter';
+	font-style: normal;
+	font-weight: 700;
+	font-size: 30px;
+	line-height: 36px;
+	
+	color: #000000;
+}
+
+#pl1{
+	position: absolute;
+
+	width: 570px;
+	height: 52px;
+	left: 173px;
+	top: 101px;
+	
+	font-family: 'Inter';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 30px;
+	line-height: 36px;
+	text-align: center;
+
+	background: #FFFFFF;
+	border:0;
+	color:#000000;
+}
+
+#pl2{
+	position: absolute;
+
+	width: 570px;
+	height: 52px;
+	left: 173px;
+	top: 182px;
+
+	font-family: 'Inter';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 30px;
+	line-height: 36px;
+	text-align: center;
+	
+	background: #FFFFFF;
+	border:0;
+	color:#000000;
+}
+
+#pl3{
+	position: absolute;
+
+	width: 570px;
+	height: 52px;
+	left: 173px;
+	top: 263px;
+
+	font-family: 'Inter';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 30px;
+	line-height: 36px;
+	text-align: center;
+	
+	background: #FFFFFF;
+	border:0;
+	color:#000000;
+}
+
+#pl4{
+	position: absolute;
+
+	width: 570px;
+	height: 52px;
+	left: 173px;
+	top: 344px;
+
+	font-family: 'Inter';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 30px;
+	line-height: 36px;
+	text-align: center;
+	
+	background: #FFFFFF;
+	border:0;
+	color:#000000;
+}
+
+#pl5{
+	position: absolute;
+
+	width: 570px;
+	height: 52px;
+	left: 173px;
+	top: 425px;
+
+	font-family: 'Inter';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 30px;
+	line-height: 36px;
+	text-align: center;
+
+	background: #FFFFFF;
+	border:0;
+	color:#000000;
+}
+
+textarea{
+	resize:none;
+	margin-left: 200px;
+}
+
+textarea:focus{
+	outline: 2px solid #FF8787;
+	margin-left: 200px;
+}
+
+#teamname:focus,#uplus:focus{
+	outline:2px solid #BCE29E
+	margin-left: 200px;
+}
+
+
+#close-button{
+	position: absolute;
+	width: 117px;
+	height: 44px;
+	left: 1170px;
+	top: 880px;
+margin-left: 200px;
+	font-family: 'Inter';
+	font-style: normal;
+	font-weight: 700;
+	font-size: 25px;
+	line-height: 30px;
+
+	color: #000000;
+	background: #FF8787;
+	border-radius: 20px;
+	border:0;
+}

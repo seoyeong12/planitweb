@@ -5,30 +5,34 @@
         <meta charset="UTF-8">
         <title>note_write</title>
         <script src="{% static 'team_project/js/userplus.js' %}"></script>
+        <link rel="stylesheet" type="text/css" href = "{% static 'team_project/css/userplus.css' %}">
     </head>
+
     <body>
     <form method="post" enctype="multipart/form-data" autocomplete="off">{% csrf_token %}
+        <input name="team" type="text" id="teamname" placeholder="Team 이름을 먼저 입력해주세요." required>
+        <button type="submit" id='input-button'>전송</button>
 
-            <table>
-                <tr>
-                    <td class="title">Team</td>
-                    <td class="tf"><input name="team" type="text" id="text" required></td>
-                </tr>
+        <div class="list">
+            <text id="userplus-list">추가된 계정 목록</text>
+            <div class="personlist">
+                <input name="user1" type="text" id="pl1" value="{{author.email}}">
+            </div>
+            <div class="personlist">
+                <input name="user2" type="text" id="pl2">
+            </div>
+            <div class="personlist">
+                <input name="user3" type="text" id="pl3">
+            </div>
+            <div class="personlist">
+                <input name="user4" type="text" id="pl4">
+            </div>
+            <div class="personlist">
+                <input name="user5" type="text" id="pl5">
+            </div>
+        </div>
 
-                <tr>
-                    <td class="title">Participants</td>
-                    <td class="tf">
-                        <input name="user1" type="text" id="input" value="{{author.email}}">
-                        <input name="user2" type="text" id="input">
-                        <input name="user3" type="text" id="input">
-                        <input name="user4" type="text" id="input">
-                        <input name="user5" type="text" id="input">
-                    </td>
-                </tr>
-            </table>
-            <button type="submit">전송</button>
-
-
+        <input id='close-button' type='button' onclick='history.go(-1)' value='뒤로가기'>
     </form>
     </body>
 </html>
