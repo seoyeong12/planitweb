@@ -1,5 +1,7 @@
-<!DOCTYPE html>
+{% extends 'single/base.html' %}
 {% load static %}
+{% block main_area %}
+{%load static%}
 <html lang="kr">
     <head>
         <meta charset="UTF-8">
@@ -42,15 +44,16 @@
 
         <h2>{{ note.title }}</h2>
 
-        <h3>Participants
+        <h3>참여자
             {%for p in participants%}
             <div id="membericon">{{p.user.last_name}}{{p.user.first_name}}</div>
             {%endfor%}
         </h3>
 
         <hr>
-        <textarea cols="200" rows="45" readonly>{{ note.introduce|linebreaksbr }}</textarea>
+        {{ note.introduce|linebreaksbr }}
     </form>
 
     </body>
 </html>
+{% endblock %}

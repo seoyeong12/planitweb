@@ -1,10 +1,10 @@
-h1{
+#main{
     position: absolute;
     width: 928px; /*figma랑 다르게 고정*/
     height: 770px;
     left: 374px;
     top: 71px;
-    margin-left: 300px;
+    margin-left: 200px;
     background: #F9EEE4;
     border: 3px solid #F9EEE4;
     border-radius: 10px;
@@ -39,8 +39,8 @@ h1{
     position: absolute;
     width: 67px;
     height: 31px;
-    left: 1500px;
-    top: 38px;
+    left: 800px;
+    top: 30px;
 
     background: #D7C6B9;
     border-radius: 20px;
@@ -50,7 +50,7 @@ h1{
     position: absolute;
     width: 852px;
     height: 35px;
-    left: 711px;
+    left: 611px;
     top: 191px;
 
     display:grid;
@@ -68,7 +68,9 @@ h1{
 }
 
 .item{
-    padding: 1rem;
+    padding: 0.1rem;
+    width: 852px;
+    height: 35px;
 }
 
 .proceedings-list>div:nth-child(4n+1),

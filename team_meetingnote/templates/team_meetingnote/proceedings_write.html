@@ -1,10 +1,12 @@
-<!DOCTYPE html>
+{% extends 'single/base.html' %}
+{% load static %}
+{% block main_area %}
 {%load static%}
 <html lang="kr">
     <head>
             <meta charset="UTF-8">
             <title>note_write</title>
-        <link rel="stylesheet" type="text/css" href = "{% static 'team_meetingnote/css/proceedings_write.css' %}">
+        <link rel="stylesheet" type="text/css" href = "{% static 'team_meetingnote/css/proceedings_rewrite.css' %}">
         <link rel="stylesheet" type="text/css" href = "{% static 'team_meetingnote/css/teamproject_intro.css' %}">
     </head>
     <body>
@@ -48,8 +50,9 @@
 
             <hr>
 
-            <textarea name="introduce" cols="150"rows="40" required> </textarea>
+            <textarea name="introduce" cols="176"rows="20" required> </textarea>
 
         </form>
     </body>
 </html>
+{% endblock %}

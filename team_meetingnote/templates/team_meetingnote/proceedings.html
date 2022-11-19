@@ -1,4 +1,6 @@
-<!DOCTYPE html>
+{% extends 'single/base.html' %}
+{% load static %}
+{% block main_area %}
 {%load static%}
 <html lang="kr">
 <head>
@@ -29,12 +31,12 @@
             </div>
     </div>
 
-    <h1><text id="ML">MEETING NOTES LIST</text></h1>
-    <button id="write-btn" class="button" onclick="location.href = '{% url 'create_note' post.id %}'">글쓰기</button>
+    <div id="main"><text id="ML">MEETING NOTES LIST</text>
+    <button id="write-btn" class="button" onclick="location.href = '{% url 'create_note' post.id %}'">글쓰기</button></div>
     <div class="proceedings-list">
         {% for n in notes %}
         <div class="item">
-            <div class="right" onclick="location.href = '{% url 'detail' post.id n.id %}'">
+            <div onclick="location.href = '{% url 'detail' post.id n.id %}'">
                 {{n.date_start|date:'Y-m-d'}} / {{n.title}}
             </div>
         </div>
@@ -42,3 +44,4 @@
     </div>
 </body>
 </html>
+{% endblock %}

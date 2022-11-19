@@ -2,24 +2,19 @@ body{
     color: #6B5D54;
 }
 form{
-    margin-left: 500px;
+    margin-left: 600px;
     width: 70%;
     height: 90%;
 }
 #buttondiv{
-    display: inline-block;
+display: inline-block;
     width: 188px;
     height: 39px;
     border-radius: 20px;
     background-color: #FAF0E6;
     font-size: 18px;
-    color:#6B5D54;
+    font-weight:600;
     text-align: center;
-    margin-left: 13px;
-    margin-bottom: 10px;
-    padding-left: 10px;
-    padding-top: 9px;
-    box-sizing: border-box;
     filter: drop-shadow(1px 1px 5px #9F8473);
 
 }
@@ -27,12 +22,13 @@ input[type='date']{
     width: 70%;
     background-color: #FAF0E6;
     border: 0px;
+    margin-top:6px;
 }
 input[type='date']:focus{
     border:1px solid #6B5D54;
 }
 .button{
-
+    float:right;
     width: 63px;
     height: 28px;
     background-color: #FAF0E6;
@@ -45,18 +41,15 @@ input[type='date']:focus{
     margin-right: 25px;
 }
 
-h2{
-    font-size: 20px;
-    font-weight:500;
-}
 input.text{
     margin-right: 150px;
     border: none;
-    width: 300px;
-    margin-left: 10px;
-    font-size: 20px;
-    margin-top:20px;
-    margin-bottom: 20px;
+    width: 800px;
+    color:#6B5D54;
+    font-size: 30px;
+    font-weight:500;
+    margin-top:15px;
+    margin-left:-2px;
     font-weight:bold;
 }
 input.text:focus{
@@ -65,6 +58,7 @@ input.text:focus{
 h3{
     font-size: 30px;
     font-weight:500;
+    margin-top:-0.05%;
 }
 
 #membericon{
