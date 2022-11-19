@@ -1,11 +1,8 @@
 body{
-    width: 70%;
-    height: 90%;
-    margin-left: 400px;
-    padding-top: 50px;
     color: #6B5D54;
 }
 form{
+    margin-left: 600px;
     width: 70%;
     height: 90%;
 }

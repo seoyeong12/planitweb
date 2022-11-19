@@ -1,9 +1,10 @@
 body{
+    color: #6B5D54;
+}
+form{
+    margin-left: 600px;
     width: 70%;
     height: 90%;
-    padding-left: 400px;
-    padding-top: 50px;
-    color: #6B5D54;
 }
 #topdiv{
     display: inline-block;

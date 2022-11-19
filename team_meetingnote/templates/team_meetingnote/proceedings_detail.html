@@ -9,7 +9,6 @@
     </head>
     <body>
 
-<!--
 <div class='outer-div'>
             <div class='inner-div'>
             </div>
@@ -26,10 +25,10 @@
                 <button class="cbtn" id="b4"></button><div class="tbtn" id="tbtn4"><span>Log</span></div>
             </div>
             <div class="divbox"  onclick="location.href='../../../'">
-                <button class="cbtn" id="b5"></button><div class="tbtn"><span>다른 Project 보기</span></div>
+                <button class="cbtn" id="b5"></button><div class="tbtn" id="tbtn5"><span>다른 Project 보기</span></div>
             </div>
     </div>
--->
+    <form>
         <div id="topdiv">
             <div><div id="colorid"></div>
                 <span id="date">{{ note.date_start | date:'Y-m-d'}}</span>
@@ -51,7 +50,7 @@
 
         <hr>
         <textarea cols="200" rows="45" readonly>{{ note.introduce|linebreaksbr }}</textarea>
-
+    </form>
 
     </body>
 </html>

@@ -18,11 +18,7 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    #path('signup/', include('team_user.urls')),
     path('signin/', include('team_user.urls')),
     path('team/', include('team_project.urls')),
-    #스케쥴/달력
     path('single/', include('single.urls')),
-    #로그인/회원가입
-
 ]

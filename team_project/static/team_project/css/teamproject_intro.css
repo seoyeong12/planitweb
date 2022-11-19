@@ -2,11 +2,10 @@ html{
     font-family: "Roboto", "Noto Sans KR", sans-serif;
 }
 .outer-div {
-    width : 20%;
-    height: 960px;
+    width : 380px;
+    height: 2000px;
     background-color :white;
     position: absolute;
-    float: left;
 }
 .inner-div {
     width : 30px;
@@ -23,6 +22,7 @@ html{
     background-color: #F9EEE4;
     position: relative;
     z-index: 1;
+    box-shadow: inset 1px 2px 1px 2px rgba(179, 132, 103, 0.22);
 }
 span{
     color:#FF8787;
@@ -34,6 +34,7 @@ p{
 .divbox{
     margin-top: 120px;
     margin-left: 80px;
+    position:static;
 }
 .tbtn{
     float:right;
@@ -52,11 +53,13 @@ p{
 
 #tbtn1{
     background-color: #FFDFD6;
-
 }
 #tbtn3{
     margin-right: 160px;
 }
 #tbtn4{
     margin-right: 190px;
+}
+#tbtn5{
+    margin-right: 80px;
 }
