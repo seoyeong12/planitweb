@@ -1,0 +1,77 @@
+h1{
+    position: absolute;
+    width: 928px; /*figma랑 다르게 고정*/
+    height: 770px;
+    left: 374px;
+    top: 71px;
+    margin-left: 300px;
+    background: #F9EEE4;
+    border: 3px solid #F9EEE4;
+    border-radius: 10px;
+}
+
+#ML{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 70px;
+    color: #9F8473;
+
+    position: absolute;
+    width: 459px;
+    height: 53px;
+    left:270px;
+    top: 10px;
+}
+
+#write-btn{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 18px;
+    text-align: center;
+    color: #000000;
+
+    border:0;
+    outline: none;
+    position: absolute;
+    width: 67px;
+    height: 31px;
+    left: 1500px;
+    top: 38px;
+
+    background: #D7C6B9;
+    border-radius: 20px;
+}
+
+.proceedings-list{
+    position: absolute;
+    width: 852px;
+    height: 35px;
+    left: 711px;
+    top: 191px;
+
+    display:grid;
+    grid-template-columns: auto 1fr;
+    grid-gap: 0;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 29px;
+    
+    color: #9F8473;
+
+}
+
+.item{
+    padding: 1rem;
+}
+
+.proceedings-list>div:nth-child(4n+1),
+.proceedings-list>div:nth-child(4n+2){
+    background-color: #F8C4B4;
+}

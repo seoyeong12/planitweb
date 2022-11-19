@@ -1,0 +1,66 @@
+#todo{
+    border:0;
+    position: absolute;
+    width: 240px;
+    height: 31px;
+    left: 345px;
+    top: 79px;
+    margin-left:300px;
+    text-align: center;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 30px;
+
+    background: #FAF0E6;
+    color: #6B5D54;
+    box-shadow: 1px 1px 13px rgba(0, 0, 0, 0.2);
+    border-radius: 20px;
+}
+
+#add-button{
+    border:0;
+    outline: none;
+    text-align: center;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 24px;
+    font-family: 'Inter';
+margin-left:300px;
+    position: absolute;
+    width: 129px;
+    height: 31px;
+    left: 610px;
+    top: 79px;
+    
+    background-color: #BCE29E;
+    color:#fff;
+    box-shadow: 1px 1px 13px rgba(0, 0, 0, 0.2);
+    border-radius: 20px;
+}
+
+#todo-list{
+    position: absolute;
+    width: 922px;
+    height: 30px;
+    left: 345px;
+    top: 160px;
+margin-left:300px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 24px;
+    
+    color: #6B5D54;
+    
+}
+#deletebtn{
+    border-radius: 20px;
+    border: 1px solid rgb(188, 226, 158);
+    position:absolute;
+    left:800px;
+
+}

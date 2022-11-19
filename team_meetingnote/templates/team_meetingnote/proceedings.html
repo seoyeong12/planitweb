@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <title>{{post.title}}</title>
     <link rel="stylesheet" type="text/css" href = "{% static 'team_meetingnote/css/teamproject_intro.css' %}">
-    <link rel="stylesheet" type="text/css" href = "{% static 'team_meetingnote/css/test.css' %}">
+    <link rel="stylesheet" type="text/css" href = "{% static 'team_meetingnote/css/proceedings.css' %}">
 </head>
 <body style="text-align:left;">
 
@@ -29,16 +29,16 @@
             </div>
     </div>
 
-    <div class="mn">
-        <h1>회의록
-        </h1>
-        <ol>
-            {% for n in notes %}
-            <li onclick="location.href = '{% url 'detail' post.id n.id %}'">{{n.date_start}} / {{n.title}} / {{n.id}}</li>
-            {% endfor %}
-        </ol>
-        <span><a onclick="location.href = '{% url 'create_note' post.id %}'"><button>글쓰기 </button></a></span>
-        <input class="button" type="reset" onclick="history.go(-1)" value="뒤로가기" id="cancelbtn">
+    <h1><text id="ML">MEETING NOTES LIST</text></h1>
+    <button id="write-btn" class="button" onclick="location.href = '{% url 'create_note' post.id %}'">글쓰기</button>
+    <div class="proceedings-list">
+        {% for n in notes %}
+        <div class="item">
+            <div class="right" onclick="location.href = '{% url 'detail' post.id n.id %}'">
+                {{n.date_start|date:'Y-m-d'}} / {{n.title}}
+            </div>
+        </div>
+        {% endfor %}
     </div>
 </body>
 </html>

@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <title>{{post.title}}</title>
     <link rel="stylesheet" type="text/css" href = "{% static 'team_log/css/backlog.css' %}">
+    <link rel="stylesheet" type="text/css" href = "{% static 'team_log/css/backlog_main.css' %}">
     <link rel="stylesheet" type="text/css" href = "{% static 'team_log/css/teamproject_intro.css' %}">
 </head>
 <body>
@@ -34,8 +35,8 @@
             <div class="addBox">
                     <div id="log" class="addBox_inner">
                         <form action="{%url 'log' post.id%}" method="post" enctype="multipart/form-data" autocomplete="off" name="input_form">{% csrf_token %}
-                        <input name="input" id="todo">
-                        <button type="submit" name="sub_btn">+</button>
+                            <input id="todo" name="input" placeholder="백로그를 작성해주세요!">
+                            <button id="add-button" class="button" type="submit" name="sub_btn">+추가하기</button>
                         </form>
 
                         <div id="todo-list">
@@ -49,8 +50,8 @@
                                     <button id="check_false" type="submit" name="check_btn" value="False"></button>
                                     <span id="status">진행 중</span>
                                     {%endif%}
-                                    <span>{{ l.title }}</span>
-                                    <button type="submit" name="delete">삭제</button>
+                                    <span id="intro">{{ l.title }}</span>
+                                    <button type="submit" name="delete" id="deletebtn">삭제</button>
                             </div>
                             </form>
                         {% endfor %}

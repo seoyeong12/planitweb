@@ -24,3 +24,10 @@
         color: #6B5D54;
         font-weight: bold;
    }
+
+   span[id="intro"]{
+       color: #000000;
+       font-weight: bold;
+       position:absolute;
+       left:130px;
+   }
