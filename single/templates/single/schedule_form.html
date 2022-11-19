@@ -1,32 +1,14 @@
 <!DOCTYPE html>
+{% load static %}
 <html>
     <head>
-        <style>
-            button{
-                float:right; 
-                margin-right: 20px;
-            }
-            #save{
-                float:left;
-                margin-left: 360px;
-                margin-right: 10px;
-            }
-            #center{
-                margin:50px;
-            }
-            input{
-                margin-left: 20px;
-                margin-right: 20px;
-            }
-        </style>
+<link href="{% static 'single/css/edit.css' %}" rel="stylesheet" type="text/css" />
         <script>
 
             function goSubmit(){
                 document.editt.target = opener.window.name;
                 document.editt.submit();
-                opener.document.location.reload();
                 self.close();
-
             }
 
             function checkActive(){
@@ -94,8 +76,8 @@
                                 {% endfor %}
                             </select>
                            </p></div>
-                        <p>시각입력<input id="time1" name="time1" type="time" >~<input id="time2" name="time2" type="time"></p>
-                        <p>제목<input type="text" id="title" name="title" required></p>
+                        <p>시간 입력 : <input id="time1" name="time1" type="time" >~<input id="time2" name="time2" type="time"></p>
+                        <p>제목 : <input type="text" id="title" name="title" required></p>
                     </div>
                 </div>
 

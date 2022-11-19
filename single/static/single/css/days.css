@@ -7,6 +7,26 @@
     padding: 0px;
     margin-right: 25px;
 }
+#logoimg{
+    width: 100px;
+    height: 32px;
+    margin-top: 13.5px;
+    margin-right: 55px;
+    margin-left: 50px;
+}
+#navtext{
+    color:#999999;
+    font-size: 32px;
+    font-weight: bold;
+    margin-right: 85px;
+}
+#navtext:focus,#navtext:hover{
+    color:black;
+}
+nav-item a.active{
+    color:red;
+
+}
 .dropdown-menu:before{
     content: "";
     position: absolute;
@@ -27,7 +47,8 @@ nav.navbar-brand{
 }
 
 body{
-    margin: 20px;
+    padding: 30px;
+    padding-top: 10px;
 }
 
 div.left {
@@ -42,44 +63,58 @@ div.right {
     margin-top: 70px;
     padding-left: 30px;
 }
+#calendar{
+    height: 850px;
+}
 .weekdaybox{
     width: 341px;
     height: 102px;
     margin-top: 10px;
     padding-top: 18px;
     padding-left: 14px;
+    padding-bottom: 22px;
     background-color: #F5F5F5;
     border-radius: 5px;
+    font-size:medium;
+
 }
 #weekdayid{
-    margin-left: 42px;
-    margin-bottom:14px;
+    margin-left: 40px;
+    margin-bottom:10px;
 }
 #colorid{
     display: inline-block;
     width: 18px;
     height: 18px;
     border-radius: 50%;
-    background-color: #343A40;
-    margin-right: 11px;
+    background-color: #F8C4B4;
+    margin-right: 10px;
+    margin-left: 5px;
 }
 
 #textid{
     float: right;
     margin-right: 37px;
 }
-/* 
-.listview{
-    margin:30px;
-    margin-top: 70px;
+#profileimg{
+    border-radius: 50%;
+    width:59px;
+    height:59px;
+    margin-right: -13px;
+    border: 0px;
 }
-th,tr,td{
-    padding: 5px;
-} */
-
-img{
-    border-radius: 1em;
-    width:30px;
-    height:30px;
-    margin-left: 15px;
+#weekspan{
+    font-size: 20px;
+    font-weight: 500;
+}
+#deletebtn,#pencilbtn{
+    float: right;
+    background-color: #F5F5F5;
+    border: 0ch;
+}
+#pencilbtn{
+    margin-right: 5px;
+}
+#deletebtn{
+    margin-right: 30px;
 }

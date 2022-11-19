@@ -1,4 +1,5 @@
 {% extends 'single/base.html' %}
+{% load static %}
 {% block main_area %}
     <div class="div">
         <div class="left">
@@ -6,81 +7,21 @@
         </div>
         <div class="right">
             <div id="weekid">
-                <span>12/6 - 12/7</span>
                 {% for s in schedule %}
                 <div>
-                    <div class="weekdaybox">
-                        <span id="weekdayid">{{ s.date|date:"m/d  D" }}</span><br>
+                    <div class="weekdaybox" onclick="goModify('/single/modify_post/{{s.pk}}/')">
+                        <div id="weekdayid" style="font-size:small" >{{ s.date|date:"m / d  D" }}
+                        {% if s.team == teams %}
+                            <p>{{teams.team_name}}</p>
+                        {% endif %}
+                        </div>
                         <div id="colorid"></div>
-                            <span id="startid">{{ s.startTime }}</span><span> - </span><span id="endid">{{ s.dueTime }}</span>
-                            <span id="textid">{{ s.title }}</span>
+                            <span id="startid" >{{ s.startTime }}</span><span> - </span><span id="endid" >{{ s.dueTime }}</span>
+                            <span id="textid" style="font-weight:bold">{{ s.title }}</span>
                     </div>
                 </div>
                 {% endfor %}
             </div>
-            <!-- <div id='calendar2'></div> -->
-            <!-- <table class="listview">
-                <th colspan="2" id="weekday">10/2~10/8</th>
-                <tr><td colspan="2"> </td></tr>
-                <tr class="trbox">
-                    <td colspan="2" id="allDay">Sunday\n</td>
-                    <td id="start"></td> - <td id="end"></td>
-                    <td id="titletext">약속</td>
-                </tr>
-                
-                <tr><td colspan="2"> </td></tr>
-                <tr >
-                    <td colspan="2">Monday</td>
-                </tr>
-                <tr>
-                    <td>time</td>
-                    <td>title</td>
-                </tr>
-                <tr><td colspan="2"> </td></tr>
-                
-                <tr >
-                    <td colspan="2">Tuesday</td>
-                </tr>
-                <tr>
-                    <td>time</td>
-                    <td>title</td>
-                </tr>
-                <tr><td colspan="2"> </td></tr>
-    
-                <tr >
-                    <td colspan="2">Wednesday</td>
-                </tr>
-                <tr>
-                    <td>time</td>
-                    <td>title</td>
-                </tr>
-                <tr><td colspan="2"> </td></tr>
-    
-                <tr >
-                    <td colspan="2">Thursday</Th></td>
-                </tr>
-                <tr>
-                    <td>time</td>
-                    <td>title</td>
-                </tr>
-                <tr><td colspan="2"> </td></tr>
-                <tr >
-                    <td colspan="2">Friday</td>
-                </tr>
-                <tr>
-                    <td>time</td>
-                    <td>title</td>
-                </tr>
-                <tr><td colspan="2"> </td></tr>
-                <tr >
-                    <td colspan="2">Saturday</td>
-                </tr>
-                <tr>
-                    <td>time</td>
-                    <td>title</td>
-                </tr>
-                <tr><td colspan="2"> </td></tr>
-            </table> -->
         </div>
     </div>
 {% endblock %}

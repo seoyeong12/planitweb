@@ -1,0 +1,70 @@
+body{
+    width: 421px;
+    height: 424px;
+    color: #6B5D54;
+}
+#team{
+    margin-left: 30px;
+}
+#single,#team{
+    accent-color: #FF8787;
+}
+#teamSelect{
+    margin-left: 10px;
+    margin-top: -10px;
+}
+#sub_btn{
+    margin-left: 156px;
+    margin-right: 19px;
+}
+#date{
+    height: 22px;
+    width: 125px;
+    padding-right: 10px;
+    padding-left: 5px;
+    box-sizing: border-box;
+    margin-bottom:10px;
+
+}
+select{
+    width: 125px;
+    height: 25px;
+}
+select select{
+    margin-top: 10px;
+}
+#sub_btn,#cancel{
+    width: 61px;
+    height: 26px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 17px;
+    padding-right: 18px;
+    font-size: 13px;
+    border-radius:20px ;
+    border: 0px;
+}
+#cancel{
+    background-color: #FF8787;
+
+}
+#center{
+    margin-top: 109px;
+    margin-left: 68px ;
+}
+#time1,#time2{
+    width: 120px;
+    height: 22px;
+    margin-top: 15px;
+}
+#title{
+    width: 273px;
+    height: 22px;
+    padding: 5px;
+    box-sizing: border-box;
+    margin-bottom: 43px;
+}
+#titletext{
+    margin-top: 18px;
+    margin-bottom: 12px;
+}

@@ -3,12 +3,21 @@
 <html>
 <head>
 <!-- fullcalender -->
-<link href="{% static 'single/css/main.css' %}" rel='stylesheet' />
+<meta charset="UTF-8" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<FullCalendar @dateClick="handleDateClick" :plugins="calendarPlugins" />
+<link href="{% static 'single/css/main.css' %}" rel="stylesheet" type="text/css" />
 <link href="{% static 'single/bootstrap/bootstrap.min.css' %}" rel="stylesheet" type="text/css">
 <link rel="stylesheet" type="text/css" href = "{% static 'single/css/days.css' %}">
 <script src="{% static 'single/js/main.js' %}"></script>
 <script>
     var b=function(msg) {alert('message test ' + msg);};
+
+    function goModify(pk){
+        window.open(pk, "modifyForm","width=500,height=500,resizable = no, scrollbars =no");
+    }
 
     document.addEventListener('DOMContentLoaded', function() {
         var calendarEl = document.getElementById('calendar');
@@ -83,6 +92,11 @@
            openChild();
 
            calendar.unselect();
+        },
+
+        eventClick: function(arg) {
+    	  window.open("/single/modify_post/{{posts_modi.pk}}/","editForm","width=500,height=500,resizable = no, scrollbars =no");
+
         }
     });
 
@@ -90,18 +104,6 @@
 
         calendar.render();
     });
-
-<!--    function addlist(title,date){-->
-<!--        // var yy=date.format("YYYY");-->
-<!--        //     var mm=date.format("MM");-->
-<!--        //     var dd=date.format("DD");-->
-<!--        //     var ss=date.format("dd");-->
-
-<!--        document.getElementById("titletext").textContent=title;-->
-<!--        document.getElementById("start").textContent=date;-->
-
-
-<!--    }-->
 
 </script>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
