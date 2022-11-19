@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+{%load static%}
+<html>
+    <head>
+        <style>
+            body{
+                background-image: url({% static 'team_user/img/main.png' %});
+                background-repeat:no-repeat;
+                background-size:cover;
+            }
+            input{
+                width: 150px;
+                height: 45px;
+                border:0px;
+                color: #7B6659;
+                font-size: 30px;
+                font-weight: bold;
+                margin-top: 561px;
+                margin-left: 1173px;
+                background-color: #FF8787;
+            }
+        </style>
+    </head>
+    <body>
+            <input type="button" value="NEXT" onclick="location.href='{%url 'signin'%}'">
+
+    </body>
+</html>

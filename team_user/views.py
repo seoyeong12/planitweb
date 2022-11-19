@@ -6,6 +6,13 @@ from django.urls import reverse
 
 
 # Create your views here.
+
+#메인
+def main(request):
+    return render(request,
+                  'team_user/main.html',
+                  )
+
 #회원가입
 def signup(request):
     if request.method == "POST":
@@ -33,7 +40,7 @@ def signin(request):
         user = authenticate(request, username=username, password=password)
         if user is not None:
             login(request, user)
-            return redirect('../single') #이동 페이지
+            return redirect('../../single') #이동 페이지
         else:
             return render(request, "team_user/signin.html")
 
@@ -51,7 +58,7 @@ def signin(request):
                 return response
                 #return HttpResponseRedirect(resolve_url('signin'))
                 #return redirect('userPage')
-            return redirect('../single')
+            return redirect('../../single')
             # return HttpResponseRedirect(resolve_url('kanban')) #로그인 후 페이지
         #     else:
         #         return render(request,'team_user/signin.html')
@@ -63,12 +70,12 @@ def signin(request):
 
 #로그아웃
 def signout(request):
-    #return redirect('single')
-    response = render(request, 'team_user/signin.html')
-    response.delete_cookie('username')
-    response.delete_cookie('password')
-    logout(request)
-    return response
+    if request.method == 'POST':
+        logout(request)
+        return redirect('plan_it')
+    return render(request,
+                  'team_user/main.html')
+
 
 """
 참고용
