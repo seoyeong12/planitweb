@@ -87,13 +87,13 @@ def create_team(request):
 
 def create_project(request):
     user = User.objects.get(username=request.user.username)
-    team = Team.objects.latest('pk') #가장 최근 값
+    team = Team.objects.latest('pk')  # 가장 최근 값
     project = models.Project()
     participants = Participant.objects.filter(team=team)
     t_participants = Participant.objects.filter(project=None)
 
     try:
-        prev_project = Project.objects.get(team=team) #최근 값에 해당하는 프로젝트가 없는 경우
+        prev_project = Project.objects.get(team=team)  # 최근 값에 해당하는 프로젝트가 없는 경우
     except:
         if request.method == 'POST':
             project.team = Team.objects.latest('pk')
@@ -121,7 +121,7 @@ def create_project(request):
 
                 }
             )
-    else: #최근 값에 해당하는 프로젝트가 있는 경우
+    else:  # 최근 값에 해당하는 프로젝트가 있는 경우
         return render(
             request,
             'team_project/teamproject_write.html',
