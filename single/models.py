@@ -15,7 +15,7 @@ class Schedule(models.Model) :
         ('개인', 'single'),
         ('팀', 'team')
     )
-    user = models.ForeignKey(User, default=0, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
     how = models.CharField(max_length=10, choices=STATUS, null=True)
     team = models.ForeignKey(Team, on_delete=models.SET_NULL, null=True, blank=True, default=None)
     date = models.DateField(null=True)

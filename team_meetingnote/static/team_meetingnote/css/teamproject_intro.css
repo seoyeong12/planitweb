@@ -2,7 +2,7 @@ html{
     font-family: "Roboto", "Noto Sans KR", sans-serif;
 }
 .outer-div {
-    width : 380px;
+    width : 400px;
     height: 1000px;
     background-color :white;
     position: absolute;

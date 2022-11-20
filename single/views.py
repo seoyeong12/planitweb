@@ -5,7 +5,8 @@ from django.http import JsonResponse, HttpResponse
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import Schedule
 import json
-from team_project.models import Team
+from team_project.models import Team, Participant
+
 
 # Create your views here.
 
@@ -68,8 +69,10 @@ def single_cal(request):
     return render(request, "single/calender.html", context)
 
 def single_edit(request):
-    posts = Schedule.objects.all()
-    teams = Team.objects.all()
+    user = User.objects.get(username=request.user.username)
+    posts = Schedule.objects.filter(user=user)
+    #teams = Team.objects.all()
+    teams = Participant.objects.filter(user=user)
 
     if request.method == 'POST':
         post = Schedule()

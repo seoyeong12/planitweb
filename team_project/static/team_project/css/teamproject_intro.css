@@ -2,10 +2,11 @@ html{
     font-family: "Roboto", "Noto Sans KR", sans-serif;
 }
 .outer-div {
-    width : 380px;
-    height: 1000px;
+    width : 400px;
+    height: 1200px;
     background-color :white;
     position: absolute;
+    margin-top:-21.5px;
 }
 .inner-div {
     width : 30px;

@@ -72,7 +72,7 @@
                                 <input type="radio" name="team" id="team" value="팀" onclick="checkActive()" required>팀
                             <select name="teamSelect" id="teamSelect" disabled>
                                 {% for t in teams %}
-                                <option value="{{t.pk}}">{{t.team_name}}</option>
+                                <option value="{{t.pk}}">{{t.team.team_name}}</option>
                                 {% endfor %}
                             </select>
                            </p></div>
