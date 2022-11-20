@@ -4,7 +4,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent" style="display: unset !important;">
             <ul class="nav mr-auto">
                 <li class="nav-item">
-                    <a class="navbar-brand" href="#">Logo</a>
+                    <img src="{% static 'single/media/logo.png' %}">
                 </li>
                 <li class="nav-item ">
                     <a class="nav-link text-dark" href="../../single">Days</a>
@@ -17,16 +17,16 @@
                 </li>
                 <li class="nav-item ml-auto" >
                     <a class="nav-link id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <img src="{% static 'single/media/deletebutton.png' %}">
+                        <img src="{% static 'single/media/profile.png' %}">
                     </a>
                     <ul class="dropdown-menu">
                         <li class="notification-box">
                             <div class="row">
                                 <div class="col-lg-3 col-sm-3 col-3 text-center">
-                                    <img src="./2.jpg" class="w-200 rounded-circle">
+                                    <img src="{% static 'single/media/profile.png' %}" class="w-200 rounded-circle">
                                 </div>
-                                <div class = "m1-5">
-                                    <strong class="text-info text-dark">{{request.user.username}}</strong>
+                                <div class = "m1-5" style="margin:15px">
+                                    <strong class="text-info text-dark">{{request.user.username}} 님</strong>
                                 </div>
                             </div>
                         </li>
