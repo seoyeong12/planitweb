@@ -37,7 +37,7 @@
         {% for n in notes %}
         <div class="item">
             <div class="left" onclick="location.href = '{% url 'detail' post.id n.id %}'">
-                {{n.date_start|date:'Y-m-d'}}
+               z {{n.date_start|date:'Y-m-d'}}
             </div>
         </div>
         <div class="item">

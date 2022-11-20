@@ -96,6 +96,12 @@ div.right {
     float: right;
     margin-right: 37px;
 }
+#team_name{
+     float: right;
+    margin-right: 37px;
+    font-size : small;
+    color: #DB8F00;
+}
 #profileimg{
     border-radius: 50%;
     width:59px;

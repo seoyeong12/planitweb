@@ -13,10 +13,9 @@
                 {% for s in schedule %}
                 <div>
                     <div class="weekdaybox" onclick="goModify('/single/modify_post/{{s.pk}}/')">
-                        <div id="weekdayid" style="font-size:small" >{{ s.date|date:"m / d  D" }}
-                        {% if s.team == teams %}
-                            <p>{{teams.team_name}}</p>
-                        {% endif %}
+                        <div>
+                            <span id="weekdayid" style="font-size:small" >{{ s.date|date:"m / d  D" }}</span>
+                            <span id="team_name">{{s.team.team_name}}</span>
                         </div>
                         <div id="colorid"></div>
                             <span id="startid" >{{ s.startTime }}</span><span> - </span><span id="endid" >{{ s.dueTime }}</span>

@@ -13,7 +13,7 @@ from team_project.models import Team, Participant
 def single_day(request):
     user = User.objects.get(username=request.user.username)
     schedule = Schedule.objects.filter(user=user)
-    teams = Team.objects.all()
+    teams = Participant.objects.filter(user=user)
     event_arr = []
     for i in schedule:
         event_sub_arr = {}
