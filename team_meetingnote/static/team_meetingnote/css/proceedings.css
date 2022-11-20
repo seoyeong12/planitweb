@@ -53,26 +53,16 @@
     left: 611px;
     top: 191px;
 
-    display:grid;
-    grid-template-columns: auto 1fr;
-    grid-gap: 0;
-
     font-family: 'Inter';
     font-style: normal;
     font-weight: 400;
     font-size: 24px;
     line-height: 29px;
-    
+
     color: #9F8473;
 
 }
 
-.item{
-    padding: 0.1rem;
-
-}
-
-.proceedings-list>div:nth-child(4n+1),
-.proceedings-list>div:nth-child(4n+2){
+#proceedings-list>li:nth-child(odd){
     background-color: #F8C4B4;
 }

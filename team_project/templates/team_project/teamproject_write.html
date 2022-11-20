@@ -29,7 +29,7 @@
         <text id="to">팀원</text><input id="tperson" value="+" type="button" onclick="location.href='{% url 'create_team' %}'">
         <text id="plus">팀원을 추가하세요.</text>
         {%else%}
-        <input id="pjnwrite" name="title" type="text" id="text" value="팀을 먼저 생성해주세요!" required/>
+        <input id="pjnwrite" name="title" type="text" id="text" value="프로젝트 이름" required/>
 
         <text id="st">시작</text><input name="date_start" type="date" id="fdate" required>
         <text id="la">마감</text><input name="date_end" type="date" id="ldate" required><br>
