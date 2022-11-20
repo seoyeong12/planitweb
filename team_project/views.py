@@ -84,6 +84,96 @@ def create_team(request):
                 'author':user,
             }
         )
+"""
+def create_project(request):
+    user = User.objects.get(username=request.user.username)
+<<<<<<< HEAD
+    #팀 데이터가 없는 경우
+    if Team.objects.all().count() == 0:
+        return render(
+            request,
+            'team_project/teamproject_write.html',
+            {
+                'prev_project': 0,
+            }
+        )
+    else:
+        #팀 데이터가 있는 경우
+        #최근 값을 가져온다
+        team = Team.objects.latest('pk')  # 가장 최근 값
+        participants = Participant.objects.filter(team=team)  # 최근 값에 해당하는 프로젝트가 있다
+        try:
+            prev_project = Project.objects.get(team=team)  # 최근 값에 해당하는 프로젝트가 없는 경우
+        except:
+            #프로젝트를 만들어야 한다
+            project = models.Project()
+            t_participants = Participant.objects.filter(project=None)  # 최근 값에 해당하는 프로젝트가 없다
+
+            if request.method == 'POST':
+                project.team = Team.objects.latest('pk')
+                project.title = request.POST['title']
+                project.date_start = request.POST['date_start']
+                project.date_end = request.POST['date_end']
+                project.introduce = request.POST['introduce']
+                project.author = user
+=======
+    team = Team.objects.latest('pk')  # 가장 최근 값
+    project = models.Project()
+    participants = Participant.objects.filter(team=team) #최근 값에 해당하는 프로젝트가 있다
+    t_participants = Participant.objects.filter(project=None) #최근 값에 해당하는 프로젝트가 없다
+
+    try:
+        prev_project = Project.objects.get(team=team)  # 최근 값에 해당하는 프로젝트가 없는 경우 or 팀 자체가 없는 경우
+    except:
+        if request.method == 'POST':
+            project.team = Team.objects.latest('pk')
+            project.title = request.POST['title']
+            project.date_start = request.POST['date_start']
+            project.date_end = request.POST['date_end']
+            project.introduce = request.POST['introduce']
+            project.author = user
+>>>>>>> 14c72da1bc97052a551b29b0132bc1f9f15ed9a8
+
+                project.save()
+
+                for p in t_participants:
+                    p.project = project
+                    p.save()
+                return redirect(resolve_url('main'))
+            else:
+                return render(
+                    request,
+                    'team_project/teamproject_write.html',
+                    {
+                        'team': team,
+                        'prev_project': 1,
+                        'participants': participants,
+
+                    }
+                )
+        else:  # 최근 값에 해당하는 프로젝트가 있는 경우 -> 새로 만드는 화면
+            return render(
+                request,
+                'team_project/teamproject_write.html',
+                {
+                    'team': team,
+                    'prev_project': 0,
+                }
+            )
+<<<<<<< HEAD
+=======
+    else:  # 최근 값에 해당하는 프로젝트가 있는 경우
+        return render(
+            request,
+            'team_project/teamproject_write.html',
+            {
+                'team': team,
+                'prev_project': 0,
+                'project': project,
+
+            }
+        )
+"""
 
 def create_project(request):
     user = User.objects.get(username=request.user.username)

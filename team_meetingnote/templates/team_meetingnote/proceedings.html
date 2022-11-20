@@ -33,19 +33,13 @@
 
     <div id="main"><text id="ML">MEETING NOTES LIST</text>
     <button id="write-btn" class="button" onclick="location.href = '{% url 'create_note' post.id %}'">글쓰기</button></div>
-    <div class="proceedings-list">
         {% for n in notes %}
+    <div class="proceedings-list">
         <div class="item">
-            <div class="left" onclick="location.href = '{% url 'detail' post.id n.id %}'">
-               z {{n.date_start|date:'Y-m-d'}}
+            <div onclick="location.href = '{% url 'detail' post.id n.id %}'">
+                {{n.date_start|date:'Y-m-d'}} / {{n.title}}
             </div>
         </div>
-        <div class="item">
-            <div class="right" onclick="location.href = '{% url 'detail' post.id n.id %}'">
-                {{n.title}}
-            </div>
-        </div>
-
         {% endfor %}
     </div>
 </body>
