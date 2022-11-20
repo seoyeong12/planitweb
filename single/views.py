@@ -78,10 +78,10 @@ def single_edit(request):
         post = Schedule()
         user = User.objects.get(username=request.user.username)
         post.user = user
-        post.title = request.POST.get('title')
+        post.title = request.POST['title']
         post.startTime = datetime.strptime(request.POST['time1'], '%H:%M').time()
-        post.dueTime = datetime.strptime(request.POST.get('time2'), '%H:%M').time()
-        post.date = datetime.strptime(request.POST.get('date'), '%Y-%m-%d')
+        post.dueTime = datetime.strptime(request.POST['time2'], '%H:%M').time()
+        post.date = datetime.strptime(request.POST['date'], '%Y-%m-%d')
         if request.POST['team'] == '개인':
             post.how = '개인'
         else:
@@ -100,8 +100,10 @@ def single_edit(request):
             }
         )
 def single_modify(request, pk):
+    user = User.objects.get(username=request.user.username)
     posts = Schedule.objects.get(pk=pk)
-    allteam = Team.objects.all()
+    #allteam = Team.objects.all()
+    teams = Participant.objects.filter(user=user)
 
     if request.method == 'POST':
         posts.title = request.POST['title']
@@ -123,7 +125,7 @@ def single_modify(request, pk):
             'single/modify_post.html',
             {
                 'posts_modi': posts,
-                'allteam': allteam,
+                'allteam': teams,
             }
         )
 

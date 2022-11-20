@@ -27,9 +27,16 @@
                 target2.disabled = true;
             }
 
+            function checkActive2(){
+                const target2 = document.getElementById("teamSelect2");
+                target2.disabled = true;
+            }
+
             function checkDisabled(){
                 const target = document.getElementById("teamSelect1");
                 target.disabled = false;
+            }
+            function checkDisabled2(){
                 const target2 = document.getElementById("teamSelect2");
                 target2.disabled = false;
             }
@@ -44,23 +51,30 @@
                         <input value="{{posts_modi.date|date:'Y-m-d'}}" type="date" name="date" id="date">
                         <img src="{% static 'single/media/deletebutton.png' %}" onclick="goDelete('/single/delete_post/{{posts_modi.pk}}/')" style="margin-left:200px">
                            <div>
-                            <p>{% if posts_modi.how == '개인' %}
+                            <p>
+<!--                                개인이 선택되어있을때-->
+                                {% if posts_modi.how == '개인' %}
                                 <input type="radio" name="team" value="개인" onclick="checkActive()" checked="checked" required>개인
                                 <input type="radio" name="team" onclick="checkDisabled()" value="팀" required>팀
                                  <select name="teamSelect" id="teamSelect1" disabled>
+<!--                                     자신이 속한 팀 모두 보여주기 - disabled-->
                                     {% for i in allteam %}
-                                    <option value="{{i.pk}}">{{i.team_name}}</option>
+                                    <option value="{{i.team.pk}}">{{i.team.team_name}}</option>
                                     {% endfor %}
                                 </select>
+<!--                                팀이 선택되었을때-->
                                 {% else %}
-                                <input type="radio" name="team" value="개인" onclick="checkActive()" required>개인
-                                <input type="radio" name="team" onclick="checkDisabled()" value="팀"  checked="checked" required>팀
+                                <input type="radio" name="team" value="개인" onclick="checkActive2()" required>개인
+                                <input type="radio" name="team" onclick="checkDisabled2()" value="팀"  checked="checked" required>팀
                                     <select name="teamSelect" id="teamSelect2">
+<!--                                        자신이 속한 팀 모두 보여주기-->
                                         {% for i in allteam %}
-                                            {% if posts_modi.team == i %}
-                                                <option value="{{i.pk}}" selected="selected">{{i.team_name}}</option>
+<!--                                            만약 선택된 팀이 내가 속한 팀과 같다면 -> 그 팀을 선택되게 변경-->
+                                            {% if posts_modi.team == i.team %}
+                                                <option value="{{i.team.pk}}" selected="selected">{{i.team.team_name}}</option>
+<!--                                            나머지 선택되지 않는 것(내가 속한 팀 중에)은 unselect-->
                                             {% else %}
-                                                <option value="{{i.pk}}" >{{i.team_name}}</option>
+                                                <option value="{{i.team.pk}}" >{{i.team.team_name}}</option>
                                             {% endif %}
                                         {% endfor %}
                                     </select>

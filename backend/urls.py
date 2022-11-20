@@ -18,8 +18,11 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    #메인페이지
     path('plan_it/',include('team_user.urls')),
     #path('signin/', include('team_user.urls')),
+    #팀 프로젝트
     path('team/', include('team_project.urls')),
+    #개인시간표
     path('single/', include('single.urls')),
 ]
